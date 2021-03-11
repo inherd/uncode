@@ -5,7 +5,10 @@
   "repository": "https://github.com/inherd/coco-ui",
   "author": "Phodal HUANG",
   "license": "MIT",
-  "private": null,
+  "private": false,
+  "scripts": {
+    "tauri": "tauri"
+  },
   "dependencies": {
     "tauri": "^0.14.1"
   }
