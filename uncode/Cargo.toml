@@ -1,0 +1,25 @@
+[package]
+name = "uncode"
+version = "0.1.0"
+authors = ["Inherd Group <group@inherd.org>", "Phodal Huang <h@phodal.com>"]
+edition = "2018"
+license = "MIT"
+readme = "README.md"
+repository = "https://github.com/phodal/uncode"
+documentation = "https://github.com/phodal/uncode"
+homepage = "https://github.com/phodal/uncode"
+description = """
+Uncode is a nocode IDE with POC.
+"""
+categories = ["text-processing", "command-line-interface", "development-tools"]
+exclude = [
+    ".coco/*",
+    "benchmark/*",
+    "fixtures/*",
+    "targets/*",
+    ".github/*",
+    ".gitattributes",
+    ".adr.json",
+]
+
+[dependencies]
