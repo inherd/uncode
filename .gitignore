@@ -50,3 +50,4 @@ examples/dist
 apps.json
 .serverless/
 yarn-error.log
+build
