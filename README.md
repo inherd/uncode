@@ -6,6 +6,8 @@ Todo:
  - [ ] DSL for features
  - [ ] distribution apps
  - [ ] GRPC for binary
+    - [x] try `tarpc`?
+    - [ ] try json rpc ?
 
 License
 ---
