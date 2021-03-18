@@ -9,6 +9,18 @@ Todo:
     - [x] try `tarpc`?
     - [ ] try json rpc ?
 
+
+## Setup
+
+### Run
+
+1. run `yarn start` in `uncode-ui`
+2. run `yarn tauri dev` in root project
+
+### Setup
+
+
+
 License
 ---
 
