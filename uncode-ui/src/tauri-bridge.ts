@@ -1,8 +1,12 @@
-import { open } from 'tauri/api/dialog';
+import * as dialog from 'tauri/api/dialog';
+import { setTitle } from 'tauri/api/window';
 
 const TauriBridge = {
   openDialog() {
-    open();
+    dialog.open();
+  },
+  title(title: string) {
+    setTitle(title);
   },
 };
 

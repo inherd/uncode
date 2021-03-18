@@ -5,6 +5,7 @@ import TauriBridge from '../../../tauri-bridge';
 
 export function Nav() {
   const openStory = () => {
+    TauriBridge.title('Story');
     TauriBridge.openDialog();
   };
 
