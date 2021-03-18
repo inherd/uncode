@@ -1,6 +1,6 @@
 {
   "build": {
-    "distDir": "../build",
+    "distDir": "../uncode-ui/build",
     "devPath": "http://localhost:3000",
     "beforeDevCommand": "",
     "beforeBuildCommand": "",
