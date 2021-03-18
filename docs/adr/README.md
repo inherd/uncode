@@ -6,3 +6,4 @@
 * [4. use-ctags-for-struct-analysis](0004-use-ctags-for-struct-analysis.md)
 * [5. use-psa-for-project-builder](0005-use-psa-for-project-builder.md)
 * [6. use-gherkin-rust-for-story-parser](0006-use-gherkin-rust-for-story-parser.md)
+* [7. use-theia-as-editor-for-code](0007-use-theia-as-editor-for-code.md)
