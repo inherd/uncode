@@ -15,10 +15,8 @@ fn main() {
         }
         Ok(command) => {
           match command {
-            // definitions for your custom commands from Cmd here
-            MyCustomCommand { argument } => {
-              //  your command code
-              println!("{}", argument);
+            LogOperation { event, payload } => {
+              println!("{} {:?}", event, payload);
             }
           }
           Ok(())
