@@ -2,7 +2,6 @@ import * as React from 'react';
 import styled, { css } from 'styled-components/macro';
 import { open } from 'tauri/api/dialog';
 import { ReactComponent as DocumentationIcon } from './assets/documentation-icon.svg';
-import { ReactComponent as GithubIcon } from './assets/github-icon.svg';
 
 export function Nav() {
   const openStory = () => {
@@ -15,15 +14,6 @@ export function Nav() {
         <DocumentationIcon />
         Story
       </NavButton>
-      <Item
-        href="https://github.com/phodal/uncode"
-        target="_blank"
-        title="Undoe GitHub"
-        rel="noopener noreferrer"
-      >
-        <GithubIcon />
-        Github
-      </Item>
     </Wrapper>
   );
 }
