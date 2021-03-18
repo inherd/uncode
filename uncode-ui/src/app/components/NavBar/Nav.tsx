@@ -1,24 +1,24 @@
 import * as React from 'react';
-import styled from 'styled-components/macro';
+import styled, { css } from 'styled-components/macro';
+import { open } from 'tauri/api/dialog';
 import { ReactComponent as DocumentationIcon } from './assets/documentation-icon.svg';
 import { ReactComponent as GithubIcon } from './assets/github-icon.svg';
 
 export function Nav() {
+  const openStory = () => {
+    open();
+  };
+
   return (
     <Wrapper>
-      <Item
-        href="https://cansahin.gitbook.io/react-boilerplate-cra-template/"
-        target="_blank"
-        title="Documentation Page"
-        rel="noopener noreferrer"
-      >
+      <NavButton onClick={openStory}>
         <DocumentationIcon />
-        Documentation
-      </Item>
+        Story
+      </NavButton>
       <Item
-        href="https://github.com/react-boilerplate/react-boilerplate-cra-template"
+        href="https://github.com/phodal/uncode"
         target="_blank"
-        title="Github Page"
+        title="Undoe GitHub"
         rel="noopener noreferrer"
       >
         <GithubIcon />
@@ -33,7 +33,7 @@ const Wrapper = styled.nav`
   margin-right: -1rem;
 `;
 
-const Item = styled.a`
+const SharedButton = css`
   color: ${p => p.theme.primary};
   cursor: pointer;
   text-decoration: none;
@@ -42,6 +42,9 @@ const Item = styled.a`
   font-size: 0.875rem;
   font-weight: 500;
   align-items: center;
+  border: none;
+  background-color: transparent;
+  outline: none;
 
   &:hover {
     opacity: 0.8;
@@ -54,4 +57,11 @@ const Item = styled.a`
   .icon {
     margin-right: 0.25rem;
   }
+`;
+
+const Item = styled.a`
+  ${SharedButton}
+`;
+const NavButton = styled.button`
+  ${SharedButton}
 `;

@@ -1,0 +1,15 @@
+{
+  "name": "coco-ui",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/inherd/coco-ui",
+  "author": "Phodal HUANG",
+  "license": "MIT",
+  "private": false,
+  "scripts": {
+    "tauri": "tauri"
+  },
+  "dependencies": {
+    "tauri": "^0.14.1"
+  }
+}

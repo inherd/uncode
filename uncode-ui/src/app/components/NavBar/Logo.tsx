@@ -4,8 +4,7 @@ import styled from 'styled-components/macro';
 export function Logo() {
   return (
     <Wrapper>
-      <Title>React Boilerplate</Title>
-      <Description>Create React App Template</Description>
+      <Title>Uncode</Title>
     </Wrapper>
   );
 }
@@ -20,10 +19,4 @@ const Title = styled.div`
   color: ${p => p.theme.text};
   font-weight: bold;
   margin-right: 1rem;
-`;
-
-const Description = styled.div`
-  font-size: 0.875rem;
-  color: ${p => p.theme.textSecondary};
-  font-weight: normal;
 `;
