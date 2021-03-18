@@ -1,8 +1,8 @@
 {
-  "name": "coco-ui",
-  "version": "1.0.0",
+  "name": "uncode",
+  "version": "0.0.1",
   "main": "index.js",
-  "repository": "https://github.com/inherd/coco-ui",
+  "repository": "https://github.com/inherd/uncode",
   "author": "Phodal HUANG",
   "license": "MIT",
   "private": false,
