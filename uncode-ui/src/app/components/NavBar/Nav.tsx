@@ -1,11 +1,11 @@
 import * as React from 'react';
 import styled, { css } from 'styled-components/macro';
-import { open } from 'tauri/api/dialog';
 import { ReactComponent as DocumentationIcon } from './assets/documentation-icon.svg';
+import TauriBridge from '../../../tarui-bridge';
 
 export function Nav() {
   const openStory = () => {
-    open();
+    TauriBridge.openDialog();
   };
 
   return (
