@@ -33,6 +33,7 @@ jobs:
 
       - name: install app dependencies and build it
         run: yarn && yarn child-install && yarn build
-      - uses: tauri-apps/tauri-action@v0
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+#      - uses: tauri-apps/tauri-action@v0
+#        env:
+#          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
