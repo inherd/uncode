@@ -1,0 +1,9 @@
+{
+  "recommendations": [
+    "dbaeumer.vscode-eslint",
+    "esbenp.prettier-vscode",
+    "msjsdiag.debugger-for-chrome",
+    "eg2.vscode-npm-script",
+    "jpoissonnier.vscode-styled-components"
+  ]
+}
