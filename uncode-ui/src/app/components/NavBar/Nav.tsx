@@ -2,8 +2,10 @@ import * as React from 'react';
 import styled, { css } from 'styled-components/macro';
 import { ReactComponent as DocumentationIcon } from './assets/documentation-icon.svg';
 import TauriBridge from '../../../tauri-bridge';
+import TauriShortcuts from '../../../tauri-shortcuts';
 
 export function Nav() {
+  TauriShortcuts.init();
   const openStory = () => {
     TauriBridge.title('Story');
     TauriBridge.openDialog();
