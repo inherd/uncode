@@ -8,3 +8,4 @@
 * [6. use-gherkin-rust-for-story-parser](0006-use-gherkin-rust-for-story-parser.md)
 * [7. use-theia-as-editor-for-code](0007-use-theia-as-editor-for-code.md)
 * [8. kanban-for-react](0008-kanban-for-react.md)
+* [9. hotkey-from-native-rs](0009-hotkey-from-native-rs.md)
