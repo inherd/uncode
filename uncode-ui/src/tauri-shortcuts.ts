@@ -1,4 +1,5 @@
 import hotkeys from 'hotkeys-js';
+import TauriBridge from './tauri-bridge';
 
 const TauriShortcuts = {
   init() {
@@ -6,6 +7,10 @@ const TauriShortcuts = {
       // Prevent the default refresh event under WINDOWS system
       event.preventDefault();
       alert('you pressed F5!');
+    });
+    hotkeys('ctrl+o, command+o', function () {
+      TauriBridge.openDialog();
+      return false;
     });
   },
 };
