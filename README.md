@@ -1,4 +1,4 @@
-# Uncode IDE
+# Uncode CDE（云研发体系开发环境）
 
 Uncode 是一个面向云研发时代设计的下一代概念性 IDE。特性：
 
