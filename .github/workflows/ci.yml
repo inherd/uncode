@@ -36,8 +36,7 @@ jobs:
 
       - name: lint:fix for windows
         if: matrix.os == 'windows-latest'
-        run: |
-          yarn lint:fix
+        run: yarn lint:fix
 
       - name: build
         run: yarn build
