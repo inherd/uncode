@@ -4,7 +4,9 @@ import { invoke } from 'tauri/api/tauri';
 
 const TauriBridge = {
   openDialog() {
-    dialog.open();
+    dialog.open().then(result => {
+      console.log(result);
+    });
   },
   title(title: string) {
     setTitle(title);

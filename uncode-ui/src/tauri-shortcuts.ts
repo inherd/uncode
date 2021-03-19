@@ -10,7 +10,6 @@ const TauriShortcuts = {
     });
     hotkeys('ctrl+o, command+o', function () {
       TauriBridge.openDialog();
-      return false;
     });
   },
 };
