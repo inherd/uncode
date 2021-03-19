@@ -2,7 +2,8 @@ use gherkin_rust::{Feature};
 
 fn main() {
   let result = Feature::parse("
-Feature: Everything
+Feature: Title
+  Description
 
 Scenario: Nothing
   Given I just started
