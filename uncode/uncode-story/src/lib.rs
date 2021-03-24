@@ -1,6 +1,6 @@
 use gherkin_rust::{Feature};
 
-fn main() {
+fn parse() {
   let result = Feature::parse("
 Feature: Title
   Description
