@@ -1,0 +1,4 @@
+# domain language
+aggrate:
+   - 房间: room
+     api: /root/{id}
