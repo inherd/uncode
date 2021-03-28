@@ -8,13 +8,15 @@ Uncode 是一个面向云研发时代设计的下一代概念性 IDE。特性：
 
 简单来说，你可以在这个 IDE 上完成：需求的编写，转换需求为设计，设计关联代码，禅模式编程，开发完即可上线。
 
-与之相对比的是，传统的一站式 DevOps 门户，尽管你可以通过跳转来完成，但是无法相互关联和设计。与之相近的是 GitOps，即将应用系统的声明性基础架构和应用程序存放在 Git 版本库中。但是它们都不闭环，也不完整。
+![Design Principles](docs/design/design-principles.png)
 
 基础要素：
 
 1. 开发即部署。即 local dev 便是 dev server，可直接接入现有的系统。
 2. 万物即 DSL。具备一定等级的程序语言设计能力。
 3. API 的 API。即将现有的内部、外部 API 进行抽象化设计，以提供快速可用的 API。
+
+![Base Elements](docs/design/base-elements.png)
 
 架构设计：
 
@@ -31,9 +33,6 @@ Uncode 是一个面向云研发时代设计的下一代概念性 IDE。特性：
 4. 使用 RPC 作为与多个 DSL 的通信协议
 5. ……
 
-
-
-
 Todo:
 
  - [ ] multiple webview
@@ -43,7 +42,6 @@ Todo:
     - [x] try `tarpc`?
     - [ ] try json rpc ?
 
-
 ## Setup
 
 ### Run
@@ -52,7 +50,6 @@ Todo:
 2. run `yarn tauri dev` in root project
 
 ### Setup
-
 
 
 License
