@@ -12,7 +12,7 @@ const darkTheme: Theme = {
   primary: 'rgba(220,120,95,1)',
   text: 'rgba(241,233,231,1)',
   textSecondary: 'rgba(241,233,231,0.6)',
-  background: 'rgba(0,0,0,1)',
+  background: 'rgba(242,242,242,1)',
   backgroundVariant: 'rgba(28,26,26,1)',
   border: 'rgba(241,233,231,0.15)',
   borderLight: 'rgba(241,233,231,0.05)',
