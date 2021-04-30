@@ -15,11 +15,16 @@ export function Logo() {
 const Wrapper = styled.div`
   display: flex;
   align-items: center;
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
 `;
 
 const Title = styled.div`
   font-size: 1.25rem;
-  color: ${p => p.theme.text};
+  color: ${p => p.theme.primary};
   font-weight: bold;
   margin-right: 1rem;
 `;
