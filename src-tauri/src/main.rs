@@ -48,6 +48,9 @@ fn main() {
             LogOperation { event, payload } => {
               println!("{} {:?}", event, payload);
             }
+            GetStory { event, payload } => {
+              println!("{} {:?}", event, payload);
+            }
             OpenDirectory { payload } => {
               println!("{:?}", payload);
             }

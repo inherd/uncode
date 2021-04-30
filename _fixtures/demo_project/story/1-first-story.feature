@@ -1,5 +1,4 @@
-# status:
-# time:
+# status: Done
 # author: Phodal HUANG
 # language: zh-CN
 功能: 第一个用户故事

@@ -5,8 +5,10 @@ import { PageWrapper } from '../../components/PageWrapper';
 import styled from 'styled-components/macro';
 import Board from '@lourenci/react-kanban';
 import '@lourenci/react-kanban/dist/styles.css';
+import TauriShortcuts from '../../../tauri-shortcuts';
 
 export function StoryPage() {
+  TauriShortcuts.getStory();
   const board = {
     columns: [
       {

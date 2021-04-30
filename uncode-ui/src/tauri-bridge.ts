@@ -3,6 +3,9 @@ import { setTitle } from 'tauri/api/window';
 import { invoke, promisified } from 'tauri/api/tauri';
 
 const TauriBridge = {
+  getStory(): Promise<any> {
+    return this.event('getStory', '', '');
+  },
   openDialog() {
     dialog.open({ directory: true }).then(result => {
       invoke({
