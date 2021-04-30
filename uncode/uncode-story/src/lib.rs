@@ -8,16 +8,25 @@ use std::fs;
 pub fn parse(content: &str) -> StoryModel {
   let mut story = StoryModel::default();
   let result = Feature::parse(content, Default::default());
-  if let Ok(feature) = result {
-    story.title = feature.name;
-    story.description = feature.description.unwrap_or("".to_string());
-  };
+  match result {
+    Ok(feature) => {
+      story.title = feature.name;
+      story.description = feature.description.unwrap_or("".to_string());
+    }
+    Err(err) => {
+      println!("error: {:?}", err);
+    }
+  }
 
   story
 }
 
 pub fn parse_dir(path: String) -> Vec<StoryModel> {
   fn is_story(entry: &DirEntry) -> bool {
+    if entry.file_type().is_dir() {
+      return true;
+    }
+
     entry.file_name()
       .to_str()
       .map(|s| s.ends_with(".feature"))
@@ -26,15 +35,12 @@ pub fn parse_dir(path: String) -> Vec<StoryModel> {
 
   let walker = WalkDir::new(path).into_iter();
   let mut stories = vec![];
-  for entry in walker.filter_entry(|e| !is_story(e)) {
-    match entry {
-      Ok(dir) => {
-        if dir.file_type().is_file() {
-          let content = fs::read_to_string(dir.path()).expect("error to load file");
-          stories.push(parse(&*content));
-        }
+  for entry in walker.filter_entry(|e| is_story(e)) {
+    if let Ok(dir) = entry {
+      if dir.file_type().is_file() {
+        let content = fs::read_to_string(dir.path()).expect("error to load file");
+        stories.push(parse(&*content));
       }
-      Err(_) => {}
     }
   };
 
@@ -53,6 +59,6 @@ mod tests {
     let stories = parse_dir(path);
 
     assert_eq!(1, stories.len());
-    assert_eq!("1", stories[0].title);
+    assert_eq!("第一个用户故事", stories[0].title);
   }
 }
