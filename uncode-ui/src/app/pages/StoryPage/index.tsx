@@ -8,32 +8,17 @@ import '@lourenci/react-kanban/dist/styles.css';
 import TauriShortcuts from '../../../tauri-shortcuts';
 
 export function StoryPage() {
-  TauriShortcuts.getStory().then(stories => {
-    console.log(stories);
-  });
-  const board = {
+  let board = {
     columns: [
       {
         id: 1,
         title: 'Backlog',
-        cards: [
-          {
-            id: 1,
-            title: 'Add card',
-            description: 'Add capability to add a card in a column',
-          },
-        ],
+        cards: [],
       },
       {
         id: 2,
         title: 'Doing',
-        cards: [
-          {
-            id: 2,
-            title: 'Drag-n-drop support',
-            description: 'Move a card between the columns',
-          },
-        ],
+        cards: [],
       },
       {
         id: 3,
@@ -47,6 +32,18 @@ export function StoryPage() {
       },
     ],
   };
+
+  TauriShortcuts.getStory().then(stories => {
+    let id = 1;
+    for (let story of stories) {
+      (board.columns[0].cards as any).push({
+        id: id,
+        title: story.title,
+        description: story.description,
+      });
+      id = id + 1;
+    }
+  });
 
   return (
     <>
