@@ -1,10 +1,13 @@
 import * as React from 'react';
 import styled from 'styled-components/macro';
+import { Link } from 'react-router-dom';
 
 export function Logo() {
   return (
     <Wrapper>
-      <Title>Uncode</Title>
+      <Link to="/">
+        <Title>Uncode</Title>
+      </Link>
     </Wrapper>
   );
 }
