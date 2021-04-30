@@ -13,10 +13,13 @@ import { Switch, Route, BrowserRouter } from 'react-router-dom';
 import { GlobalStyle } from 'styles/global-styles';
 
 import { HomePage } from './pages/HomePage/Loadable';
+import { DesignPage } from './pages/DesignPage/Loadable';
 import { NotFoundPage } from './components/NotFoundPage/Loadable';
 import { useTranslation } from 'react-i18next';
+import TauriShortcuts from '../../../../src/tauri-shortcuts';
 
 export function App() {
+  TauriShortcuts.init();
   const { i18n } = useTranslation();
   return (
     <BrowserRouter>
@@ -30,6 +33,7 @@ export function App() {
 
       <Switch>
         <Route exact path="/" component={HomePage} />
+        <Route path="/design" component={DesignPage} />
         <Route component={NotFoundPage} />
       </Switch>
       <GlobalStyle />

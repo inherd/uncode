@@ -3,33 +3,26 @@ import styled, { css } from 'styled-components/macro';
 import { ReactComponent as DocumentationIcon } from './assets/documentation-icon.svg';
 import { ReactComponent as DesignIcon } from './assets/design-icon.svg';
 import { ReactComponent as CodingIcon } from './assets/coding-icon.svg';
-import TauriBridge from '../../../tauri-bridge';
-import TauriShortcuts from '../../../tauri-shortcuts';
+import { Link } from 'react-router-dom';
 
 export function Nav() {
-  TauriShortcuts.init();
-  const openStory = () => {
-    TauriBridge.title('Story');
-    TauriBridge.openDialog();
-  };
-
   return (
     <Wrapper>
-      <NavButton onClick={openStory}>
+      <StyledLink to="/">
         <DocumentationIcon />
         Story
-      </NavButton>
-      <NavButton onClick={openStory}>
+      </StyledLink>
+      <StyledLink to="/design">
         <DesignIcon />
         Design
-      </NavButton>
-      <NavButton onClick={openStory}>
+      </StyledLink>
+      <StyledLink to="/design">
         <CodingIcon />
         Code
-      </NavButton>
-      <SimpleButton>Build</SimpleButton>
-      <SimpleButton>Deploy</SimpleButton>
-      <SimpleButton>Operation</SimpleButton>
+      </StyledLink>
+      <StyledLink to="/">Build</StyledLink>
+      <StyledLink to="/">Deploy</StyledLink>
+      <StyledLink to="/">Operation</StyledLink>
     </Wrapper>
   );
 }
@@ -38,15 +31,6 @@ const Wrapper = styled.nav`
   display: flex;
   margin-right: -1rem;
 `;
-
-const DesignIconSized = () => {
-  const DesignIcon = styled.div`
-    width: 24px;
-    height: 24px;
-  `;
-
-  return <DesignIcon></DesignIcon>;
-};
 
 const SharedButton = css`
   color: ${p => p.theme.primary};
@@ -74,10 +58,6 @@ const SharedButton = css`
   }
 `;
 
-const SimpleButton = styled.button`
-  ${SharedButton}
-`;
-
-const NavButton = styled.button`
+const StyledLink = styled(Link)`
   ${SharedButton}
 `;
