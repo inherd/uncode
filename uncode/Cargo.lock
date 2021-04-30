@@ -981,7 +981,15 @@ dependencies = [
 ]
 
 [[package]]
-name = "uncode-story"
+name = "uncode_core"
+version = "0.1.0"
+dependencies = [
+ "serde",
+ "serde_json",
+]
+
+[[package]]
+name = "uncode_story"
 version = "0.1.0"
 dependencies = [
  "gherkin_rust",
@@ -989,14 +997,6 @@ dependencies = [
  "serde_json",
  "uncode_core",
  "walkdir",
-]
-
-[[package]]
-name = "uncode_core"
-version = "0.1.0"
-dependencies = [
- "serde",
- "serde_json",
 ]
 
 [[package]]

@@ -1,5 +1,5 @@
 [package]
-name = "uncode-story"
+name = "uncode_story"
 version = "0.1.0"
 authors = ["Inherd Group <group@inherd.org>", "Phodal Huang <h@phodal.com>"]
 edition = "2018"

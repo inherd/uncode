@@ -13,6 +13,7 @@
     "build": "cd uncode-ui && yarn build"
   },
   "dependencies": {
-    "tauri": "^0.14.1"
+    "@tauri-apps/api": "^1.0.0-beta-rc.3",
+    "@tauri-apps/cli": "*"
   }
 }

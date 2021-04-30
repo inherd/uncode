@@ -28,52 +28,24 @@ impl Default for Workspace {
 
 fn main() {
   let workspace = Arc::new(Mutex::new(Workspace::default()));
-  tauri::AppBuilder::new()
-    .setup(|webview, _source| {
-      let mut webview = webview.as_mut();
-      let mut webview_clone = webview.clone();
-      tauri::event::listen(String::from("js-event"), move |msg| {
-        println!("got js-event with message '{:?}'", msg);
+  tauri::Builder::default()
+    .on_page_load(|window, _| {
+      let window_ = window.clone();
+      window.listen("js-event".to_string(), move |event| {
+        println!("got js-event with message '{:?}'", event.payload());
         let reply = Reply {
           data: "something else".to_string(),
         };
 
-        tauri::event::emit(
-          &mut webview,
-          String::from("rust-event"),
-          Some(serde_json::to_string(&reply).unwrap()),
-        )
+        window_
+          .emit(&"rust-event".to_string(), Some(reply))
           .expect("failed to emit");
       });
-
-      webview_clone
-        .dispatch(move |w| {
-          w.eval("window.onTauriInit()");
-        })
-        .expect("failed to dispatch");
     })
-    .invoke_handler(move |_webview, arg| {
-      use cmd::Cmd::*;
-      match serde_json::from_str(arg) {
-        Err(e) => {
-          Err(e.to_string())
-        }
-        Ok(command) => {
-          match command {
-            LogOperation { event, payload } => {
-              println!("{} {:?}", event, payload);
-            }
-            GetStory { event, payload } => {
-              println!("{} {:?}", event, payload);
-            }
-            OpenDirectory { payload } => {
-              workspace.lock().unwrap().path = payload.unwrap();
-            }
-          }
-          Ok(())
-        }
-      }
-    })
-    .build()
-    .run();
+    .invoke_handler(tauri::generate_handler![
+      cmd::log_operation,
+      cmd::perform_request
+    ])
+    .run(tauri::generate_context!())
+    .expect("error while running tauri application");
 }
