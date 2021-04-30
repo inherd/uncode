@@ -1,19 +1,58 @@
+extern crate serde_json;
+
 use gherkin_rust::{Feature};
+use uncode_core::StoryModel;
+use walkdir::{WalkDir, DirEntry};
+use std::fs;
 
-fn parse() {
-  let result = Feature::parse("
-Feature: Title
-  Description
+pub fn parse(content: &str) -> StoryModel {
+  let mut story = StoryModel::default();
+  let result = Feature::parse(content, Default::default());
+  if let Ok(feature) = result {
+    story.title = feature.name;
+    story.description = feature.description.unwrap_or("".to_string());
+  };
 
-Scenario: Nothing
-  Given I just started
-", Default::default());
-  match result {
-    Ok(feature) => {
-      println!("{:?}", feature);
+  story
+}
+
+pub fn parse_dir(path: String) -> Vec<StoryModel> {
+  fn is_story(entry: &DirEntry) -> bool {
+    entry.file_name()
+      .to_str()
+      .map(|s| s.ends_with(".feature"))
+      .unwrap_or(false)
+  }
+
+  let walker = WalkDir::new(path).into_iter();
+  let mut stories = vec![];
+  for entry in walker.filter_entry(|e| !is_story(e)) {
+    match entry {
+      Ok(dir) => {
+        if dir.file_type().is_file() {
+          let content = fs::read_to_string(dir.path()).expect("error to load file");
+          stories.push(parse(&*content));
+        }
+      }
+      Err(_) => {}
     }
-    Err(err) => {
-      println!("{:?}", err);
-    }
+  };
+
+  stories
+}
+
+#[cfg(test)]
+mod tests {
+  use std::path::PathBuf;
+  use crate::parse_dir;
+
+  #[test]
+  fn should_parse_demo_project_story() {
+    let d = PathBuf::from(env!("CARGO_MANIFEST_DIR"));
+    let path = format!("{}", d.join("story").display());
+    let stories = parse_dir(path);
+
+    assert_eq!(1, stories.len());
+    assert_eq!("1", stories[0].title);
   }
 }

@@ -6,13 +6,28 @@
 mod cmd;
 
 use serde::Serialize;
+use std::sync::{Arc, Mutex};
 
 #[derive(Serialize)]
 struct Reply {
   data: String,
 }
 
+#[derive(Serialize)]
+struct Workspace {
+  pub path: String,
+}
+
+impl Default for Workspace {
+  fn default() -> Self {
+    Workspace {
+      path: "".to_string()
+    }
+  }
+}
+
 fn main() {
+  let workspace = Arc::new(Mutex::new(Workspace::default()));
   tauri::AppBuilder::new()
     .setup(|webview, _source| {
       let mut webview = webview.as_mut();
@@ -37,7 +52,7 @@ fn main() {
         })
         .expect("failed to dispatch");
     })
-    .invoke_handler(|_webview, arg| {
+    .invoke_handler(move |_webview, arg| {
       use cmd::Cmd::*;
       match serde_json::from_str(arg) {
         Err(e) => {
@@ -52,7 +67,7 @@ fn main() {
               println!("{} {:?}", event, payload);
             }
             OpenDirectory { payload } => {
-              println!("{:?}", payload);
+              workspace.lock().unwrap().path = payload.unwrap();
             }
           }
           Ok(())

@@ -1,5 +1,5 @@
 [package]
-name = "uncode-core"
+name = "uncode_core"
 version = "0.1.0"
 authors = ["Inherd Group <group@inherd.org>", "Phodal Huang <h@phodal.com>"]
 edition = "2018"
@@ -25,3 +25,4 @@ exclude = [
 [dependencies]
 # serial
 serde = { version = "1.0" }
+serde_json = { version = "1.0" }

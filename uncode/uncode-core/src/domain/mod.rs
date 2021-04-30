@@ -1,1 +1,1 @@
-// pub mod story_;
+pub mod story_model;
