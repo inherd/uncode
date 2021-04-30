@@ -27,7 +27,7 @@ impl Default for Workspace {
 }
 
 fn main() {
-  let workspace = Arc::new(Mutex::new(Workspace::default()));
+  let _workspace = Arc::new(Mutex::new(Workspace::default()));
   tauri::Builder::default()
     .on_page_load(|window, _| {
       let window_ = window.clone();
@@ -44,7 +44,8 @@ fn main() {
     })
     .invoke_handler(tauri::generate_handler![
       cmd::log_operation,
-      cmd::perform_request
+      cmd::perform_request,
+      cmd::open_directory,
     ])
     .run(tauri::generate_context!())
     .expect("error while running tauri application");

@@ -29,3 +29,9 @@ pub fn perform_request(endpoint: String, body: RequestBody) -> String {
   println!("{} {:?}", endpoint, body);
   "message response".into()
 }
+
+#[command]
+pub fn open_directory(payload: String) -> String {
+  println!("{}", payload);
+  "message response".into()
+}

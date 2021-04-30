@@ -3,18 +3,19 @@ import { invoke } from '@tauri-apps/api/tauri';
 
 const TauriBridge = {
   getStory(): Promise<any> {
-    return invoke('getSotry');
+    return invoke('get_story');
   },
 
   openDialog(): Promise<any> {
     return open({ directory: true }).then(result => {
-      return invoke('openDirectory', { payload: result });
+      return invoke('open_directory', { payload: result });
     });
   },
 
   title(title: string) {},
+
   log(name: string, message: string): Promise<any> {
-    return invoke('logOperation', { payload: message });
+    return invoke('log_operation', { payload: message });
   },
 };
 
