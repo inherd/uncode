@@ -6,6 +6,7 @@ import { GlobalStyle } from 'styles/global-styles';
 
 import { HomePage } from './pages/HomePage/Loadable';
 import { DesignPage } from './pages/DesignPage/Loadable';
+import { CodePage } from './pages/CodePage';
 import { NotFoundPage } from './pages/NotFoundPage/Loadable';
 import { useTranslation } from 'react-i18next';
 import TauriShortcuts from '../tauri-shortcuts';
@@ -26,6 +27,7 @@ export function App() {
       <Switch>
         <Route exact path="/" component={HomePage} />
         <Route path="/design" component={DesignPage} />
+        <Route path="/code" component={CodePage} />
         <Route component={NotFoundPage} />
       </Switch>
       <GlobalStyle />

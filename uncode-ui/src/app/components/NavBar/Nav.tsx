@@ -16,7 +16,7 @@ export function Nav() {
         <DesignIcon />
         Design
       </StyledLink>
-      <StyledLink to="/design">
+      <StyledLink to="/code">
         <CodingIcon />
         Code
       </StyledLink>
