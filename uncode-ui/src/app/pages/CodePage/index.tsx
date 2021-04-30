@@ -3,8 +3,13 @@ import { Helmet } from 'react-helmet-async';
 import { NavBar } from '../../components/NavBar';
 import { PageWrapper } from '../../components/PageWrapper';
 import styled from 'styled-components/macro';
+import MonacoEditor from 'react-monaco-editor';
 
 export function CodePage() {
+  const options = {
+    //renderSideBySide: false
+  };
+
   return (
     <>
       <Helmet>
@@ -13,7 +18,12 @@ export function CodePage() {
       </Helmet>
       <NavBar />
       <PageWrapper>
-        <A>Uncode Code</A>
+        <MonacoEditor
+          width="800"
+          height="600"
+          language="javascript"
+          options={options}
+        />
       </PageWrapper>
     </>
   );
