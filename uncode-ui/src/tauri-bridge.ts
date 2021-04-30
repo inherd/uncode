@@ -4,8 +4,12 @@ import { invoke, promisified } from 'tauri/api/tauri';
 
 const TauriBridge = {
   openDialog() {
-    dialog.open().then(result => {
+    dialog.open({directory: true}).then(result => {
       console.log(result);
+      invoke({
+        cmd: 'openDirectory',
+        payload: result
+      })
     });
   },
   title(title: string) {
