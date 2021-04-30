@@ -8,7 +8,7 @@ import { Link } from 'react-router-dom';
 export function Nav() {
   return (
     <Wrapper>
-      <StyledLink to="/">
+      <StyledLink to="/story">
         <DocumentationIcon />
         Story
       </StyledLink>

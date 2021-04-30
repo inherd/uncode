@@ -10,6 +10,7 @@ import { CodePage } from './pages/CodePage';
 import { NotFoundPage } from './pages/NotFoundPage/Loadable';
 import { useTranslation } from 'react-i18next';
 import TauriShortcuts from '../tauri-shortcuts';
+import { StoryPage } from './pages/StoryPage/Loadable';
 
 export function App() {
   TauriShortcuts.init();
@@ -26,6 +27,7 @@ export function App() {
 
       <Switch>
         <Route exact path="/" component={HomePage} />
+        <Route path="/story" component={StoryPage} />
         <Route path="/design" component={DesignPage} />
         <Route path="/code" component={CodePage} />
         <Route component={NotFoundPage} />
