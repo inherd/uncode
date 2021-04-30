@@ -8,8 +8,9 @@ import '@lourenci/react-kanban/dist/styles.css';
 import TauriShortcuts from '../../../tauri-shortcuts';
 
 export function StoryPage() {
-  let stories = TauriShortcuts.getStory();
-  console.log(stories);
+  TauriShortcuts.getStory().then(stories => {
+    console.log(stories);
+  });
   const board = {
     columns: [
       {

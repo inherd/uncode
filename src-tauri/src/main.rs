@@ -6,7 +6,6 @@
 mod cmd;
 
 use serde::Serialize;
-use std::sync::{Arc, Mutex};
 
 #[derive(Serialize)]
 struct Reply {
@@ -18,16 +17,7 @@ struct Workspace {
   pub path: String,
 }
 
-impl Default for Workspace {
-  fn default() -> Self {
-    Workspace {
-      path: "".to_string()
-    }
-  }
-}
-
 fn main() {
-  let _workspace = Arc::new(Mutex::new(Workspace::default()));
   tauri::Builder::default()
     .on_page_load(|window, _| {
       let window_ = window.clone();
@@ -46,6 +36,7 @@ fn main() {
       cmd::log_operation,
       cmd::perform_request,
       cmd::open_directory,
+      cmd::get_story
     ])
     .run(tauri::generate_context!())
     .expect("error while running tauri application");

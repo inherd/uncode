@@ -1,5 +1,6 @@
 use serde::Deserialize;
 use tauri::command;
+use uncode_core::StoryModel;
 
 // #[derive(Deserialize)]
 // #[serde(tag = "cmd", rename_all = "camelCase")]
@@ -31,7 +32,11 @@ pub fn perform_request(endpoint: String, body: RequestBody) -> String {
 }
 
 #[command]
-pub fn open_directory(payload: String) -> String {
+pub fn open_directory(payload: String) {
   println!("{}", payload);
-  "message response".into()
+}
+
+#[command]
+pub fn get_story(dir: String) -> Vec<StoryModel> {
+  uncode_story::parse_dir(dir)
 }

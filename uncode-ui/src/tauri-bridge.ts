@@ -2,12 +2,16 @@ import { open } from '@tauri-apps/api/dialog';
 import { invoke } from '@tauri-apps/api/tauri';
 
 const TauriBridge = {
+  workspace: {
+    path: '',
+  },
   getStory(): Promise<any> {
-    return invoke('get_story');
+    return invoke('get_story', { dir: this.workspace.path });
   },
 
   openDialog(): Promise<any> {
     return open({ directory: true }).then(result => {
+      this.workspace.path = result as string;
       return invoke('open_directory', { payload: result });
     });
   },
