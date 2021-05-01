@@ -17,6 +17,11 @@ const TauriBridge = {
     });
   },
 
+  saveConfig(config: any) {
+    this.uncode_config = config;
+    emit('save_config', JSON.stringify(this.uncode_config));
+  },
+
   openDialog(): Promise<any> {
     return open({ directory: true }).then(result => {
       this.uncode_config.path = result as string;

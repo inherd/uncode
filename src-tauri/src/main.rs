@@ -44,17 +44,8 @@ fn main() {
           .expect("failed to emit");
       });
 
-      let window2 = window.clone();
-      let window3 = window2.clone();
-
-      window2.listen("get_config".to_string(), move |_event| {
-        window3
-          .emit(&"bootstrap".to_string(), Some(config.lock().unwrap().json()))
-          .expect("failed to emit");
-      });
-
       window
-        .emit(&"bootstrap".to_string(), Some(uncode_config.lock().unwrap().json()))
+        .emit(&"bootstrap".to_string(), Some(config.lock().unwrap().json()))
         .expect("failed to emit");
     })
     .invoke_handler(tauri::generate_handler![

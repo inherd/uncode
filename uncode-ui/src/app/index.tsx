@@ -18,12 +18,7 @@ import TauriBridge from '../tauri-bridge';
 export function App() {
   TauriShortcuts.init();
   const { i18n } = useTranslation();
-
-  // eslint-disable-next-line
   const [project, setProject] = useState({});
-  emit('get_config').then((data: any) => {
-    console.log(data);
-  });
 
   listen('bootstrap', (data: any) => {
     let payload = JSON.parse(data.payload);

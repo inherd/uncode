@@ -7,13 +7,20 @@ import TauriBridge from '../../../tauri-bridge';
 import MonacoEditor from 'react-monaco-editor';
 
 export function HomePage() {
-  // const [config] = useState(TauriBridge.uncode_config);
+  const [config, setConfig] = useState(TauriBridge.uncode_config);
   const options = {
     language: 'json',
+    theme: 'vs-dark',
   };
 
   const updateConfig = (value, event) => {
-    console.log(value, event);
+    try {
+      setConfig(JSON.parse(value));
+    } catch (err) {}
+  };
+
+  const saveConfig = () => {
+    TauriBridge.saveConfig(config);
   };
 
   return (
@@ -25,10 +32,11 @@ export function HomePage() {
       <NavBar />
       <PageWrapper>
         <h2>Uncode config</h2>
+        <button onClick={saveConfig}>Save Config</button>
         <MonacoEditor
           width="800"
           height="600"
-          // defaultValue={JSON.stringify(config)}
+          defaultValue={JSON.stringify(config)}
           onChange={updateConfig}
           options={options}
         />
