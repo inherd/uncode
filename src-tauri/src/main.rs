@@ -6,7 +6,6 @@
 #[macro_use]
 extern crate log;
 
-use std::env;
 use std::sync::{Arc, Mutex};
 
 use serde::Serialize;
@@ -25,13 +24,8 @@ struct Reply {
 fn main() {
   setup_log();
 
-  info!("{:?}", env::current_dir());
-  let mut workspace = UncodeConfig::default();
-  if let Ok(dir) = env::current_dir() {
-    workspace.path = format!("{}", dir.display());
-  };
-
-  let uncode_config = Arc::new(Mutex::new(workspace));
+  let config = UncodeConfig::read_config();
+  let uncode_config = Arc::new(Mutex::new(config));
 
   tauri::Builder::default()
     .on_page_load(move |window, _| {
