@@ -6,16 +6,16 @@
 #[macro_use]
 extern crate log;
 
-mod cmd;
+use std::env;
+use std::sync::{Arc, Mutex};
+
+use serde::Serialize;
 
 pub use uncode_config::UncodeConfig;
-mod uncode_config;
 
-use serde::{Serialize, Deserialize};
-use std::{env, fs};
-use std::sync::{Arc, Mutex};
-use std::path::PathBuf;
-use std::fs::File;
+mod cmd;
+
+mod uncode_config;
 
 #[derive(Serialize)]
 struct Reply {
