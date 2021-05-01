@@ -21,37 +21,38 @@ export function StoryPage() {
 
   useEffect(() => {
     TauriShortcuts.getStory().then(stories => {
-      console.log(stories);
-      let id = 1;
-      let cards: Card[] = [];
+      let column_map: any = {};
+      let card_map: any = {};
+      let column_id = 1;
       for (let story of stories) {
-        cards.push({
-          id: id,
+        if (!column_map[story.status]) {
+          column_map[story.status] = {
+            id: column_id,
+            title: story.status,
+            cards: [],
+          };
+        }
+
+        if (!card_map[story.status]) {
+          card_map[story.status] = 1;
+        } else {
+          card_map[story.status]++;
+        }
+
+        column_map[story.status].cards.push({
+          id: card_map[story.status],
           title: story.title,
           description: story.description,
         });
-        id = id + 1;
       }
 
-      setBoard({
-        columns: [
-          {
-            id: 1,
-            title: 'Backlog',
-            cards: cards,
-          },
-          {
-            id: 2,
-            title: 'Doing',
-            cards: [],
-          },
-          {
-            id: 3,
-            title: 'Done',
-            cards: [],
-          },
-        ],
-      } as any);
+      let new_board = { columns: [] };
+      for (let key in column_map) {
+        // @ts-ignore
+        new_board.columns.push(column_map[key]);
+      }
+
+      setBoard(new_board);
     });
   }, []);
 
