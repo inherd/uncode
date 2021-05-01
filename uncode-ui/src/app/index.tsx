@@ -11,7 +11,7 @@ import { NotFoundPage } from './pages/NotFoundPage/Loadable';
 import { useTranslation } from 'react-i18next';
 import TauriShortcuts from '../tauri-shortcuts';
 import { StoryPage } from './pages/StoryPage/Loadable';
-import { listen } from '@tauri-apps/api/event';
+import { emit, listen } from '@tauri-apps/api/event';
 import { useState } from 'react';
 import TauriBridge from '../tauri-bridge';
 
@@ -21,6 +21,10 @@ export function App() {
 
   // eslint-disable-next-line
   const [project, setProject] = useState({});
+  emit('get_config').then((data: any) => {
+    console.log(data);
+  });
+
   listen('bootstrap', (data: any) => {
     let payload = JSON.parse(data.payload);
     TauriBridge.uncode_config = payload;

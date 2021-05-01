@@ -30,6 +30,8 @@ fn main() {
   tauri::Builder::default()
     .on_page_load(move |window, _| {
       let window_ = window.clone();
+      let config = uncode_config.clone();
+
       window.listen("save_config".to_string(), move |event| {
         info!("{:?}", event.payload());
         let result: UncodeConfig = serde_json::from_str(event.payload().expect("lost payload")).expect("uncode no match model");
@@ -39,6 +41,15 @@ fn main() {
           .emit(&"rust-event".to_string(), Some(Reply {
             data: "something else".to_string(),
           }))
+          .expect("failed to emit");
+      });
+
+      let window2 = window.clone();
+      let window3 = window2.clone();
+
+      window2.listen("get_config".to_string(), move |_event| {
+        window3
+          .emit(&"bootstrap".to_string(), Some(config.lock().unwrap().json()))
           .expect("failed to emit");
       });
 
