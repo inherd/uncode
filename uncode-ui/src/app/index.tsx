@@ -41,6 +41,8 @@ export function App() {
         <Route exact path="/" component={HomePage} />
         <Route path="/story" component={StoryPage} />
         <Route path="/design" component={DesignPage} />
+        {/*<Route path="/design/arch" component={DesignPage} />*/}
+        {/*<Route path="/design/ui" component={DesignPage} />*/}
         <Route path="/code" component={CodePage} />
         <Route component={NotFoundPage} />
       </Switch>

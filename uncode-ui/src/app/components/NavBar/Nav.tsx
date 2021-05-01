@@ -3,7 +3,7 @@ import styled, { css } from 'styled-components/macro';
 import { ReactComponent as DocumentationIcon } from './assets/documentation-icon.svg';
 import { ReactComponent as DesignIcon } from './assets/design-icon.svg';
 import { ReactComponent as CodingIcon } from './assets/coding-icon.svg';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 export function Nav() {
   return (
@@ -20,9 +20,9 @@ export function Nav() {
         <CodingIcon />
         Code
       </StyledLink>
-      <StyledLink to="/">Build</StyledLink>
-      <StyledLink to="/">Deploy</StyledLink>
-      <StyledLink to="/">Operation</StyledLink>
+      <StyledLink to="/build">Build</StyledLink>
+      <StyledLink to="/deploy">Deploy</StyledLink>
+      <StyledLink to="/operation">Operation</StyledLink>
     </Wrapper>
   );
 }
@@ -53,11 +53,19 @@ const SharedButton = css`
     opacity: 0.4;
   }
 
+  &.active {
+    font-weight: bold;
+    color: #000;
+    background-color: #fff;
+
+    border-bottom: 2px solid #fff;
+  }
+
   .icon {
     margin-right: 0.25rem;
   }
 `;
 
-const StyledLink = styled(Link)`
+const StyledLink = styled(NavLink)`
   ${SharedButton}
 `;
