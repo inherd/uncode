@@ -1,3 +1,5 @@
+#[macro_use]
+extern crate lazy_static;
 extern crate serde_json;
 
 use gherkin_rust::{Feature};
@@ -5,13 +7,26 @@ use uncode_core::StoryModel;
 use walkdir::{WalkDir, DirEntry};
 use std::fs;
 use std::path::Path;
+use regex::{Regex};
+
+
+lazy_static! {
+  static ref STATUS_REGEX: Regex = Regex::new(r"#\sstatus:\s(?P<status>.*)").unwrap();
+}
 
 pub fn parse(content: &str) -> StoryModel {
   let mut story = StoryModel::default();
+  let mut status = "".to_string();
+  for line in content.lines().into_iter() {
+    if let Some(caps) = STATUS_REGEX.captures(line) {
+      status = caps["status"].to_string();
+    }
+  }
   let result = Feature::parse(content, Default::default());
   match result {
     Ok(feature) => {
       story.title = feature.name;
+      story.status = status;
       story.description = feature.description.unwrap_or("".to_string());
     }
     Err(err) => {
@@ -61,5 +76,14 @@ mod tests {
 
     assert_eq!(1, stories.len());
     assert_eq!("第一个用户故事", stories[0].title);
+  }
+
+  #[test]
+  fn should_parse_status() {
+    let d = PathBuf::from(env!("CARGO_MANIFEST_DIR"));
+    let path = format!("{}", d.join("story").display());
+    let stories = parse_dir(path);
+
+    assert_eq!("done", stories[0].status);
   }
 }

@@ -3405,6 +3405,8 @@ name = "uncode_story"
 version = "0.1.0"
 dependencies = [
  "gherkin_rust",
+ "lazy_static",
+ "regex",
  "serde",
  "serde_json",
  "uncode_core",
