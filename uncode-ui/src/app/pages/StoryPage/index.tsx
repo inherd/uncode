@@ -6,7 +6,7 @@ import styled from 'styled-components/macro';
 import Board from '@lourenci/react-kanban';
 import '@lourenci/react-kanban/dist/styles.css';
 import TauriShortcuts from '../../../tauri-shortcuts';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 
 export interface Card {
   id: number;
@@ -15,7 +15,7 @@ export interface Card {
 }
 
 export function StoryPage() {
-  let [board, setBoard] = useState({
+  let [board] = useState({
     columns: [],
   });
 
