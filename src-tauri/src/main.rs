@@ -36,11 +36,10 @@ fn main() {
   tauri::Builder::default()
     .on_page_load(move |window, _| {
       let window_ = window.clone();
-      let workspace_ = uncode_config.clone();
-
-      window.listen("save_config".to_string(), move |_event| {
-        let ws = workspace_.lock().unwrap();
-        ws.save_config();
+      window.listen("save_config".to_string(), move |event| {
+        info!("{:?}", event.payload());
+        let result: UncodeConfig = serde_json::from_str(event.payload().expect("lost payload")).expect("uncode no match model");
+        UncodeConfig::save_config(result);
 
         window_
           .emit(&"rust-event".to_string(), Some(Reply {

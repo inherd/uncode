@@ -1,22 +1,23 @@
 import { open } from '@tauri-apps/api/dialog';
 import { invoke } from '@tauri-apps/api/tauri';
+import { emit } from '@tauri-apps/api/event';
 
 const TauriBridge = {
   // todo: move listen to here
   listen(event_name) {},
 
-  workspace: {
+  uncode_config: {
     path: '',
   },
 
   getStory(): Promise<any> {
-    return invoke('get_story', { dir: this.workspace.path });
+    return invoke('get_story', { dir: this.uncode_config.path });
   },
 
   openDialog(): Promise<any> {
     return open({ directory: true }).then(result => {
-      this.workspace.path = result as string;
-      return invoke('open_directory', { payload: result });
+      this.uncode_config.path = result as string;
+      emit('save_config', JSON.stringify(this.uncode_config));
     });
   },
 

@@ -17,13 +17,13 @@ impl Default for UncodeConfig {
 }
 
 impl UncodeConfig {
-  pub fn save_config (&self){
-    if self.path == ""{
+  pub fn save_config (config: UncodeConfig){
+    if config.path == ""{
       error!("workspace path is empty");
       return;
     }
 
-    let ws = serde_json::to_string_pretty(self.clone()).expect("error");
+    let ws = serde_json::to_string_pretty(&config).expect("error");
     let path = UncodeConfig::config_path().expect("lost home issue");
     if !path.exists() {
       let _file = File::create(&path).unwrap();
