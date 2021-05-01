@@ -15,6 +15,7 @@ pub use uncode_config::UncodeConfig;
 mod cmd;
 
 mod uncode_config;
+mod workspace_config;
 
 #[derive(Serialize)]
 struct Reply {
