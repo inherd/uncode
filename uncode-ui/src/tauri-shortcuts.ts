@@ -2,10 +2,6 @@ import hotkeys from 'hotkeys-js';
 import TauriBridge from './tauri-bridge';
 
 const TauriShortcuts = {
-  getStory(): Promise<any> {
-    return TauriBridge.getStory();
-  },
-
   init() {
     hotkeys.unbind('f5');
     hotkeys.unbind('ctrl+o, command+o');

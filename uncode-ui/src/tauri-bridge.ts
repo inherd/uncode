@@ -25,6 +25,14 @@ const TauriBridge = {
     });
   },
 
+  createStory(card): Promise<any> {
+    return invoke('create_story', {
+      root: this.config.uncode.path,
+      story: this.config.workspace.story,
+      card: card,
+    });
+  },
+
   setConfig(config: any) {
     this.config = config;
     window.dispatchEvent(new Event('set_config'));

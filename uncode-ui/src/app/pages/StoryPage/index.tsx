@@ -3,10 +3,10 @@ import { Helmet } from 'react-helmet-async';
 import { NavBar } from '../../components/NavBar';
 import { PageWrapper } from '../../components/PageWrapper';
 import styled from 'styled-components/macro';
-import Board from '@lourenci/react-kanban';
+import Board, { moveCard } from '@lourenci/react-kanban';
 import '@lourenci/react-kanban/dist/styles.css';
-import TauriShortcuts from '../../../tauri-shortcuts';
 import { useEffect, useState } from 'react';
+import TauriBridge from '../../../tauri-bridge';
 
 export interface Card {
   id: number;
@@ -16,18 +16,17 @@ export interface Card {
 
 export function StoryPage() {
   let [board, setBoard] = useState({
-    columns: [],
+    columns: [{ id: 1, title: 'Backlog', cards: [] }],
   } as any);
 
   useEffect(() => {
-    TauriShortcuts.getStory().then(stories => {
+    TauriBridge.getStory().then(stories => {
       let column_map: any = {
         backlog: { id: 1, title: 'Backlog', cards: [] },
         doing: { id: 2, title: 'Doing', cards: [] },
         done: { id: 3, title: 'Done', cards: [] },
       };
       let card_map: any = {};
-      let column_id = 1;
       for (let story of stories) {
         if (!card_map[story.status]) {
           card_map[story.status] = 1;
@@ -54,7 +53,13 @@ export function StoryPage() {
 
   function onCardNew(newCard) {
     const card = { id: '', ...newCard };
+    TauriBridge.createStory(card);
     return card;
+  }
+
+  function handleCardMove(_card, source, destination) {
+    const updatedBoard = moveCard(board, source, destination);
+    setBoard(updatedBoard);
   }
 
   return (
@@ -65,7 +70,15 @@ export function StoryPage() {
       </Helmet>
       <NavBar />
       <PageWrapper>
-        <Board allowAddCard onNewCardConfirm={onCardNew} initialBoard={board} />
+        <Board
+          allowAddCard={{ on: 'top' }}
+          onNewCardConfirm={onCardNew}
+          onCardNew={console.log}
+          disableColumnDrag
+          onCardDragEnd={handleCardMove}
+        >
+          {board}
+        </Board>
       </PageWrapper>
     </>
   );
