@@ -51,3 +51,4 @@ apps.json
 .serverless/
 yarn-error.log
 build
+.uncode

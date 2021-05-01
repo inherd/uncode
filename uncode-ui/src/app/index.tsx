@@ -11,18 +11,21 @@ import { NotFoundPage } from './pages/NotFoundPage/Loadable';
 import { useTranslation } from 'react-i18next';
 import TauriShortcuts from '../tauri-shortcuts';
 import { StoryPage } from './pages/StoryPage/Loadable';
-import { listen } from '@tauri-apps/api/event';
+import { emit, listen } from '@tauri-apps/api/event';
 import { useState } from 'react';
 
 export function App() {
   TauriShortcuts.init();
   const { i18n } = useTranslation();
+
+  // eslint-disable-next-line
   const [project, setProject] = useState({});
   listen('bootstrap', (data: any) => {
     let payload = JSON.parse(data.payload);
     console.log(payload);
     setProject(payload);
   });
+  emit('save_config');
 
   return (
     <BrowserRouter>

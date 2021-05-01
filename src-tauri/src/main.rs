@@ -39,8 +39,8 @@ impl Workspace {
       return;
     }
 
-    let ws = serde_json::to_string(self.clone()).expect("error");
-    let path = PathBuf::from(self.path.clone());
+    let ws = serde_json::to_string_pretty(self.clone()).expect("error");
+    let path = PathBuf::from(self.path.clone()).join(".uncode");
     if !path.exists() {
       let _file = File::create(&path).unwrap();
     }
