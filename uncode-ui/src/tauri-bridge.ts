@@ -17,14 +17,20 @@ const TauriBridge = {
     });
   },
 
-  saveConfig(config: any) {
+  setConfig(config: any) {
     this.uncode_config = config;
+    window.dispatchEvent(new Event('set_config'));
+  },
+
+  saveConfig(config: any) {
+    this.setConfig(config);
     emit('save_config', JSON.stringify(this.uncode_config));
   },
 
   openDialog(): Promise<any> {
     return open({ directory: true }).then(result => {
       this.uncode_config.path = result as string;
+      this.setConfig(this.uncode_config);
       emit('save_config', JSON.stringify(this.uncode_config));
     });
   },

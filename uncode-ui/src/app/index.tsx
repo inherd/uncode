@@ -11,13 +11,15 @@ import { NotFoundPage } from './pages/NotFoundPage/Loadable';
 import { useTranslation } from 'react-i18next';
 import TauriShortcuts from '../tauri-shortcuts';
 import { StoryPage } from './pages/StoryPage/Loadable';
-import { emit, listen } from '@tauri-apps/api/event';
+import { listen } from '@tauri-apps/api/event';
 import { useState } from 'react';
 import TauriBridge from '../tauri-bridge';
 
 export function App() {
   TauriShortcuts.init();
   const { i18n } = useTranslation();
+
+  // eslint-disable-next-line
   const [project, setProject] = useState({});
 
   listen('bootstrap', (data: any) => {

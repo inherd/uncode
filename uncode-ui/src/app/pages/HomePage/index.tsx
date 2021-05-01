@@ -13,6 +13,10 @@ export function HomePage() {
     theme: 'vs-dark',
   };
 
+  window.addEventListener('set_config', _ => {
+    setConfig(TauriBridge.uncode_config);
+  });
+
   const updateConfig = (value, event) => {
     try {
       setConfig(JSON.parse(value));
