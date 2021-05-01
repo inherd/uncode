@@ -50,7 +50,7 @@ export function HomePage() {
         <MonacoEditor
           width="800"
           height="600"
-          defaultValue={JSON.stringify(config)}
+          defaultValue={JSON.stringify(config, null, '\t')}
           onChange={updateConfig}
           options={options}
           editorDidMount={editorDidMount}
