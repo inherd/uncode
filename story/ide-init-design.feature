@@ -1,6 +1,6 @@
 # status: doing
 Feature: IDE Init flow design
-  # Enter feature description here
+  打开 IDE 时，能读取上次打开的路径，并将结果传给 IDE
 
   Scenario: Start IDE
     Given Uncode IDD
