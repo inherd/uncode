@@ -17,9 +17,9 @@ import { useState } from 'react';
 export function App() {
   TauriShortcuts.init();
   const { i18n } = useTranslation();
-  const [project] = useState({});
+  const [project, setProject] = useState({});
   listen('bootstrap', (data: any) => {
-    console.log('event start', data);
+    setProject(project);
   });
 
   return (
