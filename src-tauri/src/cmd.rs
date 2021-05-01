@@ -22,21 +22,23 @@ pub fn log_operation<M: tauri::Params>(
   event: String,
   payload: Option<String>,
 ) {
-  println!("{} {:?}", event, payload);
+  info!("log: {} {:?}", event, payload);
 }
 
 #[command]
 pub fn perform_request(endpoint: String, body: RequestBody) -> String {
-  println!("{} {:?}", endpoint, body);
+  info!("{} {:?}", endpoint, body);
   "message response".into()
 }
 
 #[command]
 pub fn open_directory(payload: String) {
-  println!("{}", payload);
+  info!("open_directory: {}", payload);
 }
 
 #[command]
 pub fn get_story(dir: String) -> Vec<StoryModel> {
-  uncode_story::parse_dir(dir)
+  let stories = uncode_story::parse_dir(dir);
+  info!("get_story: {:?}", stories.clone());
+  stories
 }

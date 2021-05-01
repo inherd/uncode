@@ -19,6 +19,9 @@ tauri = { version = "1.0.0-beta-rc.4", features =["api-all"]}
 uncode_core = { path = "../uncode/uncode-core" }
 uncode_story = { path = "../uncode/uncode-story" }
 
+log = "0.4.8"
+tracing-subscriber = "0.2.17"
+
 [features]
 default = [ "custom-protocol" ]
 custom-protocol = [ "tauri/custom-protocol" ]
