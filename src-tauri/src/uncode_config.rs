@@ -19,6 +19,11 @@ impl Default for UncodeConfig {
 }
 
 impl UncodeConfig {
+
+  pub fn json(&self) -> String {
+    serde_json::to_string(self.clone()).expect("error")
+  }
+
   pub fn save_config (config: UncodeConfig){
     if config.path == ""{
       error!("workspace path is empty");
@@ -36,9 +41,6 @@ impl UncodeConfig {
       Ok(_) => log::info!("save config: {:?}", path),
       Err(e) => log::info!("failed to write data: {}", { e }),
     }
-  }
-  pub fn json(&self) -> String {
-    serde_json::to_string(self.clone()).expect("error")
   }
 
   pub fn read_config() -> UncodeConfig {
@@ -74,5 +76,4 @@ impl UncodeConfig {
     let config_path = base.join("uncode.json");
     Some(config_path)
   }
-
 }

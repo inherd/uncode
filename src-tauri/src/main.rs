@@ -11,6 +11,7 @@ use std::sync::{Arc, Mutex};
 use serde::Serialize;
 
 pub use uncode_config::UncodeConfig;
+use crate::workspace_config::WorkspaceConfig;
 
 mod cmd;
 
@@ -22,6 +23,12 @@ struct Reply {
   data: String,
 }
 
+#[derive(Serialize, Deserialize)]
+struct SummaryConfig {
+  pub workspace: WorkspaceConfig,
+  pub uncode: UncodeConfig
+}
+
 fn main() {
   setup_log();
 
@@ -30,19 +37,13 @@ fn main() {
 
   tauri::Builder::default()
     .on_page_load(move |window, _| {
-      let window_ = window.clone();
+      let window = window.clone();
       let config = uncode_config.clone();
 
       window.listen("save_config".to_string(), move |event| {
         info!("{:?}", event.payload());
         let result: UncodeConfig = serde_json::from_str(event.payload().expect("lost payload")).expect("uncode no match model");
         UncodeConfig::save_config(result);
-
-        window_
-          .emit(&"rust-event".to_string(), Some(Reply {
-            data: "something else".to_string(),
-          }))
-          .expect("failed to emit");
       });
 
       window
