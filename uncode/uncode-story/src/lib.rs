@@ -4,6 +4,7 @@ use gherkin_rust::{Feature};
 use uncode_core::StoryModel;
 use walkdir::{WalkDir, DirEntry};
 use std::fs;
+use std::path::Path;
 
 pub fn parse(content: &str) -> StoryModel {
   let mut story = StoryModel::default();
@@ -21,7 +22,7 @@ pub fn parse(content: &str) -> StoryModel {
   story
 }
 
-pub fn parse_dir(path: String) -> Vec<StoryModel> {
+pub fn parse_dir<P: AsRef<Path>>(path: P) -> Vec<StoryModel> {
   fn is_story(entry: &DirEntry) -> bool {
     if entry.file_type().is_dir() {
       return true;

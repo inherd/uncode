@@ -11,7 +11,10 @@ const TauriBridge = {
   },
 
   getStory(): Promise<any> {
-    return invoke('get_story', { dir: this.uncode_config.path });
+    return invoke('get_story', {
+      root: this.uncode_config.path,
+      story: 'story',
+    });
   },
 
   openDialog(): Promise<any> {

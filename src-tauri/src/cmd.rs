@@ -1,6 +1,7 @@
 use serde::Deserialize;
 use tauri::{command};
 use uncode_core::StoryModel;
+use std::path::PathBuf;
 
 #[derive(Debug, Deserialize)]
 pub struct RequestBody {
@@ -30,8 +31,9 @@ pub fn open_directory(payload: String) {
 }
 
 #[command]
-pub fn get_story(dir: String) -> Vec<StoryModel> {
-  let stories = uncode_story::parse_dir(dir);
+pub fn get_story(root: String, story: String) -> Vec<StoryModel> {
+  let story_path = PathBuf::from(root).join(story);
+  let stories = uncode_story::parse_dir(story_path);
   info!("get_story: {:?}", stories.clone());
   stories
 }
