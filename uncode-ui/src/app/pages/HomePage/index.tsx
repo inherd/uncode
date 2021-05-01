@@ -8,14 +8,14 @@ import MonacoEditor from 'react-monaco-editor';
 import * as monacoEditor from 'monaco-editor';
 
 export function HomePage() {
-  const [config, setConfig] = useState(TauriBridge.uncode_config);
+  const [config, setConfig] = useState(TauriBridge.config);
   const options = {
     language: 'json',
     theme: 'vs-dark',
   };
 
   window.addEventListener('set_config', _ => {
-    setConfig(TauriBridge.uncode_config);
+    setConfig(TauriBridge.config);
   });
 
   const updateConfig = (value, event) => {
@@ -45,7 +45,7 @@ export function HomePage() {
       </Helmet>
       <NavBar />
       <PageWrapper>
-        <h2>Uncode config</h2>
+        <h2>Uncode config (for Debug)</h2>
         <button onClick={saveConfig}>Save Config</button>
         <MonacoEditor
           width="800"

@@ -24,7 +24,7 @@ export function App() {
 
   listen('bootstrap', (data: any) => {
     let payload = JSON.parse(data.payload);
-    TauriBridge.uncode_config = payload;
+    TauriBridge.config = payload;
     setProject(payload);
   });
 

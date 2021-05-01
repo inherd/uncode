@@ -6,32 +6,40 @@ const TauriBridge = {
   // todo: move listen to here
   listen(event_name) {},
 
-  uncode_config: {
-    path: '',
+  config: {
+    uncode: {
+      path: '',
+      workspace_config: '',
+    },
+    workspace: {
+      domain: '',
+      story: 'design',
+      design: 'story',
+    },
   },
 
   getStory(): Promise<any> {
     return invoke('get_story', {
-      root: this.uncode_config.path,
-      story: 'story',
+      root: this.config.uncode.path,
+      story: this.config.workspace.story,
     });
   },
 
   setConfig(config: any) {
-    this.uncode_config = config;
+    this.config = config;
     window.dispatchEvent(new Event('set_config'));
   },
 
   saveConfig(config: any) {
     this.setConfig(config);
-    emit('save_config', JSON.stringify(this.uncode_config));
+    emit('save_config', JSON.stringify(this.config));
   },
 
   openDialog(): Promise<any> {
     return open({ directory: true }).then(result => {
-      this.uncode_config.path = result as string;
-      this.setConfig(this.uncode_config);
-      emit('save_config', JSON.stringify(this.uncode_config));
+      this.config.uncode.path = result as string;
+      this.setConfig(this.config);
+      emit('save_config', JSON.stringify(this.config));
     });
   },
 
