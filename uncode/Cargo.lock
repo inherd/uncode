@@ -967,7 +967,15 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "56dee185309b50d1f11bfedef0fe6d036842e3fb77413abef29f8f8d1c5d4c1c"
 
 [[package]]
-name = "uncode"
+name = "uncode_core"
+version = "0.1.0"
+dependencies = [
+ "serde",
+ "serde_json",
+]
+
+[[package]]
+name = "uncode_rpc"
 version = "0.1.0"
 dependencies = [
  "clap",
@@ -978,14 +986,6 @@ dependencies = [
  "serde",
  "tarpc",
  "tokio",
-]
-
-[[package]]
-name = "uncode_core"
-version = "0.1.0"
-dependencies = [
- "serde",
- "serde_json",
 ]
 
 [[package]]

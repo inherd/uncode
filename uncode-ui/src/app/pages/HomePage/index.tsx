@@ -7,7 +7,7 @@ import TauriBridge from '../../../tauri-bridge';
 import MonacoEditor from 'react-monaco-editor';
 
 export function HomePage() {
-  const [config] = useState(TauriBridge.uncode_config);
+  // const [config] = useState(TauriBridge.uncode_config);
   const options = {
     language: 'json',
   };
@@ -28,7 +28,7 @@ export function HomePage() {
         <MonacoEditor
           width="800"
           height="600"
-          defaultValue={JSON.stringify(config)}
+          // defaultValue={JSON.stringify(config)}
           onChange={updateConfig}
           options={options}
         />

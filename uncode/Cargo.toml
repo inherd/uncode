@@ -1,5 +1,5 @@
 [package]
-name = "uncode"
+name = "uncode_rpc"
 version = "0.1.0"
 authors = ["Inherd Group <group@inherd.org>", "Phodal Huang <h@phodal.com>"]
 edition = "2018"
