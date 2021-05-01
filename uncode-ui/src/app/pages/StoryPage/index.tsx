@@ -21,18 +21,14 @@ export function StoryPage() {
 
   useEffect(() => {
     TauriShortcuts.getStory().then(stories => {
-      let column_map: any = {};
+      let column_map: any = {
+        backlog: { id: 1, title: 'Backlog', cards: [] },
+        doing: { id: 2, title: 'Doing', cards: [] },
+        done: { id: 3, title: 'Done', cards: [] },
+      };
       let card_map: any = {};
       let column_id = 1;
       for (let story of stories) {
-        if (!column_map[story.status]) {
-          column_map[story.status] = {
-            id: column_id,
-            title: story.status,
-            cards: [],
-          };
-        }
-
         if (!card_map[story.status]) {
           card_map[story.status] = 1;
         } else {
