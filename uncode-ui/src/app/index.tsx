@@ -19,7 +19,9 @@ export function App() {
   const { i18n } = useTranslation();
   const [project, setProject] = useState({});
   listen('bootstrap', (data: any) => {
-    setProject(project);
+    let payload = JSON.parse(data.payload);
+    console.log(payload);
+    setProject(payload);
   });
 
   return (
