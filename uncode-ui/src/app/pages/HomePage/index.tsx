@@ -5,6 +5,7 @@ import { PageWrapper } from 'app/components/PageWrapper';
 import { useState } from 'react';
 import TauriBridge from '../../../tauri-bridge';
 import MonacoEditor from 'react-monaco-editor';
+import * as monacoEditor from 'monaco-editor';
 
 export function HomePage() {
   const [config, setConfig] = useState(TauriBridge.uncode_config);
@@ -27,6 +28,15 @@ export function HomePage() {
     TauriBridge.saveConfig(config);
   };
 
+  const editorDidMount = (
+    editor: monacoEditor.editor.IStandaloneCodeEditor,
+    monaco: typeof monacoEditor,
+  ) => {
+    setTimeout(function () {
+      editor.getAction('editor.action.formatDocument').run();
+    }, 300);
+  };
+
   return (
     <>
       <Helmet>
@@ -43,6 +53,7 @@ export function HomePage() {
           defaultValue={JSON.stringify(config)}
           onChange={updateConfig}
           options={options}
+          editorDidMount={editorDidMount}
         />
       </PageWrapper>
     </>
