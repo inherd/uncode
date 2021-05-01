@@ -46,6 +46,7 @@ impl UncodeConfig {
   pub fn read_config() -> UncodeConfig {
     let mut app_state = UncodeConfig::default();
     let path = UncodeConfig::config_path().expect("lost home issue");
+
     let content;
     match fs::read_to_string(&path) {
       Ok(str) => {
@@ -64,6 +65,14 @@ impl UncodeConfig {
         log::error!("error config: {}", content);
       }
     };
+
+    let state = PathBuf::from(app_state.path.clone());
+    let uncode_path = state.join(".uncode.json");
+    if uncode_path.exists() {
+      info!("found uncode config {:?}, loading", uncode_path);
+      app_state.workspace_config = format!("{}", uncode_path.display());
+    }
+
     return app_state;
   }
 
