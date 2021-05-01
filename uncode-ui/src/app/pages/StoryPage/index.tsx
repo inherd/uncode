@@ -6,43 +6,49 @@ import styled from 'styled-components/macro';
 import Board from '@lourenci/react-kanban';
 import '@lourenci/react-kanban/dist/styles.css';
 import TauriShortcuts from '../../../tauri-shortcuts';
+import { useEffect, useState } from 'react';
+
+export interface Card {
+  id: number;
+  title: string;
+  description: string;
+}
 
 export function StoryPage() {
-  let board = {
-    columns: [
-      {
-        id: 1,
-        title: 'Backlog',
-        cards: [],
-      },
-      {
-        id: 2,
-        title: 'Doing',
-        cards: [],
-      },
-      {
-        id: 3,
-        title: 'Doing',
-        cards: [],
-      },
-      {
-        id: 4,
-        title: 'Done',
-        cards: [],
-      },
-    ],
-  };
+  let [board, setBoard] = useState({
+    columns: [],
+  });
 
   TauriShortcuts.getStory().then(stories => {
     let id = 1;
+    let cards: Card[] = [];
     for (let story of stories) {
-      (board.columns[0].cards as any).push({
+      cards.push({
         id: id,
         title: story.title,
         description: story.description,
       });
       id = id + 1;
     }
+    board = {
+      columns: [
+        {
+          id: 1,
+          title: 'Backlog',
+          cards: cards,
+        },
+        {
+          id: 2,
+          title: 'Doing',
+          cards: [],
+        },
+        {
+          id: 3,
+          title: 'Done',
+          cards: [],
+        },
+      ],
+    } as any;
   });
 
   return (
