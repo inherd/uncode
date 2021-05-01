@@ -5,6 +5,7 @@ const TauriBridge = {
   workspace: {
     path: '',
   },
+
   getStory(): Promise<any> {
     return invoke('get_story', { dir: this.workspace.path });
   },
@@ -16,7 +17,9 @@ const TauriBridge = {
     });
   },
 
-  title(title: string) {},
+  title(title: string) {
+    return invoke('set_title', { payload: title });
+  },
 
   log(name: string, message: string): Promise<any> {
     return invoke('log_operation', { payload: message });

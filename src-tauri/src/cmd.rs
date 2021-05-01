@@ -1,5 +1,5 @@
 use serde::Deserialize;
-use tauri::command;
+use tauri::{command};
 use uncode_core::StoryModel;
 
 #[derive(Debug, Deserialize)]
@@ -11,6 +11,11 @@ pub struct RequestBody {
 #[command]
 pub fn log_operation(event: String, payload: Option<String>) {
   info!("log: {} {:?}", event, payload);
+}
+
+#[command(with_window)]
+pub fn set_title<M: tauri::Params>(window: tauri::Window<M>, payload: String) {
+  let _ = window.set_title(payload.as_str());
 }
 
 #[command]

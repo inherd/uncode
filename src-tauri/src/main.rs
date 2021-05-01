@@ -41,7 +41,8 @@ fn main() {
       cmd::log_operation,
       cmd::perform_request,
       cmd::open_directory,
-      cmd::get_story
+      cmd::get_story,
+      cmd::set_title,
     ])
     .run(tauri::generate_context!())
     .expect("error while running tauri application");

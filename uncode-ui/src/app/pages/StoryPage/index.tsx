@@ -6,7 +6,7 @@ import styled from 'styled-components/macro';
 import Board from '@lourenci/react-kanban';
 import '@lourenci/react-kanban/dist/styles.css';
 import TauriShortcuts from '../../../tauri-shortcuts';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 export interface Card {
   id: number;
@@ -15,41 +15,45 @@ export interface Card {
 }
 
 export function StoryPage() {
-  let [board] = useState({
+  let [board, setBoard] = useState({
     columns: [],
-  });
+  } as any);
 
-  TauriShortcuts.getStory().then(stories => {
-    let id = 1;
-    let cards: Card[] = [];
-    for (let story of stories) {
-      cards.push({
-        id: id,
-        title: story.title,
-        description: story.description,
-      });
-      id = id + 1;
-    }
-    board = {
-      columns: [
-        {
-          id: 1,
-          title: 'Backlog',
-          cards: cards,
-        },
-        {
-          id: 2,
-          title: 'Doing',
-          cards: [],
-        },
-        {
-          id: 3,
-          title: 'Done',
-          cards: [],
-        },
-      ],
-    } as any;
-  });
+  useEffect(() => {
+    TauriShortcuts.getStory().then(stories => {
+      console.log(stories);
+      let id = 1;
+      let cards: Card[] = [];
+      for (let story of stories) {
+        cards.push({
+          id: id,
+          title: story.title,
+          description: story.description,
+        });
+        id = id + 1;
+      }
+
+      setBoard({
+        columns: [
+          {
+            id: 1,
+            title: 'Backlog',
+            cards: cards,
+          },
+          {
+            id: 2,
+            title: 'Doing',
+            cards: [],
+          },
+          {
+            id: 3,
+            title: 'Done',
+            cards: [],
+          },
+        ],
+      } as any);
+    });
+  }, []);
 
   return (
     <>
@@ -59,7 +63,7 @@ export function StoryPage() {
       </Helmet>
       <NavBar />
       <PageWrapper>
-        <Board initialBoard={board} />
+        <Board>{board}</Board>
       </PageWrapper>
     </>
   );
