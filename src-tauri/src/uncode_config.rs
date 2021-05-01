@@ -6,12 +6,14 @@ use std::path::PathBuf;
 #[derive(Serialize, Deserialize)]
 pub struct UncodeConfig {
   pub path: String,
+  pub workspace_config: String,
 }
 
 impl Default for UncodeConfig {
   fn default() -> Self {
     UncodeConfig {
-      path: "".to_string()
+      path: "".to_string(),
+      workspace_config: "".to_string()
     }
   }
 }
