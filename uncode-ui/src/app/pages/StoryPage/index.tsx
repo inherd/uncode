@@ -52,6 +52,11 @@ export function StoryPage() {
     });
   }, []);
 
+  function onCardNew(newCard) {
+    const card = { id: '', ...newCard };
+    return card;
+  }
+
   return (
     <>
       <Helmet>
@@ -60,7 +65,7 @@ export function StoryPage() {
       </Helmet>
       <NavBar />
       <PageWrapper>
-        <Board>{board}</Board>
+        <Board allowAddCard onNewCardConfirm={onCardNew} initialBoard={board} />
       </PageWrapper>
     </>
   );
