@@ -14,6 +14,7 @@
   },
   "dependencies": {
     "@tauri-apps/api": "^1.0.0-beta-rc.3",
-    "@tauri-apps/cli": "*"
+    "@tauri-apps/cli": "*",
+    "mermaid": "^8.9.3"
   }
 }

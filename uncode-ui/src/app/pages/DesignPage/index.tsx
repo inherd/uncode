@@ -3,8 +3,20 @@ import { Helmet } from 'react-helmet-async';
 import { NavBar } from '../../components/NavBar';
 import { PageWrapper } from '../../components/PageWrapper';
 import styled from 'styled-components/macro';
+import Mermaid from '../../components/Memarid';
 
 export function DesignPage() {
+  let example = `classDiagram
+class GeoPointType {
+ <<enumeration>>
+  BROWNFIELD
+  OGWELL
+  CELL_TOWER
+  NUCLEAR_REACTOR
+  SUPERFUND
+}
+`;
+  // @ts-ignore
   return (
     <>
       <Helmet>
@@ -14,6 +26,7 @@ export function DesignPage() {
       <NavBar />
       <PageWrapper>
         <A>Uncode Design</A>
+        <Mermaid chart={example} config={{}} name={''} />
       </PageWrapper>
     </>
   );
