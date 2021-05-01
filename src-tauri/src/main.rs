@@ -36,6 +36,10 @@ fn main() {
           .emit(&"rust-event".to_string(), Some(reply))
           .expect("failed to emit");
       });
+
+      window
+        .emit(&"bootstrap".to_string(), Some(""))
+        .expect("failed to emit");
     })
     .invoke_handler(tauri::generate_handler![
       cmd::log_operation,

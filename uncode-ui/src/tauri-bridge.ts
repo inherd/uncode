@@ -2,6 +2,9 @@ import { open } from '@tauri-apps/api/dialog';
 import { invoke } from '@tauri-apps/api/tauri';
 
 const TauriBridge = {
+  // todo: move listen to here
+  listen(event_name) {},
+
   workspace: {
     path: '',
   },
