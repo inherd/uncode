@@ -6,9 +6,7 @@
 #[macro_use]
 extern crate log;
 
-use std::sync::{Arc, Mutex};
-
-use serde::Serialize;
+use serde::{Serialize, Deserialize};
 
 pub use uncode_config::UncodeConfig;
 use crate::workspace_config::WorkspaceConfig;
@@ -32,13 +30,21 @@ struct SummaryConfig {
 fn main() {
   setup_log();
 
-  let config = UncodeConfig::read_config();
-  let uncode_config = Arc::new(Mutex::new(config));
+  let uncode = UncodeConfig::read_config();
+  let workspace = if !uncode.workspace_config.is_empty() {
+    WorkspaceConfig::from_path(uncode.workspace_config.clone())
+  } else {
+    WorkspaceConfig::default()
+  };
+
+  let uncode_config = SummaryConfig {
+    uncode,
+    workspace
+  };
 
   tauri::Builder::default()
     .on_page_load(move |window, _| {
       let window = window.clone();
-      let config = uncode_config.clone();
 
       window.listen("save_config".to_string(), move |event| {
         info!("{:?}", event.payload());
@@ -47,7 +53,7 @@ fn main() {
       });
 
       window
-        .emit(&"bootstrap".to_string(), Some(config.lock().unwrap().json()))
+        .emit(&"bootstrap".to_string(), Some(serde_json::to_string(&uncode_config).unwrap()))
         .expect("failed to emit");
     })
     .invoke_handler(tauri::generate_handler![
@@ -56,6 +62,7 @@ fn main() {
       cmd::open_directory,
       cmd::get_story,
       cmd::set_title,
+      cmd::save_workspace,
     ])
     .run(tauri::generate_context!())
     .expect("error while running tauri application");
