@@ -8,24 +8,15 @@ import { useState } from 'react';
 import TauriBridge from '../../../tauri-bridge';
 
 export function DesignPage() {
-  // @ts-ignore
-  // let [model, setModel] = useState({} as any);
+  let [modeling, setModeling] = useState('');
+
   TauriBridge.title('Uncode - Design');
   TauriBridge.getDesign('modeling').then((model: string) => {
-    console.log(model);
+    let without_puml = model.replace('@startuml', '').replace('@enduml', '');
+    let mermaid_str = 'classDiagram\n' + without_puml;
+    setModeling(mermaid_str);
   });
 
-  let example = `classDiagram
-class GeoPointType {
- <<enumeration>>
-  BROWNFIELD
-  OGWELL
-  CELL_TOWER
-  NUCLEAR_REACTOR
-  SUPERFUND
-}
-`;
-  // @ts-ignore
   return (
     <>
       <Helmet>
@@ -36,7 +27,7 @@ class GeoPointType {
       <PageWrapper>
         <h2>Architecture Description</h2>
         <h2>Modeling</h2>
-        <Mermaid chart={example} config={{}} name={''} />
+        <Mermaid chart={modeling} config={{}} name={''} />
         <h2>Guard Design</h2>
       </PageWrapper>
     </>
