@@ -15,7 +15,7 @@ const UncodeBridge = {
       domain: '',
       story: 'design',
       design: 'story',
-      code: 'uncode',
+      code: '',
     },
   },
 
@@ -71,7 +71,6 @@ const UncodeBridge = {
   loadCodeTree(): Promise<any> {
     return invoke('load_code_tree', {
       root: this.config.uncode.path,
-      path: this.config.workspace.code,
     });
   },
 };
