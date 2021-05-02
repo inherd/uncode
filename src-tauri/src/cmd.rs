@@ -51,12 +51,22 @@ pub fn get_design(root: String, path: String, design_type: String) -> String {
   let design_path = PathBuf::from(root).join(path);
   info!("trying get {} from {}", design_type, design_path.display());
   match design_type.as_str() {
-    "modeling" => { handle_modeling_file(&design_path) }
+    "modeling" => { handle_modeling(&design_path) }
+    "guard" => { handle_guard(&design_path) }
     &_ => { "".to_string() }
   }
 }
 
-pub fn handle_modeling_file(path: &PathBuf) -> String {
+pub fn handle_guard(path: &PathBuf) -> String {
+  if let Ok(content) = fs::read_to_string(path.join("guard.rules")) {
+    return content
+  }
+
+  error!("lost content {}", path.display());
+  return "".to_string()
+}
+
+pub fn handle_modeling(path: &PathBuf) -> String {
   if let Ok(content) = fs::read_to_string(path.join("modeling.uml")) {
     return content
   }

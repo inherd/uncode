@@ -6,9 +6,11 @@ import styled from 'styled-components/macro';
 import Mermaid from '../../components/Memarid';
 import { useState } from 'react';
 import TauriBridge from '../../../tauri-bridge';
+import MonacoEditor from 'react-monaco-editor';
 
 export function DesignPage() {
   let [modeling, setModeling] = useState('');
+  let [guard, setGuard] = useState('');
 
   TauriBridge.title('Uncode - Design');
   TauriBridge.getDesign('modeling').then((model: string) => {
@@ -16,6 +18,15 @@ export function DesignPage() {
     let mermaid_str = 'classDiagram\n' + without_puml;
     setModeling(mermaid_str);
   });
+
+  TauriBridge.getDesign('guard').then((model: string) => {
+    console.log(model);
+    setGuard(model);
+  });
+
+  let guard_options = {
+    language: 'java',
+  };
 
   return (
     <>
@@ -29,6 +40,12 @@ export function DesignPage() {
         <h2>Modeling</h2>
         <Mermaid chart={modeling} config={{}} name={''} />
         <h2>Guard Design</h2>
+        <MonacoEditor
+          width="800"
+          height="600"
+          value={guard}
+          options={guard_options}
+        />
       </PageWrapper>
     </>
   );

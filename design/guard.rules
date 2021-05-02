@@ -1,5 +1,4 @@
 # https://github.com/mesmacosta/test-pyramid/blob/master/pyramid-microservice/src/test/java/com/github/ricardocomar/testpyramid/microservice/book/architecture/CleanArchitectureTest.java
-
 Architectures.layeredArchitecture()
         .as("Use Case External World Access.")
             .layer("UseCases")
@@ -11,8 +10,6 @@ Architectures.layeredArchitecture()
         .whereLayer("UseCases")
         .mayOnlyBeAccessedByLayers("UseCases", "Gateways", "Configuration")
         .because("It's ok for Use Cases to be accessed by external world.");
-
-
 
  Architectures.layeredArchitecture()
     .as("Use Case Gateways Access.")
@@ -27,8 +24,6 @@ Architectures.layeredArchitecture()
     .whereLayer("UseCasesGateways")
     .mayOnlyBeAccessedByLayers("UseCases", "Gateways")
     .because("UseCases gateway interfaces should not leak.");
-
-
 
 ArchRuleDefinition.classes()
         .that()
