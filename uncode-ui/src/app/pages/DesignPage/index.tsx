@@ -4,8 +4,17 @@ import { NavBar } from '../../components/NavBar';
 import { PageWrapper } from '../../components/PageWrapper';
 import styled from 'styled-components/macro';
 import Mermaid from '../../components/Memarid';
+import { useState } from 'react';
+import TauriBridge from '../../../tauri-bridge';
 
 export function DesignPage() {
+  // @ts-ignore
+  // let [model, setModel] = useState({} as any);
+  TauriBridge.title('Uncode - Design');
+  TauriBridge.getDesign('modeling').then((model: string) => {
+    console.log(model);
+  });
+
   let example = `classDiagram
 class GeoPointType {
  <<enumeration>>

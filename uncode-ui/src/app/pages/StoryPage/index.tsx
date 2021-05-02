@@ -15,6 +15,7 @@ export interface Card {
 }
 
 export function StoryPage() {
+  TauriBridge.title('Uncode - Story');
   let [board, setBoard] = useState({
     columns: [{ id: 1, title: 'Backlog', cards: [] }],
   } as any);

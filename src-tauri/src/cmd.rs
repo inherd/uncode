@@ -3,6 +3,7 @@ use tauri::{command};
 use uncode_core::StoryModel;
 use std::path::PathBuf;
 use crate::workspace_config::WorkspaceConfig;
+use std::fs;
 
 #[derive(Debug, Deserialize)]
 pub struct RequestBody {
@@ -43,4 +44,22 @@ pub fn get_story(root: String, story: String) -> Vec<StoryModel> {
   let stories = uncode_story::parse_dir(story_path);
   info!("get_story: {:?}", stories.clone());
   stories
+}
+
+#[command]
+pub fn get_design(root: String, path: String, design_type: String) -> String {
+  let design_path = PathBuf::from(root).join(path);
+  info!("trying get {} from {}", design_type, design_path.display());
+  match design_type.as_str() {
+    "modeling" => { handle_modeling_file(&design_path) }
+    &_ => { "".to_string() }
+  }
+}
+
+pub fn handle_modeling_file(path: &PathBuf) -> String {
+  if let Ok(content) = fs::read_to_string(path.join("modeling.uml")) {
+    return content
+  }
+
+  return "".to_string()
 }
