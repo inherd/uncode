@@ -1,0 +1,37 @@
+# https://github.com/mesmacosta/test-pyramid/blob/master/pyramid-microservice/src/test/java/com/github/ricardocomar/testpyramid/microservice/book/architecture/CleanArchitectureTest.java
+
+Architectures.layeredArchitecture()
+        .as("Use Case External World Access.")
+            .layer("UseCases")
+            .definedBy("com.github.ricardocomar.testpyramid.microservice.book.core.usecase..")
+            .layer("Gateways")
+            .definedBy("com.github.ricardocomar.testpyramid.microservice.book.gateway..")
+            .layer("Configuration")
+            .definedBy("com.github.ricardocomar.testpyramid.microservice.book.configuration..")
+        .whereLayer("UseCases")
+        .mayOnlyBeAccessedByLayers("UseCases", "Gateways", "Configuration")
+        .because("It's ok for Use Cases to be accessed by external world.");
+
+
+
+ Architectures.layeredArchitecture()
+    .as("Use Case Gateways Access.")
+        .layer("UseCases")
+        .definedBy("com.github.ricardocomar.testpyramid.microservice.book.core.usecase..")
+        .layer("UseCasesGateways")
+        .definedBy("com.github.ricardocomar.testpyramid.microservice.book.core.usecase.gateway..")
+        .layer("Gateways")
+        .definedBy("com.github.ricardocomar.testpyramid.microservice.book.gateway..")
+        .layer("Configuration")
+        .definedBy("com.github.ricardocomar.testpyramid.microservice.book.configuration..")
+    .whereLayer("UseCasesGateways")
+    .mayOnlyBeAccessedByLayers("UseCases", "Gateways")
+    .because("UseCases gateway interfaces should not leak.");
+
+
+
+ArchRuleDefinition.classes()
+        .that()
+        .haveSimpleNameEndingWith("UseCase")
+    .should(CleanArchitectureTest.containOnlyOnePublicMethod())
+    .because("Use Cases should have only one business responsibility.");
