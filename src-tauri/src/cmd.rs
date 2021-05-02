@@ -76,14 +76,13 @@ pub fn handle_modeling(path: &PathBuf) -> String {
   return "".to_string()
 }
 
-
 // todo: use parallel to loading file tree
 #[command(with_window)]
 pub fn load_code_tree<M: tauri::Params>(_window: tauri::Window<M>, root: String) -> String {
 
   thread::spawn(|| {
     let code_path = PathBuf::from(root);
-    let entry = FileEntry::from_path(code_path);
+    let entry = FileEntry::from_dir("root".to_string(), &code_path);
     let result = serde_json::to_string(&entry).expect("lost entry");
     info!("{:?}", result);
     // window.emit(&"loaded_code_tree".to_string(), Some(result)).expect("failure loading")

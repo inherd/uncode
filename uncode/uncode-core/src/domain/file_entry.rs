@@ -1,6 +1,5 @@
 use std::fs::DirEntry;
 use std::path::{Path, PathBuf};
-use std::sync::Arc;
 use std::{fs, io};
 
 use serde::{Deserialize, Serialize};
@@ -80,7 +79,7 @@ impl FileEntry {
       .unwrap_or(false)
   }
 
-  pub fn from_dir(title: String, dir: &Arc<Path>) -> FileEntry {
+  pub fn from_dir(title: String, dir: &Path) -> FileEntry {
     let mut root = FileEntry::new(title);
     let _result = FileEntry::visit_dirs(dir, 0, &mut root, dir);
     root
