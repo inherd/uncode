@@ -3,3 +3,4 @@ pub use story_model::StoryModel;
 
 pub mod architecture_model;
 pub mod story_model;
+pub mod file_entry;
