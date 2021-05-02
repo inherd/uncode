@@ -46,6 +46,7 @@ fn main() {
     .on_page_load(move |window, _| {
       let window = window.clone();
 
+      // todo: use event to async loading elements
       window.listen("save_config".to_string(), move |event| {
         info!("{:?}", event.payload());
         let result: UncodeConfig = serde_json::from_str(event.payload().expect("lost payload")).expect("uncode no match model");
