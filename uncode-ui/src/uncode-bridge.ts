@@ -2,7 +2,7 @@ import { open } from '@tauri-apps/api/dialog';
 import { invoke } from '@tauri-apps/api/tauri';
 import { emit } from '@tauri-apps/api/event';
 
-const TauriBridge = {
+const UncodeBridge = {
   // todo: move listen to here
   listen(event_name) {},
 
@@ -15,6 +15,7 @@ const TauriBridge = {
       domain: '',
       story: 'design',
       design: 'story',
+      code: 'uncode',
     },
   },
 
@@ -66,6 +67,13 @@ const TauriBridge = {
   log(name: string, message: string): Promise<any> {
     return invoke('log_operation', { payload: message });
   },
+
+  loadCodeTree(): Promise<any> {
+    return invoke('load_code_tree', {
+      root: this.config.uncode.path,
+      path: this.config.workspace.code,
+    });
+  },
 };
 
-export default TauriBridge;
+export default UncodeBridge;

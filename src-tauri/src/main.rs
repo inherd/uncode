@@ -64,6 +64,7 @@ fn main() {
       cmd::set_title,
       cmd::save_workspace,
       cmd::get_design,
+      cmd::load_code_tree,
     ])
     .run(tauri::generate_context!())
     .expect("error while running tauri application");

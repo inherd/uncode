@@ -3,19 +3,19 @@ import { Helmet } from 'react-helmet-async';
 import { NavBar } from 'app/components/NavBar';
 import { PageWrapper } from 'app/components/PageWrapper';
 import { useState } from 'react';
-import TauriBridge from '../../../tauri-bridge';
+import UncodeBridge from '../../../uncode-bridge';
 import MonacoEditor from 'react-monaco-editor';
 import * as monacoEditor from 'monaco-editor';
 
 export function HomePage() {
-  const [config, setConfig] = useState(TauriBridge.config);
+  const [config, setConfig] = useState(UncodeBridge.config);
   const options = {
     language: 'json',
     theme: 'vs-dark',
   };
 
   window.addEventListener('set_config', _ => {
-    setConfig(TauriBridge.config);
+    setConfig(UncodeBridge.config);
   });
 
   const updateConfig = (value, event) => {
@@ -25,7 +25,7 @@ export function HomePage() {
   };
 
   const saveConfig = () => {
-    TauriBridge.saveConfig(config);
+    UncodeBridge.saveConfig(config);
   };
 
   const editorDidMount = (

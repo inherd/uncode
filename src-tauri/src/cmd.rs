@@ -4,6 +4,7 @@ use uncode_core::StoryModel;
 use std::path::PathBuf;
 use crate::workspace_config::WorkspaceConfig;
 use std::fs;
+use uncode_core::domain::file_entry::FileEntry;
 
 #[derive(Debug, Deserialize)]
 pub struct RequestBody {
@@ -73,4 +74,14 @@ pub fn handle_modeling(path: &PathBuf) -> String {
 
   error!("lost content {}", path.display());
   return "".to_string()
+}
+
+#[command]
+// todo: use parallel to loading file tree
+pub fn load_code_tree(root: String, path: String) -> String {
+  let code_path = PathBuf::from(root).join(path);
+  info!("load code from: {:?}", code_path);
+  let entry = FileEntry::from_path(code_path);
+
+  serde_json::to_string(&entry).expect("lost entry")
 }

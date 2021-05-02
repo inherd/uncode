@@ -5,21 +5,21 @@ import { PageWrapper } from '../../components/PageWrapper';
 import styled from 'styled-components/macro';
 import Mermaid from '../../components/Memarid';
 import { useState } from 'react';
-import TauriBridge from '../../../tauri-bridge';
+import UncodeBridge from '../../../uncode-bridge';
 import MonacoEditor from 'react-monaco-editor';
 
 export function DesignPage() {
   let [modeling, setModeling] = useState('');
   let [guard, setGuard] = useState('');
 
-  TauriBridge.title('Uncode - Design');
-  TauriBridge.getDesign('modeling').then((model: string) => {
+  UncodeBridge.title('Uncode - Design');
+  UncodeBridge.getDesign('modeling').then((model: string) => {
     let without_puml = model.replace('@startuml', '').replace('@enduml', '');
     let mermaid_str = 'classDiagram\n' + without_puml;
     setModeling(mermaid_str);
   });
 
-  TauriBridge.getDesign('guard').then((model: string) => {
+  UncodeBridge.getDesign('guard').then((model: string) => {
     console.log(model);
     setGuard(model);
   });

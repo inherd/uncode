@@ -13,7 +13,7 @@ import TauriShortcuts from '../tauri-shortcuts';
 import { StoryPage } from './pages/StoryPage/Loadable';
 import { listen } from '@tauri-apps/api/event';
 import { useState } from 'react';
-import TauriBridge from '../tauri-bridge';
+import UncodeBridge from '../uncode-bridge';
 
 export function App() {
   TauriShortcuts.init();
@@ -24,7 +24,7 @@ export function App() {
 
   listen('bootstrap', (data: any) => {
     let payload = JSON.parse(data.payload);
-    TauriBridge.config = payload;
+    UncodeBridge.config = payload;
     setProject(payload);
   });
 

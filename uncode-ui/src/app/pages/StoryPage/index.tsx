@@ -6,7 +6,7 @@ import styled from 'styled-components/macro';
 import Board, { moveCard } from '@lourenci/react-kanban';
 import '@lourenci/react-kanban/dist/styles.css';
 import { useEffect, useState } from 'react';
-import TauriBridge from '../../../tauri-bridge';
+import UncodeBridge from '../../../uncode-bridge';
 
 export interface Card {
   id: number;
@@ -15,13 +15,13 @@ export interface Card {
 }
 
 export function StoryPage() {
-  TauriBridge.title('Uncode - Story');
+  UncodeBridge.title('Uncode - Story');
   let [board, setBoard] = useState({
     columns: [{ id: 1, title: 'Backlog', cards: [] }],
   } as any);
 
   useEffect(() => {
-    TauriBridge.getStory().then(stories => {
+    UncodeBridge.getStory().then(stories => {
       let column_map: any = {
         backlog: { id: 1, title: 'Backlog', cards: [] },
         doing: { id: 2, title: 'Doing', cards: [] },
@@ -54,7 +54,7 @@ export function StoryPage() {
 
   function onCardNew(newCard) {
     const card = { id: '', ...newCard };
-    TauriBridge.createStory(card);
+    UncodeBridge.createStory(card);
     return card;
   }
 

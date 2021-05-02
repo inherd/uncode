@@ -4,8 +4,12 @@ import { NavBar } from '../../components/NavBar';
 import { PageWrapper } from '../../components/PageWrapper';
 import styled from 'styled-components/macro';
 import MonacoEditor from 'react-monaco-editor';
+import UncodeBridge from '../../../uncode-bridge';
 
 export function CodePage() {
+  UncodeBridge.loadCodeTree().then(result => {
+    console.log(result);
+  });
   const options = {
     //renderSideBySide: false
   };

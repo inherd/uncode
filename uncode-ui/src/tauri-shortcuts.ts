@@ -1,5 +1,5 @@
 import hotkeys from 'hotkeys-js';
-import TauriBridge from './tauri-bridge';
+import UncodeBridge from './uncode-bridge';
 
 const TauriShortcuts = {
   init() {
@@ -12,7 +12,7 @@ const TauriShortcuts = {
     });
 
     hotkeys('ctrl+o, command+o', function () {
-      TauriBridge.openDialog();
+      UncodeBridge.openDialog();
       return false;
     });
   },

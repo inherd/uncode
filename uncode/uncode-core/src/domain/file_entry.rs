@@ -1,7 +1,7 @@
 use std::fs::DirEntry;
 use std::path::{Path, PathBuf};
 use std::sync::Arc;
-use std::{fmt, fs, io};
+use std::{fs, io};
 
 use serde::{Deserialize, Serialize};
 
@@ -48,7 +48,7 @@ impl FileEntry {
       children: vec![],
     }
   }
-  
+
   pub fn new(name: String) -> Self {
     FileEntry {
       name: name,
