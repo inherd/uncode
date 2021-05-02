@@ -37,6 +37,7 @@ export function DesignPage() {
       <NavBar />
       <PageWrapper>
         <h2>Architecture Description</h2>
+        <ArchDesc src="/assets/architecture/microservices.svg" alt="text" />
         <h2>Modeling</h2>
         <Mermaid chart={modeling} config={{}} name={''} />
         <h2>Guard Design</h2>
@@ -50,6 +51,11 @@ export function DesignPage() {
     </>
   );
 }
+
+export const ArchDesc = styled.img`
+  width: 800px;
+  height: auto;
+`;
 
 export const A = styled.a`
   color: ${p => p.theme.primary};

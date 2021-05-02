@@ -1,0 +1,516 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1067px" height="565px" viewBox="0 0 1067 565" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 62 (91390) - https://sketch.com -->
+    <title>service-based</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <rect id="path-1" x="0" y="0" width="518" height="192" rx="4"></rect>
+        <filter x="-1.0%" y="-3.6%" width="102.7%" height="107.3%" filterUnits="objectBoundingBox" id="filter-2">
+            <feOffset dx="2" dy="0" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="2" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.5 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+        </filter>
+        <rect id="path-3" x="7" y="9" width="503" height="172" rx="4"></rect>
+        <filter x="-1.0%" y="-4.1%" width="102.8%" height="108.1%" filterUnits="objectBoundingBox" id="filter-4">
+            <feOffset dx="2" dy="0" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="2" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.5 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+        </filter>
+        <text id="text-5" font-family="Helvetica" font-size="18" font-weight="normal" fill="#FFFFFF">
+            <tspan x="27.9819336" y="24">module</tspan>
+        </text>
+        <filter x="-4.3%" y="-31.8%" width="112.2%" height="163.6%" filterUnits="objectBoundingBox" id="filter-6">
+            <feOffset dx="2" dy="0" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="2" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.5 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+        </filter>
+        <text id="text-7" font-family="Helvetica" font-size="18" font-weight="normal" fill="#FFFFFF">
+            <tspan x="27.9819336" y="24">module</tspan>
+        </text>
+        <filter x="-4.3%" y="-31.8%" width="112.2%" height="163.6%" filterUnits="objectBoundingBox" id="filter-8">
+            <feOffset dx="2" dy="0" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="2" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.5 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+        </filter>
+        <rect id="path-9" x="0" y="0" width="115" height="38" rx="4"></rect>
+        <filter x="-4.3%" y="-18.4%" width="112.2%" height="136.8%" filterUnits="objectBoundingBox" id="filter-10">
+            <feOffset dx="2" dy="0" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="2" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.5 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+        </filter>
+        <text id="text-11" font-family="Helvetica" font-size="18" font-weight="normal" fill="#FFFFFF">
+            <tspan x="27.9819336" y="24">module</tspan>
+        </text>
+        <filter x="-4.3%" y="-31.8%" width="112.2%" height="163.6%" filterUnits="objectBoundingBox" id="filter-12">
+            <feOffset dx="2" dy="0" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="2" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.5 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+        </filter>
+        <text id="text-13" font-family="Helvetica" font-size="18" font-weight="normal" fill="#FFFFFF">
+            <tspan x="27.9819336" y="24">module</tspan>
+        </text>
+        <filter x="-4.3%" y="-31.8%" width="112.2%" height="163.6%" filterUnits="objectBoundingBox" id="filter-14">
+            <feOffset dx="2" dy="0" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="2" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.5 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+        </filter>
+        <rect id="path-15" x="0" y="0" width="115" height="38" rx="4"></rect>
+        <filter x="-4.3%" y="-18.4%" width="112.2%" height="136.8%" filterUnits="objectBoundingBox" id="filter-16">
+            <feOffset dx="2" dy="0" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="2" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.5 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+        </filter>
+        <text id="text-17" font-family="Helvetica" font-size="18" font-weight="normal" fill="#FFFFFF">
+            <tspan x="27.9819336" y="24">module</tspan>
+        </text>
+        <filter x="-4.3%" y="-31.8%" width="112.2%" height="163.6%" filterUnits="objectBoundingBox" id="filter-18">
+            <feOffset dx="2" dy="0" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="2" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.5 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+        </filter>
+        <text id="text-19" font-family="Helvetica" font-size="18" font-weight="normal" fill="#FFFFFF">
+            <tspan x="27.9819336" y="24">module</tspan>
+        </text>
+        <filter x="-4.3%" y="-31.8%" width="112.2%" height="163.6%" filterUnits="objectBoundingBox" id="filter-20">
+            <feOffset dx="2" dy="0" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="2" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.5 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+        </filter>
+        <rect id="path-21" x="0" y="0" width="115" height="38" rx="4"></rect>
+        <filter x="-4.3%" y="-18.4%" width="112.2%" height="136.8%" filterUnits="objectBoundingBox" id="filter-22">
+            <feOffset dx="2" dy="0" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="2" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.5 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+        </filter>
+        <text id="text-23" font-family="Helvetica" font-size="18" font-weight="normal" fill="#FFFFFF">
+            <tspan x="27.9819336" y="24">module</tspan>
+        </text>
+        <filter x="-4.3%" y="-31.8%" width="112.2%" height="163.6%" filterUnits="objectBoundingBox" id="filter-24">
+            <feOffset dx="2" dy="0" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="2" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.5 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+        </filter>
+        <text id="text-25" font-family="Helvetica" font-size="18" font-weight="normal" fill="#FFFFFF">
+            <tspan x="27.9819336" y="24">module</tspan>
+        </text>
+        <filter x="-4.3%" y="-31.8%" width="112.2%" height="163.6%" filterUnits="objectBoundingBox" id="filter-26">
+            <feOffset dx="2" dy="0" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="2" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.5 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+        </filter>
+        <rect id="path-27" x="0" y="0" width="115" height="38" rx="4"></rect>
+        <filter x="-4.3%" y="-18.4%" width="112.2%" height="136.8%" filterUnits="objectBoundingBox" id="filter-28">
+            <feOffset dx="2" dy="0" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="2" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.5 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+        </filter>
+        <rect id="path-29" x="0" y="0" width="518" height="192" rx="4"></rect>
+        <filter x="-1.0%" y="-3.6%" width="102.7%" height="107.3%" filterUnits="objectBoundingBox" id="filter-30">
+            <feOffset dx="2" dy="0" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="2" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.5 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+        </filter>
+        <rect id="path-31" x="7" y="9" width="503" height="172" rx="4"></rect>
+        <filter x="-1.0%" y="-4.1%" width="102.8%" height="108.1%" filterUnits="objectBoundingBox" id="filter-32">
+            <feOffset dx="2" dy="0" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="2" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.5 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+        </filter>
+        <text id="text-33" font-family="Helvetica" font-size="18" font-weight="normal" fill="#FFFFFF">
+            <tspan x="27.9819336" y="24">module</tspan>
+        </text>
+        <filter x="-4.3%" y="-31.8%" width="112.2%" height="163.6%" filterUnits="objectBoundingBox" id="filter-34">
+            <feOffset dx="2" dy="0" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="2" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.5 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+        </filter>
+        <text id="text-35" font-family="Helvetica" font-size="18" font-weight="normal" fill="#FFFFFF">
+            <tspan x="27.9819336" y="24">module</tspan>
+        </text>
+        <filter x="-4.3%" y="-31.8%" width="112.2%" height="163.6%" filterUnits="objectBoundingBox" id="filter-36">
+            <feOffset dx="2" dy="0" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="2" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.5 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+        </filter>
+        <rect id="path-37" x="0" y="0" width="115" height="38" rx="4"></rect>
+        <filter x="-4.3%" y="-18.4%" width="112.2%" height="136.8%" filterUnits="objectBoundingBox" id="filter-38">
+            <feOffset dx="2" dy="0" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="2" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.5 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+        </filter>
+        <text id="text-39" font-family="Helvetica" font-size="18" font-weight="normal" fill="#FFFFFF">
+            <tspan x="27.9819336" y="24">module</tspan>
+        </text>
+        <filter x="-4.3%" y="-31.8%" width="112.2%" height="163.6%" filterUnits="objectBoundingBox" id="filter-40">
+            <feOffset dx="2" dy="0" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="2" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.5 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+        </filter>
+        <text id="text-41" font-family="Helvetica" font-size="18" font-weight="normal" fill="#FFFFFF">
+            <tspan x="27.9819336" y="24">module</tspan>
+        </text>
+        <filter x="-4.3%" y="-31.8%" width="112.2%" height="163.6%" filterUnits="objectBoundingBox" id="filter-42">
+            <feOffset dx="2" dy="0" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="2" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.5 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+        </filter>
+        <rect id="path-43" x="0" y="0" width="115" height="38" rx="4"></rect>
+        <filter x="-4.3%" y="-18.4%" width="112.2%" height="136.8%" filterUnits="objectBoundingBox" id="filter-44">
+            <feOffset dx="2" dy="0" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="2" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.5 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+        </filter>
+        <text id="text-45" font-family="Helvetica" font-size="18" font-weight="normal" fill="#FFFFFF">
+            <tspan x="27.9819336" y="24">module</tspan>
+        </text>
+        <filter x="-4.3%" y="-31.8%" width="112.2%" height="163.6%" filterUnits="objectBoundingBox" id="filter-46">
+            <feOffset dx="2" dy="0" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="2" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.5 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+        </filter>
+        <text id="text-47" font-family="Helvetica" font-size="18" font-weight="normal" fill="#FFFFFF">
+            <tspan x="27.9819336" y="24">module</tspan>
+        </text>
+        <filter x="-4.3%" y="-31.8%" width="112.2%" height="163.6%" filterUnits="objectBoundingBox" id="filter-48">
+            <feOffset dx="2" dy="0" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="2" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.5 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+        </filter>
+        <rect id="path-49" x="0" y="0" width="115" height="38" rx="4"></rect>
+        <filter x="-4.3%" y="-18.4%" width="112.2%" height="136.8%" filterUnits="objectBoundingBox" id="filter-50">
+            <feOffset dx="2" dy="0" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="2" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.5 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+        </filter>
+        <text id="text-51" font-family="Helvetica" font-size="18" font-weight="normal" fill="#FFFFFF">
+            <tspan x="27.9819336" y="24">module</tspan>
+        </text>
+        <filter x="-4.3%" y="-31.8%" width="112.2%" height="163.6%" filterUnits="objectBoundingBox" id="filter-52">
+            <feOffset dx="2" dy="0" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="2" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.5 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+        </filter>
+        <text id="text-53" font-family="Helvetica" font-size="18" font-weight="normal" fill="#FFFFFF">
+            <tspan x="27.9819336" y="24">module</tspan>
+        </text>
+        <filter x="-4.3%" y="-31.8%" width="112.2%" height="163.6%" filterUnits="objectBoundingBox" id="filter-54">
+            <feOffset dx="2" dy="0" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="2" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.5 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+        </filter>
+        <rect id="path-55" x="0" y="0" width="115" height="38" rx="4"></rect>
+        <filter x="-4.3%" y="-18.4%" width="112.2%" height="136.8%" filterUnits="objectBoundingBox" id="filter-56">
+            <feOffset dx="2" dy="0" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="2" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.5 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+        </filter>
+        <rect id="path-57" x="1" y="88" width="1054" height="80" rx="3"></rect>
+        <filter x="-0.7%" y="-6.9%" width="101.4%" height="118.8%" filterUnits="objectBoundingBox" id="filter-58">
+            <feMorphology radius="0.5" operator="dilate" in="SourceAlpha" result="shadowSpreadOuter1"></feMorphology>
+            <feOffset dx="0" dy="2" in="shadowSpreadOuter1" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="2" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feComposite in="shadowBlurOuter1" in2="SourceAlpha" operator="out" result="shadowBlurOuter1"></feComposite>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.5 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+        </filter>
+        <rect id="path-59" x="0" y="0" width="186" height="41" rx="3"></rect>
+        <filter x="-4.0%" y="-13.4%" width="108.1%" height="136.6%" filterUnits="objectBoundingBox" id="filter-60">
+            <feMorphology radius="0.5" operator="dilate" in="SourceAlpha" result="shadowSpreadOuter1"></feMorphology>
+            <feOffset dx="0" dy="2" in="shadowSpreadOuter1" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="2" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feComposite in="shadowBlurOuter1" in2="SourceAlpha" operator="out" result="shadowBlurOuter1"></feComposite>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.5 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+        </filter>
+        <rect id="path-61" x="0" y="0" width="186" height="41" rx="3"></rect>
+        <filter x="-4.0%" y="-13.4%" width="108.1%" height="136.6%" filterUnits="objectBoundingBox" id="filter-62">
+            <feMorphology radius="0.5" operator="dilate" in="SourceAlpha" result="shadowSpreadOuter1"></feMorphology>
+            <feOffset dx="0" dy="2" in="shadowSpreadOuter1" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="2" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feComposite in="shadowBlurOuter1" in2="SourceAlpha" operator="out" result="shadowBlurOuter1"></feComposite>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.5 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+        </filter>
+        <rect id="path-63" x="0" y="0" width="186" height="41" rx="3"></rect>
+        <filter x="-4.0%" y="-13.4%" width="108.1%" height="136.6%" filterUnits="objectBoundingBox" id="filter-64">
+            <feMorphology radius="0.5" operator="dilate" in="SourceAlpha" result="shadowSpreadOuter1"></feMorphology>
+            <feOffset dx="0" dy="2" in="shadowSpreadOuter1" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="2" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feComposite in="shadowBlurOuter1" in2="SourceAlpha" operator="out" result="shadowBlurOuter1"></feComposite>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.5 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+        </filter>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="service-based" transform="translate(4.000000, 3.000000)">
+            <path d="M528.5,521 C543.130208,521 555,516.867188 555,511.8 L555,507.2 C555,502.132812 543.130208,498 528.5,498 C513.869792,498 502,502.132812 502,507.2 L502,511.8 C502,516.867188 513.869792,521 528.5,521 Z M528.5,534 C543.130208,534 555,530.220657 555,525.586854 L555,520 C549.306641,523.812207 538.886068,525.586854 528.5,525.586854 C518.113932,525.586854 507.693359,523.812207 502,520 L502,525.586854 C502,530.220657 513.869792,534 528.5,534 Z M528.5,548 C543.130208,548 555,544.220657 555,539.586854 L555,534 C549.306641,537.812207 538.886068,539.586854 528.5,539.586854 C518.113932,539.586854 507.693359,537.812207 502,534 L502,539.586854 C502,544.220657 513.869792,548 528.5,548 Z M528.5,562 C543.130208,562 555,558.220657 555,553.586854 L555,548 C549.306641,551.812207 538.886068,553.586854 528.5,553.586854 C518.113932,553.586854 507.693359,551.812207 502,548 L502,553.586854 C502,558.220657 513.869792,562 528.5,562 Z" id="database" fill="#4A4A4A" fill-rule="nonzero"></path>
+            <g id="service" transform="translate(0.000000, 236.500000)">
+                <g id="Rectangle">
+                    <use fill="black" fill-opacity="1" filter="url(#filter-2)" xlink:href="#path-1"></use>
+                    <use fill="#D8D8D8" fill-rule="evenodd" xlink:href="#path-1"></use>
+                </g>
+                <g id="Rectangle">
+                    <use fill="black" fill-opacity="1" filter="url(#filter-4)" xlink:href="#path-3"></use>
+                    <use fill="#9B9B9B" fill-rule="evenodd" xlink:href="#path-3"></use>
+                </g>
+                <g id="Group-5" transform="translate(17.000000, 24.500000)">
+                    <g id="Group-4" transform="translate(369.000000, 0.000000)">
+                        <g id="Group-2" transform="translate(0.000000, 51.500000)">
+                            <rect id="Rectangle" fill="#4A4A4A" x="0" y="0" width="115" height="38" rx="4"></rect>
+                            <g id="module" fill="#FFFFFF" fill-opacity="1">
+                                <use filter="url(#filter-6)" xlink:href="#text-5"></use>
+                                <use xlink:href="#text-5"></use>
+                            </g>
+                        </g>
+                        <g id="Group-2">
+                            <rect id="Rectangle" fill="#4A4A4A" x="0" y="0" width="115" height="38" rx="4"></rect>
+                            <g id="module" fill="#FFFFFF" fill-opacity="1">
+                                <use filter="url(#filter-8)" xlink:href="#text-7"></use>
+                                <use xlink:href="#text-7"></use>
+                            </g>
+                        </g>
+                        <g id="Group-3" transform="translate(0.000000, 103.500000)">
+                            <g id="Rectangle">
+                                <use fill="black" fill-opacity="1" filter="url(#filter-10)" xlink:href="#path-9"></use>
+                                <use fill="#4A4A4A" fill-rule="evenodd" xlink:href="#path-9"></use>
+                            </g>
+                            <text id="module" font-family="Helvetica" font-size="18" font-weight="normal" fill="#FFFFFF">
+                                <tspan x="27.9819336" y="26">module</tspan>
+                            </text>
+                        </g>
+                    </g>
+                    <g id="Group-4" transform="translate(246.000000, 0.000000)">
+                        <g id="Group-2" transform="translate(0.000000, 51.500000)">
+                            <rect id="Rectangle" fill="#4A4A4A" x="0" y="0" width="115" height="38" rx="4"></rect>
+                            <g id="module" fill="#FFFFFF" fill-opacity="1">
+                                <use filter="url(#filter-12)" xlink:href="#text-11"></use>
+                                <use xlink:href="#text-11"></use>
+                            </g>
+                        </g>
+                        <g id="Group-2">
+                            <rect id="Rectangle" fill="#4A4A4A" x="0" y="0" width="115" height="38" rx="4"></rect>
+                            <g id="module" fill="#FFFFFF" fill-opacity="1">
+                                <use filter="url(#filter-14)" xlink:href="#text-13"></use>
+                                <use xlink:href="#text-13"></use>
+                            </g>
+                        </g>
+                        <g id="Group-3" transform="translate(0.000000, 103.500000)">
+                            <g id="Rectangle">
+                                <use fill="black" fill-opacity="1" filter="url(#filter-16)" xlink:href="#path-15"></use>
+                                <use fill="#4A4A4A" fill-rule="evenodd" xlink:href="#path-15"></use>
+                            </g>
+                            <text id="module" font-family="Helvetica" font-size="18" font-weight="normal" fill="#FFFFFF">
+                                <tspan x="27.9819336" y="26">module</tspan>
+                            </text>
+                        </g>
+                    </g>
+                    <g id="Group-4" transform="translate(123.000000, 0.000000)">
+                        <g id="Group-2" transform="translate(0.000000, 51.500000)">
+                            <rect id="Rectangle" fill="#4A4A4A" x="0" y="0" width="115" height="38" rx="4"></rect>
+                            <g id="module" fill="#FFFFFF" fill-opacity="1">
+                                <use filter="url(#filter-18)" xlink:href="#text-17"></use>
+                                <use xlink:href="#text-17"></use>
+                            </g>
+                        </g>
+                        <g id="Group-2">
+                            <rect id="Rectangle" fill="#4A4A4A" x="0" y="0" width="115" height="38" rx="4"></rect>
+                            <g id="module" fill="#FFFFFF" fill-opacity="1">
+                                <use filter="url(#filter-20)" xlink:href="#text-19"></use>
+                                <use xlink:href="#text-19"></use>
+                            </g>
+                        </g>
+                        <g id="Group-3" transform="translate(0.000000, 103.500000)">
+                            <g id="Rectangle">
+                                <use fill="black" fill-opacity="1" filter="url(#filter-22)" xlink:href="#path-21"></use>
+                                <use fill="#4A4A4A" fill-rule="evenodd" xlink:href="#path-21"></use>
+                            </g>
+                            <text id="module" font-family="Helvetica" font-size="18" font-weight="normal" fill="#FFFFFF">
+                                <tspan x="27.9819336" y="26">module</tspan>
+                            </text>
+                        </g>
+                    </g>
+                    <g id="Group-4">
+                        <g id="Group-2" transform="translate(0.000000, 51.500000)">
+                            <rect id="Rectangle" fill="#4A4A4A" x="0" y="0" width="115" height="38" rx="4"></rect>
+                            <g id="module" fill="#FFFFFF" fill-opacity="1">
+                                <use filter="url(#filter-24)" xlink:href="#text-23"></use>
+                                <use xlink:href="#text-23"></use>
+                            </g>
+                        </g>
+                        <g id="Group-2">
+                            <rect id="Rectangle" fill="#4A4A4A" x="0" y="0" width="115" height="38" rx="4"></rect>
+                            <g id="module" fill="#FFFFFF" fill-opacity="1">
+                                <use filter="url(#filter-26)" xlink:href="#text-25"></use>
+                                <use xlink:href="#text-25"></use>
+                            </g>
+                        </g>
+                        <g id="Group-3" transform="translate(0.000000, 103.500000)">
+                            <g id="Rectangle">
+                                <use fill="black" fill-opacity="1" filter="url(#filter-28)" xlink:href="#path-27"></use>
+                                <use fill="#4A4A4A" fill-rule="evenodd" xlink:href="#path-27"></use>
+                            </g>
+                            <text id="module" font-family="Helvetica" font-size="18" font-weight="normal" fill="#FFFFFF">
+                                <tspan x="27.9819336" y="26">module</tspan>
+                            </text>
+                        </g>
+                    </g>
+                </g>
+            </g>
+            <path id="Line" d="M258.283711,437.780603 L259.251554,438.032157 L475.373771,494.204891 L483.283,496.26 L476.116008,489.357297 L475.395787,488.663553 L476.783276,487.22311 L477.503497,487.916854 L487.419627,497.468444 L488.70002,498.701767 L486.98113,499.155541 L473.669022,502.669836 L472.702146,502.925083 L472.19165,500.991332 L473.158526,500.736084 L482.779,498.196 L474.870663,496.140578 L258.748446,439.967843 L257.780603,439.716289 L258.283711,437.780603 Z" fill="#4A4A4A" fill-rule="nonzero"></path>
+            <path id="Line" d="M259,170.210271 L259.871576,171.759739 L266.621576,183.759739 L267.111837,184.631314 L265.368686,185.611837 L264.878424,184.740261 L260,176.067 L260,226.932 L264.878424,218.259739 L265.368686,217.388163 L267.111837,218.368686 L266.621576,219.240261 L259.871576,231.240261 L259,232.789729 L258.128424,231.240261 L251.378424,219.240261 L250.888163,218.368686 L252.631314,217.388163 L253.121576,218.259739 L258,226.932 L258,176.067 L253.121576,184.740261 L252.631314,185.611837 L250.888163,184.631314 L251.378424,183.759739 L258.128424,171.759739 L259,170.210271 Z" fill="#4A4A4A" fill-rule="nonzero"></path>
+            <g id="service" transform="translate(539.000000, 237.000000)">
+                <g id="Rectangle">
+                    <use fill="black" fill-opacity="1" filter="url(#filter-30)" xlink:href="#path-29"></use>
+                    <use fill="#D8D8D8" fill-rule="evenodd" xlink:href="#path-29"></use>
+                </g>
+                <g id="Rectangle">
+                    <use fill="black" fill-opacity="1" filter="url(#filter-32)" xlink:href="#path-31"></use>
+                    <use fill="#9B9B9B" fill-rule="evenodd" xlink:href="#path-31"></use>
+                </g>
+                <g id="Group-5" transform="translate(17.000000, 24.500000)">
+                    <g id="Group-4" transform="translate(369.000000, 0.000000)">
+                        <g id="Group-2" transform="translate(0.000000, 51.500000)">
+                            <rect id="Rectangle" fill="#4A4A4A" x="0" y="0" width="115" height="38" rx="4"></rect>
+                            <g id="module" fill="#FFFFFF" fill-opacity="1">
+                                <use filter="url(#filter-34)" xlink:href="#text-33"></use>
+                                <use xlink:href="#text-33"></use>
+                            </g>
+                        </g>
+                        <g id="Group-2">
+                            <rect id="Rectangle" fill="#4A4A4A" x="0" y="0" width="115" height="38" rx="4"></rect>
+                            <g id="module" fill="#FFFFFF" fill-opacity="1">
+                                <use filter="url(#filter-36)" xlink:href="#text-35"></use>
+                                <use xlink:href="#text-35"></use>
+                            </g>
+                        </g>
+                        <g id="Group-3" transform="translate(0.000000, 103.500000)">
+                            <g id="Rectangle">
+                                <use fill="black" fill-opacity="1" filter="url(#filter-38)" xlink:href="#path-37"></use>
+                                <use fill="#4A4A4A" fill-rule="evenodd" xlink:href="#path-37"></use>
+                            </g>
+                            <text id="module" font-family="Helvetica" font-size="18" font-weight="normal" fill="#FFFFFF">
+                                <tspan x="27.9819336" y="26">module</tspan>
+                            </text>
+                        </g>
+                    </g>
+                    <g id="Group-4" transform="translate(246.000000, 0.000000)">
+                        <g id="Group-2" transform="translate(0.000000, 51.500000)">
+                            <rect id="Rectangle" fill="#4A4A4A" x="0" y="0" width="115" height="38" rx="4"></rect>
+                            <g id="module" fill="#FFFFFF" fill-opacity="1">
+                                <use filter="url(#filter-40)" xlink:href="#text-39"></use>
+                                <use xlink:href="#text-39"></use>
+                            </g>
+                        </g>
+                        <g id="Group-2">
+                            <rect id="Rectangle" fill="#4A4A4A" x="0" y="0" width="115" height="38" rx="4"></rect>
+                            <g id="module" fill="#FFFFFF" fill-opacity="1">
+                                <use filter="url(#filter-42)" xlink:href="#text-41"></use>
+                                <use xlink:href="#text-41"></use>
+                            </g>
+                        </g>
+                        <g id="Group-3" transform="translate(0.000000, 103.500000)">
+                            <g id="Rectangle">
+                                <use fill="black" fill-opacity="1" filter="url(#filter-44)" xlink:href="#path-43"></use>
+                                <use fill="#4A4A4A" fill-rule="evenodd" xlink:href="#path-43"></use>
+                            </g>
+                            <text id="module" font-family="Helvetica" font-size="18" font-weight="normal" fill="#FFFFFF">
+                                <tspan x="27.9819336" y="26">module</tspan>
+                            </text>
+                        </g>
+                    </g>
+                    <g id="Group-4" transform="translate(123.000000, 0.000000)">
+                        <g id="Group-2" transform="translate(0.000000, 51.500000)">
+                            <rect id="Rectangle" fill="#4A4A4A" x="0" y="0" width="115" height="38" rx="4"></rect>
+                            <g id="module" fill="#FFFFFF" fill-opacity="1">
+                                <use filter="url(#filter-46)" xlink:href="#text-45"></use>
+                                <use xlink:href="#text-45"></use>
+                            </g>
+                        </g>
+                        <g id="Group-2">
+                            <rect id="Rectangle" fill="#4A4A4A" x="0" y="0" width="115" height="38" rx="4"></rect>
+                            <g id="module" fill="#FFFFFF" fill-opacity="1">
+                                <use filter="url(#filter-48)" xlink:href="#text-47"></use>
+                                <use xlink:href="#text-47"></use>
+                            </g>
+                        </g>
+                        <g id="Group-3" transform="translate(0.000000, 103.500000)">
+                            <g id="Rectangle">
+                                <use fill="black" fill-opacity="1" filter="url(#filter-50)" xlink:href="#path-49"></use>
+                                <use fill="#4A4A4A" fill-rule="evenodd" xlink:href="#path-49"></use>
+                            </g>
+                            <text id="module" font-family="Helvetica" font-size="18" font-weight="normal" fill="#FFFFFF">
+                                <tspan x="27.9819336" y="26">module</tspan>
+                            </text>
+                        </g>
+                    </g>
+                    <g id="Group-4">
+                        <g id="Group-2" transform="translate(0.000000, 51.500000)">
+                            <rect id="Rectangle" fill="#4A4A4A" x="0" y="0" width="115" height="38" rx="4"></rect>
+                            <g id="module" fill="#FFFFFF" fill-opacity="1">
+                                <use filter="url(#filter-52)" xlink:href="#text-51"></use>
+                                <use xlink:href="#text-51"></use>
+                            </g>
+                        </g>
+                        <g id="Group-2">
+                            <rect id="Rectangle" fill="#4A4A4A" x="0" y="0" width="115" height="38" rx="4"></rect>
+                            <g id="module" fill="#FFFFFF" fill-opacity="1">
+                                <use filter="url(#filter-54)" xlink:href="#text-53"></use>
+                                <use xlink:href="#text-53"></use>
+                            </g>
+                        </g>
+                        <g id="Group-3" transform="translate(0.000000, 103.500000)">
+                            <g id="Rectangle">
+                                <use fill="black" fill-opacity="1" filter="url(#filter-56)" xlink:href="#path-55"></use>
+                                <use fill="#4A4A4A" fill-rule="evenodd" xlink:href="#path-55"></use>
+                            </g>
+                            <text id="module" font-family="Helvetica" font-size="18" font-weight="normal" fill="#FFFFFF">
+                                <tspan x="27.9819336" y="26">module</tspan>
+                            </text>
+                        </g>
+                    </g>
+                </g>
+            </g>
+            <path id="Line" d="M798.726382,438.286588 L799.213412,440.226382 L798.243515,440.469897 L576.133552,496.235703 L568.219,498.222 L577.81833,500.842538 L578.783055,501.105799 L578.256532,503.035248 L577.291807,502.771987 L564.009316,499.147361 L562.29425,498.679341 L563.584832,497.456684 L573.579872,487.987698 L574.305825,487.299954 L575.681314,488.751859 L574.955362,489.439604 L567.732,496.282 L575.646522,494.295909 L797.756485,438.530103 L798.726382,438.286588 Z" fill="#4A4A4A" fill-rule="nonzero"></path>
+            <path id="Line" d="M798,170.710271 L798.871576,172.259739 L805.621576,184.259739 L806.111837,185.131314 L804.368686,186.111837 L803.878424,185.240261 L799,176.567 L799,227.432 L803.878424,218.759739 L804.368686,217.888163 L806.111837,218.868686 L805.621576,219.740261 L798.871576,231.740261 L798,233.289729 L797.128424,231.740261 L790.378424,219.740261 L789.888163,218.868686 L791.631314,217.888163 L792.121576,218.759739 L797,227.432 L797,176.567 L792.121576,185.240261 L791.631314,186.111837 L789.888163,185.131314 L790.378424,184.259739 L797.128424,172.259739 L798,170.710271 Z" fill="#4A4A4A" fill-rule="nonzero"></path>
+            <g id="business-layer">
+                <use fill="black" fill-opacity="1" filter="url(#filter-58)" xlink:href="#path-57"></use>
+                <use stroke="#979797" stroke-width="1" fill="#979797" fill-rule="evenodd" xlink:href="#path-57"></use>
+            </g>
+            <text id="service-based-archit" font-family="Helvetica" font-size="24" font-weight="normal" fill="#FFFFFF">
+                <tspan x="339.269531" y="136">service-based architecture</tspan>
+            </text>
+            <g id="client" transform="translate(196.000000, 0.000000)">
+                <path id="Line" d="M93,45.2102711 L93.8715755,46.7597388 L100.621576,58.7597388 L101.111837,59.6313143 L99.3686857,60.6118368 L98.8784245,59.7402612 L94,51.067 L94,78.932 L98.8784245,70.2597388 L99.3686857,69.3881632 L101.111837,70.3686857 L100.621576,71.2402612 L93.8715755,83.2402612 L93,84.7897289 L92.1284245,83.2402612 L85.3784245,71.2402612 L84.8881632,70.3686857 L86.6313143,69.3881632 L87.1215755,70.2597388 L92,78.932 L92,51.067 L87.1215755,59.7402612 L86.6313143,60.6118368 L84.8881632,59.6313143 L85.3784245,58.7597388 L92.1284245,46.7597388 L93,45.2102711 Z" fill="#4A4A4A" fill-rule="nonzero"></path>
+                <g id="Group">
+                    <g id="client">
+                        <use fill="black" fill-opacity="1" filter="url(#filter-60)" xlink:href="#path-59"></use>
+                        <use stroke="#979797" stroke-width="1" fill="#4A4A4A" fill-rule="evenodd" xlink:href="#path-59"></use>
+                    </g>
+                    <text id="client-requests" font-family="Helvetica" font-size="24" font-weight="normal" fill="#FFFFFF">
+                        <tspan x="16.1269531" y="29">client requests</tspan>
+                    </text>
+                </g>
+            </g>
+            <g id="client" transform="translate(446.000000, 0.000000)">
+                <path id="Line" d="M93,45.2102711 L93.8715755,46.7597388 L100.621576,58.7597388 L101.111837,59.6313143 L99.3686857,60.6118368 L98.8784245,59.7402612 L94,51.067 L94,78.932 L98.8784245,70.2597388 L99.3686857,69.3881632 L101.111837,70.3686857 L100.621576,71.2402612 L93.8715755,83.2402612 L93,84.7897289 L92.1284245,83.2402612 L85.3784245,71.2402612 L84.8881632,70.3686857 L86.6313143,69.3881632 L87.1215755,70.2597388 L92,78.932 L92,51.067 L87.1215755,59.7402612 L86.6313143,60.6118368 L84.8881632,59.6313143 L85.3784245,58.7597388 L92.1284245,46.7597388 L93,45.2102711 Z" fill="#4A4A4A" fill-rule="nonzero"></path>
+                <g id="Group">
+                    <g id="client">
+                        <use fill="black" fill-opacity="1" filter="url(#filter-62)" xlink:href="#path-61"></use>
+                        <use stroke="#979797" stroke-width="1" fill="#4A4A4A" fill-rule="evenodd" xlink:href="#path-61"></use>
+                    </g>
+                    <text id="client-requests" font-family="Helvetica" font-size="24" font-weight="normal" fill="#FFFFFF">
+                        <tspan x="16.1269531" y="29">client requests</tspan>
+                    </text>
+                </g>
+            </g>
+            <g id="client" transform="translate(696.000000, 0.000000)">
+                <path id="Line" d="M87,45.2102711 L87.8715755,46.7597388 L94.6215755,58.7597388 L95.1118368,59.6313143 L93.3686857,60.6118368 L92.8784245,59.7402612 L88,51.067 L88,78.932 L92.8784245,70.2597388 L93.3686857,69.3881632 L95.1118368,70.3686857 L94.6215755,71.2402612 L87.8715755,83.2402612 L87,84.7897289 L86.1284245,83.2402612 L79.3784245,71.2402612 L78.8881632,70.3686857 L80.6313143,69.3881632 L81.1215755,70.2597388 L86,78.932 L86,51.067 L81.1215755,59.7402612 L80.6313143,60.6118368 L78.8881632,59.6313143 L79.3784245,58.7597388 L86.1284245,46.7597388 L87,45.2102711 Z" fill="#4A4A4A" fill-rule="nonzero"></path>
+                <g id="Group">
+                    <g id="client">
+                        <use fill="black" fill-opacity="1" filter="url(#filter-64)" xlink:href="#path-63"></use>
+                        <use stroke="#979797" stroke-width="1" fill="#4A4A4A" fill-rule="evenodd" xlink:href="#path-63"></use>
+                    </g>
+                    <text id="client-requests" font-family="Helvetica" font-size="24" font-weight="normal" fill="#FFFFFF">
+                        <tspan x="16.1269531" y="29">client requests</tspan>
+                    </text>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

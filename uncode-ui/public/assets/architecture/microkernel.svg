@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="693px" height="337px" viewBox="0 0 693 337" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 62 (91390) - https://sketch.com -->
+    <title>microkernel</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <rect id="path-1" x="0" y="0" width="175" height="90" rx="4"></rect>
+        <filter x="-4.0%" y="-5.6%" width="108.0%" height="115.6%" filterUnits="objectBoundingBox" id="filter-2">
+            <feOffset dx="0" dy="2" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="2" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.5 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+        </filter>
+        <rect id="path-3" x="0" y="0" width="175" height="90" rx="4"></rect>
+        <filter x="-4.0%" y="-5.6%" width="108.0%" height="115.6%" filterUnits="objectBoundingBox" id="filter-4">
+            <feOffset dx="0" dy="2" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="2" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.5 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+        </filter>
+        <rect id="path-5" x="0" y="0" width="175" height="90" rx="4"></rect>
+        <filter x="-4.0%" y="-5.6%" width="108.0%" height="115.6%" filterUnits="objectBoundingBox" id="filter-6">
+            <feOffset dx="0" dy="2" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="2" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.5 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+        </filter>
+        <rect id="path-7" x="0" y="0" width="175" height="90" rx="4"></rect>
+        <filter x="-4.0%" y="-5.6%" width="108.0%" height="115.6%" filterUnits="objectBoundingBox" id="filter-8">
+            <feOffset dx="0" dy="2" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="2" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.5 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+        </filter>
+        <rect id="path-9" x="0" y="0" width="175" height="90" rx="4"></rect>
+        <filter x="-4.0%" y="-5.6%" width="108.0%" height="115.6%" filterUnits="objectBoundingBox" id="filter-10">
+            <feOffset dx="0" dy="2" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="2" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.5 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+        </filter>
+        <rect id="path-11" x="0" y="0" width="175" height="90" rx="4"></rect>
+        <filter x="-4.0%" y="-5.6%" width="108.0%" height="115.6%" filterUnits="objectBoundingBox" id="filter-12">
+            <feOffset dx="0" dy="2" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="2" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.5 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+        </filter>
+        <rect id="path-13" x="216" y="0" width="252" height="327" rx="3"></rect>
+        <filter x="-3.0%" y="-1.7%" width="106.0%" height="104.6%" filterUnits="objectBoundingBox" id="filter-14">
+            <feMorphology radius="0.5" operator="dilate" in="SourceAlpha" result="shadowSpreadOuter1"></feMorphology>
+            <feOffset dx="0" dy="2" in="shadowSpreadOuter1" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="2" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feComposite in="shadowBlurOuter1" in2="SourceAlpha" operator="out" result="shadowBlurOuter1"></feComposite>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.5 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+        </filter>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="microkernel" transform="translate(4.000000, 3.000000)">
+            <rect id="Rectangle" fill="#4A4A4A" x="139" y="34" width="407" height="34"></rect>
+            <rect id="Rectangle" fill="#4A4A4A" x="139" y="260" width="407" height="34"></rect>
+            <rect id="Rectangle" fill="#4A4A4A" x="139" y="147" width="407" height="34"></rect>
+            <g id="plugins" transform="translate(0.000000, 6.000000)">
+                <g id="Group">
+                    <g id="Rectangle">
+                        <use fill="black" fill-opacity="1" filter="url(#filter-2)" xlink:href="#path-1"></use>
+                        <use fill="#4A4A4A" fill-rule="evenodd" xlink:href="#path-1"></use>
+                    </g>
+                    <text id="plug-in-component" font-family="Helvetica" font-size="24" font-weight="normal" fill="#FFFFFF">
+                        <tspan x="51.4765625" y="39">plug-in</tspan>
+                        <tspan x="28.1269531" y="68">component</tspan>
+                    </text>
+                </g>
+                <g id="Group" transform="translate(0.000000, 113.000000)">
+                    <g id="Rectangle">
+                        <use fill="black" fill-opacity="1" filter="url(#filter-4)" xlink:href="#path-3"></use>
+                        <use fill="#4A4A4A" fill-rule="evenodd" xlink:href="#path-3"></use>
+                    </g>
+                    <text id="plug-in-component" font-family="Helvetica" font-size="24" font-weight="normal" fill="#FFFFFF">
+                        <tspan x="51.4765625" y="39">plug-in</tspan>
+                        <tspan x="28.1269531" y="68">component</tspan>
+                    </text>
+                </g>
+                <g id="Group" transform="translate(0.000000, 226.000000)">
+                    <g id="Rectangle">
+                        <use fill="black" fill-opacity="1" filter="url(#filter-6)" xlink:href="#path-5"></use>
+                        <use fill="#4A4A4A" fill-rule="evenodd" xlink:href="#path-5"></use>
+                    </g>
+                    <text id="plug-in-component" font-family="Helvetica" font-size="24" font-weight="normal" fill="#FFFFFF">
+                        <tspan x="51.4765625" y="39">plug-in</tspan>
+                        <tspan x="28.1269531" y="68">component</tspan>
+                    </text>
+                </g>
+            </g>
+            <g id="plugins" transform="translate(510.000000, 6.000000)">
+                <g id="Group">
+                    <g id="Rectangle">
+                        <use fill="black" fill-opacity="1" filter="url(#filter-8)" xlink:href="#path-7"></use>
+                        <use fill="#4A4A4A" fill-rule="evenodd" xlink:href="#path-7"></use>
+                    </g>
+                    <text id="plug-in-component" font-family="Helvetica" font-size="24" font-weight="normal" fill="#FFFFFF">
+                        <tspan x="51.4765625" y="39">plug-in</tspan>
+                        <tspan x="28.1269531" y="68">component</tspan>
+                    </text>
+                </g>
+                <g id="Group" transform="translate(0.000000, 113.000000)">
+                    <g id="Rectangle">
+                        <use fill="black" fill-opacity="1" filter="url(#filter-10)" xlink:href="#path-9"></use>
+                        <use fill="#4A4A4A" fill-rule="evenodd" xlink:href="#path-9"></use>
+                    </g>
+                    <text id="plug-in-component" font-family="Helvetica" font-size="24" font-weight="normal" fill="#FFFFFF">
+                        <tspan x="51.4765625" y="39">plug-in</tspan>
+                        <tspan x="28.1269531" y="68">component</tspan>
+                    </text>
+                </g>
+                <g id="Group" transform="translate(0.000000, 226.000000)">
+                    <g id="Rectangle">
+                        <use fill="black" fill-opacity="1" filter="url(#filter-12)" xlink:href="#path-11"></use>
+                        <use fill="#4A4A4A" fill-rule="evenodd" xlink:href="#path-11"></use>
+                    </g>
+                    <text id="plug-in-component" font-family="Helvetica" font-size="24" font-weight="normal" fill="#FFFFFF">
+                        <tspan x="51.4765625" y="39">plug-in</tspan>
+                        <tspan x="28.1269531" y="68">component</tspan>
+                    </text>
+                </g>
+            </g>
+            <g id="core">
+                <use fill="black" fill-opacity="1" filter="url(#filter-14)" xlink:href="#path-13"></use>
+                <use stroke="#979797" stroke-width="1" fill="#979797" fill-rule="evenodd" xlink:href="#path-13"></use>
+            </g>
+            <text id="core-system" font-family="Helvetica" font-size="48" font-weight="normal" fill="#FFFFFF">
+                <tspan x="295.8125" y="153">core</tspan>
+                <tspan x="266.492188" y="211">system</tspan>
+            </text>
+        </g>
+    </g>
+</svg>

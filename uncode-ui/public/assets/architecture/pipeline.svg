@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="825px" height="204px" viewBox="0 0 825 204" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 62 (91390) - https://sketch.com -->
+    <title>pipeline</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <path d="M0.5,39.5 L113,39" id="path-1"></path>
+        <path d="M0.5,39.5 L113,39" id="path-2"></path>
+        <path d="M719.25,69.25 L719.25,147.25" id="path-3"></path>
+        <path d="M620,176 L507,176" id="path-4"></path>
+        <rect id="path-5" x="0" y="0" width="197" height="58" rx="4"></rect>
+        <filter x="-2.5%" y="-12.1%" width="107.1%" height="124.1%" filterUnits="objectBoundingBox" id="filter-6">
+            <feOffset dx="2" dy="0" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="2" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.5 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+        </filter>
+        <rect id="path-7" x="0" y="0" width="197" height="58" rx="4"></rect>
+        <filter x="-2.5%" y="-12.1%" width="107.1%" height="124.1%" filterUnits="objectBoundingBox" id="filter-8">
+            <feOffset dx="2" dy="0" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="2" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.5 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+        </filter>
+        <rect id="path-9" x="0" y="0" width="197" height="58" rx="4"></rect>
+        <filter x="-2.5%" y="-12.1%" width="107.1%" height="124.1%" filterUnits="objectBoundingBox" id="filter-10">
+            <feOffset dx="2" dy="0" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="2" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.5 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+        </filter>
+        <rect id="path-11" x="0" y="0" width="197" height="58" rx="4"></rect>
+        <filter x="-2.5%" y="-12.1%" width="107.1%" height="124.1%" filterUnits="objectBoundingBox" id="filter-12">
+            <feOffset dx="2" dy="0" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="2" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.5 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+        </filter>
+        <rect id="path-13" x="0" y="0" width="197" height="58" rx="4"></rect>
+        <filter x="-2.5%" y="-12.1%" width="107.1%" height="124.1%" filterUnits="objectBoundingBox" id="filter-14">
+            <feOffset dx="2" dy="0" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="2" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.5 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+        </filter>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="pipeline" transform="translate(2.000000, -5.000000)">
+            <g id="pipe" transform="translate(197.000000, 0.000000)">
+                <path id="Line" d="M88.9469042,27.1067841 L113,39 L89.0535698,51.1065471 L89.008,41.106 L0.508888801,41.4999802 L-1.49109145,41.508869 L-1.50886905,37.5089086 L0.491111199,37.5000198 L88.991,37.106 L88.9469042,27.1067841 Z" fill-rule="nonzero"></path>
+                <text font-family="Helvetica" font-size="24" font-weight="normal" fill="#4A4A4A">
+                    <tspan x="24.3125" y="23">pipe</tspan>
+                </text>
+            </g>
+            <g id="pipe" transform="translate(507.000000, 0.000000)">
+                <path id="Line" d="M88.9469042,27.1067841 L113,39 L89.0535698,51.1065471 L89.008,41.106 L0.508888801,41.4999802 L-1.49109145,41.508869 L-1.50886905,37.5089086 L0.491111199,37.5000198 L88.991,37.106 L88.9469042,27.1067841 Z" fill-rule="nonzero"></path>
+                <text font-family="Helvetica" font-size="24" font-weight="normal" fill="#4A4A4A">
+                    <tspan x="24.3125" y="23">pipe</tspan>
+                </text>
+            </g>
+            <path id="Line" d="M721.25,67.25 L721.25,123.25 L731.25,123.25 L719.25,147.25 L707.25,123.25 L717.25,123.25 L717.25,67.25 L721.25,67.25 Z" fill-rule="nonzero"></path>
+            <path id="Line" d="M531,164 L531,174 L534,174 L534,178 L531,178 L531,188 L507,176 L531,164 Z M622,174 L622,178 L610,178 L610,174 L622,174 Z M600,174 L600,178 L588,178 L588,174 L600,174 Z M578,174 L578,178 L566,178 L566,174 L578,174 Z M556,174 L556,178 L544,178 L544,174 L556,174 Z" fill-rule="nonzero"></path>
+            <text id="pipe" font-family="Helvetica" font-size="24" font-weight="normal" fill="#4A4A4A">
+                <tspan x="732.3125" y="102">pipe</tspan>
+            </text>
+            <text id="pipe" font-family="Helvetica" font-size="24" font-weight="normal" fill="#4A4A4A">
+                <tspan x="541.3125" y="160">pipe</tspan>
+            </text>
+            <g id="filter" transform="translate(0.000000, 11.000000)">
+                <g id="Rectangle">
+                    <use fill="black" fill-opacity="1" filter="url(#filter-6)" xlink:href="#path-5"></use>
+                    <use fill="#9B9B9B" fill-rule="evenodd" xlink:href="#path-5"></use>
+                </g>
+                <text font-family="Helvetica" font-size="36" font-weight="normal" fill="#FFFFFF">
+                    <tspan x="64.4951172" y="43">filter</tspan>
+                </text>
+            </g>
+            <g id="filter" transform="translate(310.000000, 11.000000)">
+                <g id="Rectangle">
+                    <use fill="black" fill-opacity="1" filter="url(#filter-8)" xlink:href="#path-7"></use>
+                    <use fill="#9B9B9B" fill-rule="evenodd" xlink:href="#path-7"></use>
+                </g>
+                <text font-family="Helvetica" font-size="36" font-weight="normal" fill="#FFFFFF">
+                    <tspan x="64.4951172" y="43">filter</tspan>
+                </text>
+            </g>
+            <g id="filter" transform="translate(620.000000, 11.000000)">
+                <g id="Rectangle">
+                    <use fill="black" fill-opacity="1" filter="url(#filter-10)" xlink:href="#path-9"></use>
+                    <use fill="#9B9B9B" fill-rule="evenodd" xlink:href="#path-9"></use>
+                </g>
+                <text font-family="Helvetica" font-size="36" font-weight="normal" fill="#FFFFFF">
+                    <tspan x="64.4951172" y="43">filter</tspan>
+                </text>
+            </g>
+            <g id="filter" transform="translate(620.000000, 147.000000)">
+                <g id="Rectangle">
+                    <use fill="black" fill-opacity="1" filter="url(#filter-12)" xlink:href="#path-11"></use>
+                    <use fill="#9B9B9B" fill-rule="evenodd" xlink:href="#path-11"></use>
+                </g>
+                <text font-family="Helvetica" font-size="36" font-weight="normal" fill="#FFFFFF">
+                    <tspan x="64.4951172" y="43">filter</tspan>
+                </text>
+            </g>
+            <g id="filter" transform="translate(310.000000, 147.000000)">
+                <g id="Rectangle">
+                    <use fill="black" fill-opacity="1" filter="url(#filter-14)" xlink:href="#path-13"></use>
+                    <use fill="#9B9B9B" fill-rule="evenodd" xlink:href="#path-13"></use>
+                </g>
+                <text font-family="Helvetica" font-size="36" font-weight="normal" fill="#FFFFFF">
+                    <tspan x="64.4951172" y="43">filter</tspan>
+                </text>
+            </g>
+        </g>
+    </g>
+</svg>
