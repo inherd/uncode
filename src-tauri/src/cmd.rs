@@ -61,5 +61,6 @@ pub fn handle_modeling_file(path: &PathBuf) -> String {
     return content
   }
 
+  error!("lost content {}", path.display());
   return "".to_string()
 }
