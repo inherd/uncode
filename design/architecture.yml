@@ -1,0 +1,24 @@
+collaboration:
+  - microservices
+
+patterns:
+  - microservices
+
+modeling:
+  - ddd
+
+physical:
+  layer:
+    layout: "ddd"
+
+requirements:
+  cross-functional:
+    qps: 1000
+
+fitness:
+  code-coverage:
+    - name: fe1
+      line: 99.99%
+    - name: be1
+      line: 88.88%
+
