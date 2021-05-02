@@ -25,8 +25,10 @@ class GeoPointType {
       </Helmet>
       <NavBar />
       <PageWrapper>
-        <A>Uncode Design</A>
+        <h2>Architecture Description</h2>
+        <h2>Modeling</h2>
         <Mermaid chart={example} config={{}} name={''} />
+        <h2>Guard Design</h2>
       </PageWrapper>
     </>
   );
