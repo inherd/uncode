@@ -9,6 +9,10 @@ import UncodeBridge from '../../../uncode-bridge';
 export function CodePage() {
   UncodeBridge.loadCodeTree();
 
+  UncodeBridge.listen('code_tree', data => {
+    console.log(data);
+  });
+
   const options = {
     //renderSideBySide: false
   };

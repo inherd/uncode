@@ -1,17 +1,19 @@
 #![cfg_attr(
-  all(not(debug_assertions), target_os = "windows"),
-  windows_subsystem = "windows"
+all(not(debug_assertions), target_os = "windows"),
+windows_subsystem = "windows"
 )]
 
 #[macro_use]
 extern crate log;
 
-use serde::{Serialize, Deserialize};
+use std::path::PathBuf;
+
+use serde::{Deserialize, Serialize};
 
 pub use uncode_config::UncodeConfig;
-use crate::workspace_config::WorkspaceConfig;
-use std::thread;
 use uncode_core::domain::file_entry::FileEntry;
+
+use crate::workspace_config::WorkspaceConfig;
 
 mod cmd;
 
@@ -26,13 +28,19 @@ struct Reply {
 #[derive(Serialize, Deserialize)]
 struct SummaryConfig {
   pub workspace: WorkspaceConfig,
-  pub uncode: UncodeConfig
+  pub uncode: UncodeConfig,
 }
 
 #[derive(Serialize, Deserialize)]
 struct EventPayload {
   event_type: String,
-  data: serde_json::Value
+  data: String,
+}
+
+
+#[derive(Serialize, Deserialize)]
+struct LoadCodeTreeCmd {
+  root: String
 }
 
 fn main() {
@@ -47,28 +55,28 @@ fn main() {
 
   let uncode_config = SummaryConfig {
     uncode,
-    workspace
+    workspace,
   };
 
   tauri::Builder::default()
     .on_page_load(move |window, _| {
-      let window = window.clone();
+      let window_ = window.clone();
 
       window.listen("js_event".to_string(), move |event| {
         info!("{:?}", event.payload());
         let payload: EventPayload = serde_json::from_str(event.payload().expect("lost payload")).expect("uncode no match model");
         match payload.event_type.as_str() {
           "save_config" => {
-            let config: SummaryConfig = serde_json::from_value(payload.data).expect("unable to convert config");
+            let config: SummaryConfig = serde_json::from_str(&payload.data).expect("unable to convert config");
             UncodeConfig::save_config(config.uncode);
           }
           "load_code_tree" => {
+            let cmd: LoadCodeTreeCmd = serde_json::from_str(&payload.data).expect("unable to convert config");
+            let code_path = PathBuf::from(cmd.root);
+            let entry = FileEntry::from_dir("root".to_string(), &code_path);
+            let result = serde_json::to_string(&entry).expect("lost entry");
 
-            thread::spawn(|| {
-              let code_path = PathBuf::from(root);
-              let entry = FileEntry::from_dir("root".to_string(), &code_path);
-              let result = serde_json::to_string(&entry).expect("lost entry");
-            });
+            window_.emit(&"code_tree".to_string(), Some(result)).expect("failed to emit");
           }
           &_ => {}
         }

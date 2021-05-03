@@ -5,7 +5,9 @@ import { emit, listen } from '@tauri-apps/api/event';
 const UncodeBridge = {
   // todo: move listen to here
   listen(event_name, handler) {
-    return listen(event_name, handler);
+    return listen<string>(event_name, data => {
+      return handler(JSON.parse(data.payload));
+    });
   },
 
   config: {
