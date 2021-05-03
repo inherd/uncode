@@ -24,6 +24,7 @@ const UncodeBridge = {
   },
 
   getStory(): Promise<any> {
+    console.log('get_story');
     return invoke('get_story', {
       root: this.config.uncode.path,
       story: this.config.workspace.story,

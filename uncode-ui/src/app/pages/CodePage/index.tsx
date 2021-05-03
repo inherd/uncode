@@ -57,7 +57,7 @@ export function CodePage() {
     UncodeBridge.listen('code_tree', data => {
       setTree(data);
     });
-  });
+  }, []);
 
   return (
     <>

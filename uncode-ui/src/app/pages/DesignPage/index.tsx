@@ -4,7 +4,7 @@ import { NavBar } from '../../components/NavBar';
 import { PageWrapper } from '../../components/PageWrapper';
 import styled from 'styled-components/macro';
 import Mermaid from '../../components/Memarid';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import UncodeBridge from '../../../uncode-bridge';
 import MonacoEditor from 'react-monaco-editor';
 
@@ -12,17 +12,18 @@ export function DesignPage() {
   let [modeling, setModeling] = useState('');
   let [guard, setGuard] = useState('');
 
-  UncodeBridge.title('Uncode - Design');
-  UncodeBridge.getDesign('modeling').then((model: string) => {
-    let without_puml = model.replace('@startuml', '').replace('@enduml', '');
-    let mermaid_str = 'classDiagram\n' + without_puml;
-    setModeling(mermaid_str);
-  });
+  useEffect(() => {
+    UncodeBridge.title('Uncode - Design');
+    UncodeBridge.getDesign('modeling').then((model: string) => {
+      let without_puml = model.replace('@startuml', '').replace('@enduml', '');
+      let mermaid_str = 'classDiagram\n' + without_puml;
+      setModeling(mermaid_str);
+    });
 
-  UncodeBridge.getDesign('guard').then((model: string) => {
-    console.log(model);
-    setGuard(model);
-  });
+    UncodeBridge.getDesign('guard').then((model: string) => {
+      setGuard(model);
+    });
+  }, []);
 
   let guard_options = {
     language: 'java',
