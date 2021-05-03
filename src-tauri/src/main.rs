@@ -40,7 +40,8 @@ struct EventPayload {
 
 #[derive(Serialize, Deserialize)]
 struct LoadCodeTreeCmd {
-  root: String
+  root: String,
+  code_path: String
 }
 
 fn main() {
@@ -72,7 +73,7 @@ fn main() {
           }
           "load_code_tree" => {
             let cmd: LoadCodeTreeCmd = serde_json::from_str(&payload.data).expect("unable to convert config");
-            let code_path = PathBuf::from(cmd.root);
+            let code_path = PathBuf::from(cmd.root).join(cmd.code_path);
             let entry = FileEntry::from_dir("root".to_string(), &code_path);
             let result = serde_json::to_string(&entry).expect("lost entry");
 

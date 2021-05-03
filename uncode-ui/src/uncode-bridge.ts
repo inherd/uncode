@@ -19,7 +19,7 @@ const UncodeBridge = {
       domain: '',
       story: 'design',
       design: 'story',
-      code: '',
+      code: 'uncode',
     },
   },
 
@@ -86,6 +86,7 @@ const UncodeBridge = {
   loadCodeTree() {
     let payload = {
       root: this.config.uncode.path,
+      code_path: this.config.workspace.code,
     };
 
     this.emit_event('load_code_tree', payload);

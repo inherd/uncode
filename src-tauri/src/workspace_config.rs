@@ -9,6 +9,7 @@ pub struct WorkspaceConfig {
   pub domain: String,
   pub story: String,
   pub design: String,
+  pub code: String,
 }
 
 impl Default for WorkspaceConfig {
@@ -16,7 +17,8 @@ impl Default for WorkspaceConfig {
     WorkspaceConfig {
       domain: "".to_string(),
       story: "".to_string(),
-      design: "".to_string()
+      design: "".to_string(),
+      code: "".to_string()
     }
   }
 }
