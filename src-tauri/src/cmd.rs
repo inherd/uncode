@@ -3,8 +3,7 @@ use tauri::{command};
 use uncode_core::StoryModel;
 use std::path::PathBuf;
 use crate::workspace_config::WorkspaceConfig;
-use std::{fs, thread};
-use uncode_core::domain::file_entry::FileEntry;
+use std::{fs};
 
 #[derive(Debug, Deserialize)]
 pub struct RequestBody {
