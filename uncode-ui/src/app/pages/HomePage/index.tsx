@@ -1,11 +1,12 @@
 import * as React from 'react';
+import { useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { NavBar } from 'app/components/NavBar';
 import { PageWrapper } from 'app/components/PageWrapper';
-import { useState } from 'react';
 import UncodeBridge from '../../../uncode-bridge';
 import MonacoEditor from 'react-monaco-editor';
 import * as monacoEditor from 'monaco-editor';
+import { Button } from '@material-ui/core';
 
 export function HomePage() {
   const [config, setConfig] = useState(UncodeBridge.config);
@@ -46,7 +47,9 @@ export function HomePage() {
       <NavBar />
       <PageWrapper>
         <h2>Uncode config (for Debug)</h2>
-        <button onClick={saveConfig}>Save Config</button>
+        <Button variant="contained" color="primary" onClick={saveConfig}>
+          Save Config
+        </Button>
         <MonacoEditor
           width="800"
           height="600"
