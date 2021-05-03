@@ -49,13 +49,7 @@ const UncodeBridge = {
 
   saveConfig(config: any) {
     this.setConfig(config);
-    emit(
-      'js_event',
-      JSON.stringify({
-        event_type: 'save_config',
-        data: JSON.stringify(this.config),
-      }),
-    );
+    this.emit_event('save_config', this.config);
   },
 
   openDialog(): Promise<any> {
@@ -74,10 +68,22 @@ const UncodeBridge = {
     return invoke('log_operation', { payload: message });
   },
 
-  loadCodeTree(): Promise<any> {
-    return invoke('load_code_tree', {
+  emit_event: function (event_type: string, payload: object) {
+    emit(
+      'js_event',
+      JSON.stringify({
+        event_type: event_type,
+        data: JSON.stringify(payload),
+      }),
+    );
+  },
+
+  loadCodeTree() {
+    let payload = {
       root: this.config.uncode.path,
-    });
+    };
+
+    this.emit_event('load_code_tree', payload);
   },
 };
 

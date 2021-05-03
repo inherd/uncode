@@ -7,9 +7,8 @@ import MonacoEditor from 'react-monaco-editor';
 import UncodeBridge from '../../../uncode-bridge';
 
 export function CodePage() {
-  UncodeBridge.loadCodeTree().then(result => {
-    console.log(result);
-  });
+  UncodeBridge.loadCodeTree();
+
   const options = {
     //renderSideBySide: false
   };

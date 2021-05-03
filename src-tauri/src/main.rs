@@ -10,6 +10,8 @@ use serde::{Serialize, Deserialize};
 
 pub use uncode_config::UncodeConfig;
 use crate::workspace_config::WorkspaceConfig;
+use std::thread;
+use uncode_core::domain::file_entry::FileEntry;
 
 mod cmd;
 
@@ -60,6 +62,14 @@ fn main() {
             let config: SummaryConfig = serde_json::from_value(payload.data).expect("unable to convert config");
             UncodeConfig::save_config(config.uncode);
           }
+          "load_code_tree" => {
+
+            thread::spawn(|| {
+              let code_path = PathBuf::from(root);
+              let entry = FileEntry::from_dir("root".to_string(), &code_path);
+              let result = serde_json::to_string(&entry).expect("lost entry");
+            });
+          }
           &_ => {}
         }
       });
@@ -76,7 +86,6 @@ fn main() {
       cmd::set_title,
       cmd::save_workspace,
       cmd::get_design,
-      cmd::load_code_tree,
     ])
     .run(tauri::generate_context!())
     .expect("error while running tauri application");
