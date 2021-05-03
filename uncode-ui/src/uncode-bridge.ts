@@ -49,7 +49,13 @@ const UncodeBridge = {
 
   saveConfig(config: any) {
     this.setConfig(config);
-    emit('save_config', JSON.stringify(this.config));
+    emit(
+      'js_event',
+      JSON.stringify({
+        event_type: 'save_config',
+        data: JSON.stringify(this.config),
+      }),
+    );
   },
 
   openDialog(): Promise<any> {

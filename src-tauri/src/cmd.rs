@@ -4,7 +4,6 @@ use uncode_core::StoryModel;
 use std::path::PathBuf;
 use crate::workspace_config::WorkspaceConfig;
 use std::{fs, thread};
-use uncode_core::domain::file_entry::FileEntry;
 
 #[derive(Debug, Deserialize)]
 pub struct RequestBody {
@@ -78,14 +77,12 @@ pub fn handle_modeling(path: &PathBuf) -> String {
 
 // todo: use parallel to loading file tree
 #[command(with_window)]
-pub fn load_code_tree<M: tauri::Params>(_window: tauri::Window<M>, root: String) -> String {
+pub fn load_code_tree<M: tauri::Params>(_window: tauri::Window<M>, _root: String) -> String {
 
   thread::spawn(|| {
-    let code_path = PathBuf::from(root);
-    let entry = FileEntry::from_dir("root".to_string(), &code_path);
-    let result = serde_json::to_string(&entry).expect("lost entry");
-    info!("{:?}", result);
-    // window.emit(&"loaded_code_tree".to_string(), Some(result)).expect("failure loading")
+    // let code_path = PathBuf::from(root);
+    // let entry = FileEntry::from_dir("root".to_string(), &code_path);
+    // let result = serde_json::to_string(&entry).expect("lost entry");
   });
 
   "".to_string()

@@ -27,6 +27,12 @@ struct SummaryConfig {
   pub uncode: UncodeConfig
 }
 
+#[derive(Serialize, Deserialize)]
+struct EventPayload {
+  event_type: String,
+  data: serde_json::Value
+}
+
 fn main() {
   setup_log();
 
@@ -46,11 +52,16 @@ fn main() {
     .on_page_load(move |window, _| {
       let window = window.clone();
 
-      // todo: use event to async loading elements
-      window.listen("save_config".to_string(), move |event| {
+      window.listen("js_event".to_string(), move |event| {
         info!("{:?}", event.payload());
-        let result: UncodeConfig = serde_json::from_str(event.payload().expect("lost payload")).expect("uncode no match model");
-        UncodeConfig::save_config(result);
+        let payload: EventPayload = serde_json::from_str(event.payload().expect("lost payload")).expect("uncode no match model");
+        match payload.event_type.as_str() {
+          "save_config" => {
+            let config: SummaryConfig = serde_json::from_value(payload.data).expect("unable to convert config");
+            UncodeConfig::save_config(config.uncode);
+          }
+          &_ => {}
+        }
       });
 
       window
