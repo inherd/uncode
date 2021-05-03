@@ -45,13 +45,18 @@ export default function RecursiveTreeView({ data }) {
 }
 
 export function CodePage() {
-  let [tree, setTree] = useState({});
+  let [tree, setTree] = useState({
+    path: 'root',
+    name: '',
+    children: [],
+  });
 
   const options = {
     //renderSideBySide: false
   };
 
   useEffect(() => {
+    console.log('use-effect');
     UncodeBridge.loadCodeTree();
 
     UncodeBridge.listen('code_tree', data => {
