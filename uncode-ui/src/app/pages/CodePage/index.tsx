@@ -10,7 +10,7 @@ import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 import TreeView from '@material-ui/lab/TreeView';
 import TreeItem from '@material-ui/lab/TreeItem';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 const useStyles = makeStyles({
   root: {
@@ -20,7 +20,7 @@ const useStyles = makeStyles({
   },
 });
 
-export default function RecursiveTreeView({ data: data }) {
+export default function RecursiveTreeView({ data }) {
   // eslint-disable-next-line
   const classes = useStyles();
 
@@ -46,15 +46,18 @@ export default function RecursiveTreeView({ data: data }) {
 
 export function CodePage() {
   let [tree, setTree] = useState({});
-  UncodeBridge.loadCodeTree();
-
-  UncodeBridge.listen('code_tree', data => {
-    setTree(data);
-  });
 
   const options = {
     //renderSideBySide: false
   };
+
+  useEffect(() => {
+    UncodeBridge.loadCodeTree();
+
+    UncodeBridge.listen('code_tree', data => {
+      setTree(data);
+    });
+  });
 
   return (
     <>
