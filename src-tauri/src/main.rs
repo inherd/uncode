@@ -63,7 +63,7 @@ fn main() {
       let window_ = window.clone();
 
       window.listen("js_event".to_string(), move |event| {
-        info!("{:?}", event.payload());
+        info!("event_id {:}, event_payload: {:?}", event.id(), event.payload());
         let payload: EventPayload = serde_json::from_str(event.payload().expect("lost payload")).expect("uncode no match model");
         match payload.event_type.as_str() {
           "save_config" => {

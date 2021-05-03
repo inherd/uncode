@@ -21,6 +21,7 @@ const useStyles = makeStyles({
 });
 
 export default function RecursiveTreeView({ data: data }) {
+  // eslint-disable-next-line
   const classes = useStyles();
 
   const renderTree = nodes => (
@@ -50,8 +51,6 @@ export function CodePage() {
   UncodeBridge.listen('code_tree', data => {
     setTree(data);
   });
-
-  const classes = useStyles();
 
   const options = {
     //renderSideBySide: false
