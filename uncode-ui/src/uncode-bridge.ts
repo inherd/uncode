@@ -1,10 +1,12 @@
 import { open } from '@tauri-apps/api/dialog';
 import { invoke } from '@tauri-apps/api/tauri';
-import { emit } from '@tauri-apps/api/event';
+import { emit, listen } from '@tauri-apps/api/event';
 
 const UncodeBridge = {
   // todo: move listen to here
-  listen(event_name) {},
+  listen(event_name, handler) {
+    return listen(event_name, handler);
+  },
 
   config: {
     uncode: {
