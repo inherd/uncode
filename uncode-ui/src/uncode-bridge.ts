@@ -91,7 +91,7 @@ const UncodeBridge = {
     return invoke('open_file', { path });
   },
 
-  open_dir(path?: string): Promise<string> {
+  open_dir(path?: string): Promise<any> {
     let root = this.config.uncode.path;
 
     let codePath;

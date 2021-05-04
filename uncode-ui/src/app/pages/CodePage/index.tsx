@@ -45,7 +45,9 @@ export default function RecursiveTreeView({ data, handleSelect }) {
   const [selected] = React.useState([]);
 
   const handleToggle = (event, nodeIds) => {
-    UncodeBridge.open_dir(nodeIds);
+    UncodeBridge.open_dir(nodeIds).then(data => {
+      console.log(data);
+    });
     setExpanded(nodeIds);
   };
 
@@ -96,7 +98,7 @@ export function CodePage() {
 
   useEffect(() => {
     UncodeBridge.open_dir().then(data => {
-      setTree(JSON.parse(data));
+      setTree(data);
     });
   }, []);
 

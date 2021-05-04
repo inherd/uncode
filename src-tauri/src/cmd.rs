@@ -58,12 +58,11 @@ pub fn open_file(path: String) -> String {
 }
 
 #[command]
-pub fn open_dir(root: String, code_path: String) -> String {
+pub fn open_dir(root: String, code_path: String) -> FileEntry {
   let code_path = PathBuf::from(root).join(code_path);
   let entry = FileEntry::level_one(&code_path);
-  let result = serde_json::to_string(&entry).expect("lost entry");
 
-  result
+  entry
 }
 
 #[command]
