@@ -52,20 +52,20 @@ export default function RecursiveTreeView({ data }) {
   };
 
   const renderTree = nodes => {
-    let [tree, setTree] = useState({
-      path: 'root',
-      name: '',
-      children: [],
-    });
+    // let [tree, setTree] = useState({
+    //   path: 'root',
+    //   name: '',
+    //   children: [],
+    // });
 
-    useEffect(() => {
-      console.log('use-effect');
-      UncodeBridge.loadCodeTree(nodes.path);
-
-      UncodeBridge.listen('code_tree', data => {
-        setTree(data);
-      });
-    }, []);
+    // useEffect(() => {
+    //   console.log('use-effect');
+    // UncodeBridge.loadCodeTree(nodes.path);
+    //
+    // UncodeBridge.listen('code_tree', data => {
+    //   setTree(data);
+    // });
+    // }, []);
 
     return (
       <TreeItem
