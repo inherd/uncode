@@ -1,12 +1,54 @@
 import * as React from 'react';
+import { useEffect, useState } from 'react';
 import { Helmet } from 'react-helmet-async';
+import MonacoEditor from 'react-monaco-editor';
+
 import { NavBar } from '../../components/NavBar';
 import { PageWrapper } from '../../components/PageWrapper';
 import styled from 'styled-components/macro';
 import Mermaid from '../../components/Memarid';
-import { useEffect, useState } from 'react';
 import UncodeBridge from '../../../uncode-bridge';
-import MonacoEditor from 'react-monaco-editor';
+import PropTypes from 'prop-types';
+import {
+  Box,
+  makeStyles,
+  Paper,
+  Tab,
+  Tabs,
+  Typography,
+} from '@material-ui/core';
+
+const useStyles = makeStyles({
+  root: {
+    flexGrow: 1,
+  },
+});
+
+function TabPanel(props) {
+  const { children, value, index, ...other } = props;
+
+  return (
+    <div
+      role="tabpanel"
+      hidden={value !== index}
+      id={`simple-tabpanel-${index}`}
+      aria-labelledby={`simple-tab-${index}`}
+      {...other}
+    >
+      {value === index && (
+        <Box p={3}>
+          <Typography>{children}</Typography>
+        </Box>
+      )}
+    </div>
+  );
+}
+
+TabPanel.propTypes = {
+  children: PropTypes.node,
+  index: PropTypes.any.isRequired,
+  value: PropTypes.any.isRequired,
+};
 
 export function DesignPage() {
   let [modeling, setModeling] = useState('');
@@ -29,6 +71,13 @@ export function DesignPage() {
     language: 'java',
   };
 
+  const classes = useStyles();
+  const [value, setValue] = React.useState(0);
+
+  const handleChange = (event, newValue) => {
+    setValue(newValue);
+  };
+
   return (
     <>
       <Helmet>
@@ -37,17 +86,40 @@ export function DesignPage() {
       </Helmet>
       <NavBar />
       <PageWrapper>
-        <h2>Architecture Description</h2>
-        <ArchDesc src="/assets/architecture/microservices.svg" alt="text" />
-        <h2>Modeling</h2>
-        <Mermaid chart={modeling} config={{}} name={''} />
-        <h2>Guard Design</h2>
-        <MonacoEditor
-          width="800"
-          height="600"
-          value={guard}
-          options={guard_options}
-        />
+        <Paper className={classes.root}>
+          <Tabs
+            value={value}
+            onChange={handleChange}
+            indicatorColor="primary"
+            textColor="primary"
+            centered
+          >
+            <Tab label="Architecture Description" />
+            <Tab label="Modeling" />
+            <Tab label="Guard Design" />
+            <Tab label="Fitness" />
+          </Tabs>
+
+          <TabPanel value={value} index={0}>
+            <ArchDesc src="/assets/architecture/microservices.svg" alt="text" />{' '}
+          </TabPanel>
+          <TabPanel value={value} index={1}>
+            <div>
+              <Mermaid chart={modeling} config={{}} name={''} />
+            </div>
+          </TabPanel>
+          <TabPanel value={value} index={2}>
+            <MonacoEditor
+              width="100%"
+              height="600"
+              value={guard}
+              options={guard_options}
+            />
+          </TabPanel>
+          <TabPanel value={value} index={3}>
+            <p>todo</p>
+          </TabPanel>
+        </Paper>
       </PageWrapper>
     </>
   );

@@ -44,6 +44,7 @@
     "node-plop": "0.26.2",
     "plop": "2.7.4",
     "prettier": "2.1.1",
+    "prop-types": "15.7.2",
     "react": "16.13.1",
     "react-app-polyfill": "1.0.6",
     "react-dom": "16.13.1",
