@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { NavBar } from '../../components/NavBar';
 import { PageWrapper } from '../../components/PageWrapper';
@@ -38,31 +38,17 @@ function TransitionComponent(props) {
   );
 }
 
-function FileTreeItem({ entry: file }) {
-  let [node, setNode] = useState(file);
-
-  const labelClick = () => {
-    // todo: add time check
-    console.log(node.children);
-    if (node.children.length === 0) {
-      UncodeBridge.open_dir(file.path).then(data => {
-        let newNode = node;
-        newNode.children = data.children;
-        setNode(newNode);
-      });
-    }
-  };
-
-  useEffect(() => {
-    // if (nodes.name !== '' && nodes.is_dir) {
-    //   nodes.children.push({
-    //     path: '',
-    //     name: '',
-    //     is_dir: false,
-    //     children: [],
-    //   });
-    // }
-  });
+function FileTreeItem({ entry: node }) {
+  const labelClick = useCallback(
+    event => {
+      if (node.children.length === 0) {
+        UncodeBridge.open_dir(node.path).then(data => {
+          node.children = data.children;
+        });
+      }
+    },
+    [node],
+  );
 
   return (
     <TreeItem
@@ -74,14 +60,15 @@ function FileTreeItem({ entry: file }) {
       TransitionComponent={TransitionComponent}
     >
       {Array.isArray(node.children)
-        ? node.children.map(node => <FileTreeItem entry={node} />)
+        ? node.children.map(node => {
+            return <FileTreeItem entry={node} />;
+          })
         : null}
     </TreeItem>
   );
 }
 
 export default function RecursiveTreeView({ data, handleSelect }) {
-  // eslint-disable-next-line
   const classes = useStyles();
   const [expanded, setExpanded] = React.useState([]);
   const [selected, setSelected] = React.useState([]);
