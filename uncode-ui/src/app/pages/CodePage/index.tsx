@@ -43,6 +43,7 @@ function FileTreeItem({ entry: file }) {
 
   const labelClick = () => {
     // todo: add time check
+    console.log(node.children);
     if (node.children.length === 0) {
       UncodeBridge.open_dir(file.path).then(data => {
         let newNode = node;
@@ -83,14 +84,14 @@ export default function RecursiveTreeView({ data, handleSelect }) {
   // eslint-disable-next-line
   const classes = useStyles();
   const [expanded, setExpanded] = React.useState([]);
-  const [selected] = React.useState([]);
+  const [selected, setSelected] = React.useState([]);
 
   const handleToggle = (event, nodeIds) => {
-    UncodeBridge.open_dir(nodeIds).then(data => {});
     setExpanded(nodeIds);
   };
 
   const select = (event, nodeIds) => {
+    setSelected(nodeIds);
     handleSelect(nodeIds);
   };
 
