@@ -3,9 +3,13 @@ import styled, { css } from 'styled-components/macro';
 import { ReactComponent as DocumentationIcon } from './assets/documentation-icon.svg';
 import { ReactComponent as DesignIcon } from './assets/design-icon.svg';
 import { ReactComponent as CodingIcon } from './assets/coding-icon.svg';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useHistory } from 'react-router-dom';
+import UncodeShortcuts from '../../../uncode-shortcuts';
 
 export function Nav() {
+  let history = useHistory();
+  UncodeShortcuts.bind_history(history);
+
   return (
     <Wrapper>
       <StyledLink to="/story">

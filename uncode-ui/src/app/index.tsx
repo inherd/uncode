@@ -10,21 +10,17 @@ import { DesignPage } from './pages/DesignPage/Loadable';
 import { CodePage } from './pages/CodePage';
 import { NotFoundPage } from './pages/NotFoundPage/Loadable';
 import { useTranslation } from 'react-i18next';
-import TauriShortcuts from '../tauri-shortcuts';
+import UncodeShortcuts from '../uncode-shortcuts';
 import { StoryPage } from './pages/StoryPage/Loadable';
 import UncodeBridge from '../uncode-bridge';
 
 export function App() {
-  TauriShortcuts.init();
+  UncodeShortcuts.init();
   const { i18n } = useTranslation();
-
-  // eslint-disable-next-line
-  // const [project, setProject] = useState({});
 
   listen('bootstrap', (data: any) => {
     let payload = JSON.parse(data.payload);
     UncodeBridge.config = payload;
-    // setProject(payload);
   });
 
   return (

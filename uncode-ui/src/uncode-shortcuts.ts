@@ -1,7 +1,7 @@
 import hotkeys from 'hotkeys-js';
 import UncodeBridge from './uncode-bridge';
 
-const TauriShortcuts = {
+const UncodeShortcuts = {
   init() {
     hotkeys.unbind('f5');
     hotkeys.unbind('ctrl+o, command+o');
@@ -15,7 +15,8 @@ const TauriShortcuts = {
       UncodeBridge.openDialog();
       return false;
     });
-
+  },
+  bind_history(history: any) {
     let histories = [
       '/',
       'story',
@@ -28,11 +29,11 @@ const TauriShortcuts = {
 
     for (let i = 0; i < histories.length; i++) {
       hotkeys(`ctrl+${i}, command+${i}`, function () {
-        // history.push(histories[i]);
+        history.push(histories[i]);
         return false;
       });
     }
   },
 };
 
-export default TauriShortcuts;
+export default UncodeShortcuts;
