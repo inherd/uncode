@@ -40,6 +40,16 @@ function TransitionComponent(props) {
 export default function RecursiveTreeView({ data }) {
   // eslint-disable-next-line
   const classes = useStyles();
+  const [expanded, setExpanded] = React.useState([]);
+  const [selected, setSelected] = React.useState([]);
+
+  const handleToggle = (event, nodeIds) => {
+    setExpanded(nodeIds);
+  };
+
+  const handleSelect = (event, nodeIds) => {
+    setSelected(nodeIds);
+  };
 
   const renderTree = nodes => (
     <TreeItem
@@ -60,6 +70,10 @@ export default function RecursiveTreeView({ data }) {
       defaultCollapseIcon={<ExpandMoreIcon />}
       defaultExpanded={['root']}
       defaultExpandIcon={<ChevronRightIcon />}
+      expanded={expanded}
+      selected={selected}
+      onNodeToggle={handleToggle}
+      onNodeSelect={handleSelect}
     >
       {renderTree(data)}
     </TreeView>
