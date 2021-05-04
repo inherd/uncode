@@ -16,9 +16,10 @@ import { Description, Folder } from '@material-ui/icons';
 
 const useStyles = makeStyles({
   root: {
-    height: 240,
     flexGrow: 1,
-    maxWidth: 400,
+    maxWidth: 800,
+    maxHeight: '100vh',
+    overflowX: 'scroll',
   },
 });
 
