@@ -39,21 +39,23 @@ function TransitionComponent(props) {
 }
 
 function FileTreeItem({ entry: node }) {
-  const labelClick = useCallback(
-    event => {
-      if (node.children.length === 0) {
-        UncodeBridge.open_dir(node.path).then(data => {
-          node.children = data.children;
-        });
-      }
-    },
-    [node],
-  );
+  const labelClick = useCallback(() => {
+    if (node.children.length === 0) {
+      UncodeBridge.open_dir(node.path).then(data => {
+        node.children = data.children;
+      });
+    }
+  }, [node]);
+
+  let suffix = '';
+  if (node.is_dir) {
+    suffix = '?is_dir=true';
+  }
 
   return (
     <TreeItem
       key={node.path}
-      nodeId={node.path}
+      nodeId={node.path + suffix}
       label={node.name}
       onLabelClick={labelClick}
       icon={node.is_dir ? <Folder /> : <Description />}
@@ -112,7 +114,10 @@ export function CodePage() {
     });
   }, []);
 
-  const openFile = nodeIds => {
+  const openFile = (nodeIds: string) => {
+    if (nodeIds.endsWith('?is_dir=true')) {
+      return;
+    }
     UncodeBridge.open_file(nodeIds).then(data => {
       setContent(data);
     });
