@@ -19,8 +19,7 @@ export function App() {
   const { i18n } = useTranslation();
 
   listen('bootstrap', (data: any) => {
-    let payload = JSON.parse(data.payload);
-    UncodeBridge.config = payload;
+    UncodeBridge.config = JSON.parse(data.payload);
   });
 
   return (

@@ -26,7 +26,7 @@ export function HomePage() {
   };
 
   const saveConfig = () => {
-    UncodeBridge.saveConfig(config);
+    UncodeBridge.save_config(config);
   };
 
   const editorDidMount = (

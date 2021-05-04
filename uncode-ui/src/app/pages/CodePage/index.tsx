@@ -84,6 +84,7 @@ export function CodePage() {
   let [tree, setTree] = useState({
     path: '',
     name: '',
+    is_dir: true,
     children: [],
   });
   let [content, setContent] = useState('');
@@ -93,7 +94,7 @@ export function CodePage() {
   };
 
   useEffect(() => {
-    UncodeBridge.loadCodeTree();
+    UncodeBridge.load_code_tree();
 
     UncodeBridge.listen('code_tree', data => {
       setTree(data);
@@ -101,7 +102,7 @@ export function CodePage() {
   }, []);
 
   const handleSelect = (event, nodeIds) => {
-    UncodeBridge.openFile(nodeIds).then(data => {
+    UncodeBridge.open_file(nodeIds).then(data => {
       setContent(data);
     });
   };

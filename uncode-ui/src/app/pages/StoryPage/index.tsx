@@ -21,7 +21,7 @@ export function StoryPage() {
   } as any);
 
   useEffect(() => {
-    UncodeBridge.getStory().then(stories => {
+    UncodeBridge.get_story().then(stories => {
       let column_map: any = {
         backlog: { id: 1, title: 'Backlog', cards: [] },
         doing: { id: 2, title: 'Doing', cards: [] },
@@ -54,7 +54,7 @@ export function StoryPage() {
 
   function onCardNew(newCard) {
     const card = { id: '', ...newCard };
-    UncodeBridge.createStory(card);
+    UncodeBridge.create_story(card);
     return card;
   }
 

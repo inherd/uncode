@@ -14,13 +14,13 @@ export function DesignPage() {
 
   useEffect(() => {
     UncodeBridge.title('Uncode - Design');
-    UncodeBridge.getDesign('modeling').then((model: string) => {
+    UncodeBridge.get_design('modeling').then((model: string) => {
       let without_puml = model.replace('@startuml', '').replace('@enduml', '');
       let mermaid_str = 'classDiagram\n' + without_puml;
       setModeling(mermaid_str);
     });
 
-    UncodeBridge.getDesign('guard').then((model: string) => {
+    UncodeBridge.get_design('guard').then((model: string) => {
       setGuard(model);
     });
   }, []);

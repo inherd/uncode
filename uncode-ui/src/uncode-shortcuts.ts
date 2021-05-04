@@ -12,7 +12,7 @@ const UncodeShortcuts = {
     });
 
     hotkeys('ctrl+o, command+o', function () {
-      UncodeBridge.openDialog();
+      UncodeBridge.open_dialog();
       return false;
     });
   },

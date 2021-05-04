@@ -23,15 +23,14 @@ const UncodeBridge = {
     },
   },
 
-  getStory(): Promise<any> {
-    console.log('get_story');
+  get_story(): Promise<any> {
     return invoke('get_story', {
       root: this.config.uncode.path,
       story: this.config.workspace.story,
     });
   },
 
-  getDesign(design_type: string): Promise<any> {
+  get_design(design_type: string): Promise<any> {
     return invoke('get_design', {
       root: this.config.uncode.path,
       path: this.config.workspace.design,
@@ -39,7 +38,7 @@ const UncodeBridge = {
     });
   },
 
-  createStory(card): Promise<any> {
+  create_story(card): Promise<any> {
     return invoke('create_story', {
       root: this.config.uncode.path,
       story: this.config.workspace.story,
@@ -47,20 +46,20 @@ const UncodeBridge = {
     });
   },
 
-  setConfig(config: any) {
+  set_config(config: any) {
     this.config = config;
     window.dispatchEvent(new Event('set_config'));
   },
 
-  saveConfig(config: any) {
-    this.setConfig(config);
+  save_config(config: any) {
+    this.set_config(config);
     this.emit_event('save_config', this.config);
   },
 
-  openDialog(): Promise<any> {
+  open_dialog(): Promise<any> {
     return open({ directory: true }).then(result => {
       this.config.uncode.path = result as string;
-      this.setConfig(this.config);
+      this.set_config(this.config);
       emit('save_config', JSON.stringify(this.config));
     });
   },
@@ -83,11 +82,11 @@ const UncodeBridge = {
     );
   },
 
-  openFile(path: string): Promise<string> {
+  open_file(path: string): Promise<string> {
     return invoke('open_file', { path });
   },
 
-  loadCodeTree(path?: string) {
+  load_code_tree(path?: string) {
     let payload;
     if (!!path) {
       payload = {
