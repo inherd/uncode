@@ -40,7 +40,6 @@ function TransitionComponent(props) {
 
 function FileTreeItem(props) {
   const [node, setNode] = useState(props.entry);
-  console.log(node);
 
   const labelClick = useCallback(() => {
     console.log('useCallback');
