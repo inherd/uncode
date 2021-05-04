@@ -53,17 +53,14 @@ impl FileEntry {
   pub fn new(name: String, path: PathBuf) -> Self {
     let mut ext = "".to_string();
     if path.is_file() {
-      match path.extension() {
-        None => {}
-        Some(ex) => {
-          ext = ex.to_string_lossy().to_string()
-        }
+      if let Some(ex) = path.extension() {
+        ext = ex.to_string_lossy().to_string()
       }
     }
     FileEntry {
       name,
       ext,
-      is_dir: false,
+      is_dir: true,
       path: format!("{}", path.display()),
       children: vec![],
     }
@@ -75,9 +72,7 @@ impl FileEntry {
   }
 
   // todo: a tempory ignore ways for performance simple
-  pub fn is_rust_target() {
-
-  }
+  pub fn is_rust_target() {}
 
   fn is_hidden(entry: &DirEntry) -> bool {
     if !entry.path().is_dir() {
@@ -95,7 +90,7 @@ impl FileEntry {
       .unwrap_or(false)
   }
 
-  /// Returns FileEntry with the given path.
+  /// Returns all FileEntry with the given path with all childrens.
   ///
   /// # Arguments
   ///
@@ -107,6 +102,61 @@ impl FileEntry {
     let _result = FileEntry::visit_dirs(path, 0, &mut root, path);
     root
   }
+
+  /// Returns depth 1 FileEntry with the given path.
+  ///
+  /// # Arguments
+  ///
+  /// * `title` - default path name
+  /// * `path`  - code path
+  ///
+  pub fn level(title: String, path: &Path) -> FileEntry {
+    let mut root = FileEntry::new(title, path.to_path_buf());
+    let _result = FileEntry::by_depth_1(path, &mut root, path);
+    root.children.sort_by_key(|a| {
+      !a.is_dir
+    });
+    root
+  }
+
+  fn by_depth_1(
+    dir: &Path,
+    node: &mut FileEntry,
+    base_dir: &Path,
+  ) -> io::Result<()> {
+    if dir.is_dir() {
+      let entry_set = fs::read_dir(dir)?; // contains DirEntry
+      let mut entries = entry_set
+        .filter_map(|v| match v {
+          Ok(dir) => {
+            if FileEntry::is_hidden(&dir) {
+              return None;
+            }
+            Some(dir)
+          }
+          Err(_) => None,
+        })
+        .collect::<Vec<_>>();
+
+      entries.sort_by(|a, b| a.path().file_name().cmp(&b.path().file_name()));
+
+      for (_index, entry) in entries.iter().enumerate() {
+        let path = entry.path();
+
+        if path.is_dir() {
+          let relative_path = path.strip_prefix(base_dir).unwrap();
+          let entry = &mut FileEntry::new(format!("{}", relative_path.display()), path.to_path_buf());
+          entry.is_dir = true;
+          node.children.push(entry.to_owned());
+        } else {
+          let entry1 = FileEntry::from_path(path);
+          node.children.push(entry1);
+        }
+      }
+    }
+    Ok(())
+  }
+
 
   fn visit_dirs(
     dir: &Path,
@@ -165,6 +215,9 @@ mod tests {
   #[test]
   fn should_support_for_visitor_by_level() {
     let path = PathBuf::from(env!("CARGO_MANIFEST_DIR"));
-    let entry = FileEntry::all("root".to_string(), &path);
+    let entry = FileEntry::level("root".to_string(), &path);
+    println!("{:?}", entry);
+    assert_eq!("src", entry.children[0].name);
+    assert_eq!(0, entry.children[0].children.len());
   }
 }
