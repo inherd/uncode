@@ -76,6 +76,18 @@ impl FileEntry {
       });
   }
 
+  /// add FileEntry to parent by keys, and return new results.
+  pub fn build_child(&mut self, child: &str) {
+    self.children.iter_mut()
+      .for_each(|entry| {
+        if entry.name == child {
+          let child_path = PathBuf::from(entry.path.clone());
+          let mut src_entries = FileEntry::level_one(child.to_string(), &child_path);
+          entry.children.append(&mut src_entries.children);
+        }
+      });
+  }
+
   // todo: a tempory ignore ways for performance simple
   pub fn is_rust_target() {}
 
@@ -115,16 +127,16 @@ impl FileEntry {
   /// * `title` - default path name
   /// * `path`  - code path
   ///
-  pub fn level(title: String, path: &Path) -> FileEntry {
+  pub fn level_one(title: String, path: &Path) -> FileEntry {
     let mut root = FileEntry::new(title, path.to_path_buf());
-    let _result = FileEntry::by_depth_1(path, &mut root, path);
+    let _result = FileEntry::by_depth_one(path, &mut root, path);
     root.children.sort_by_key(|a| {
       !a.is_dir
     });
     root
   }
 
-  fn by_depth_1(
+  fn by_depth_one(
     dir: &Path,
     node: &mut FileEntry,
     base_dir: &Path,
@@ -220,7 +232,7 @@ mod tests {
   #[test]
   fn should_support_for_visitor_by_level() {
     let path = PathBuf::from(env!("CARGO_MANIFEST_DIR"));
-    let entry = FileEntry::level("root".to_string(), &path);
+    let entry = FileEntry::level_one("root".to_string(), &path);
 
     assert_eq!("src", entry.children[0].name);
     assert_eq!(0, entry.children[0].children.len());
@@ -231,10 +243,23 @@ mod tests {
     let path = PathBuf::from(env!("CARGO_MANIFEST_DIR"));
     let src = PathBuf::from(env!("CARGO_MANIFEST_DIR")).join("src");
 
-    let mut root = FileEntry::level("root".to_string(), &path);
-    let mut src_entries = FileEntry::level("src".to_string(), &src);
+    let mut root = FileEntry::level_one("root".to_string(), &path);
+    let mut src_entries = FileEntry::level_one("src".to_string(), &src);
 
     root.add_child("src", &mut src_entries.children);
+
+    assert_eq!("src", root.children[0].name);
+    assert_eq!(3, root.children[0].children.len());
+    assert_eq!("domain", root.children[0].children[0].name);
+  }
+
+  #[test]
+  fn should_support_for_insert_children() {
+    let path = PathBuf::from(env!("CARGO_MANIFEST_DIR"));
+    let mut root = FileEntry::level_one("root".to_string(), &path);
+
+    root.build_child("src");
+    println!("{:?}", root);
 
     assert_eq!("src", root.children[0].name);
     assert_eq!(3, root.children[0].children.len());
