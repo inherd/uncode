@@ -90,11 +90,15 @@ fn main() {
     .invoke_handler(tauri::generate_handler![
       cmd::log_operation,
       cmd::perform_request,
-      cmd::open_directory,
-      cmd::get_story,
-      cmd::set_title,
       cmd::save_workspace,
+      cmd::set_title,
+
+      // story
+      cmd::get_story,
+
+      // design
       cmd::get_design,
+
       cmd::open_file,
     ])
     .run(tauri::generate_context!())

@@ -30,11 +30,6 @@ pub fn perform_request(endpoint: String, body: RequestBody) -> String {
 }
 
 #[command]
-pub fn open_directory(payload: String) {
-  info!("open_directory: {}", payload);
-}
-
-#[command]
 pub fn save_workspace(config: String, path: String) {
   let ws: WorkspaceConfig = serde_json::from_str(&config).expect("pass config error");
   WorkspaceConfig::save_config(ws, path);
