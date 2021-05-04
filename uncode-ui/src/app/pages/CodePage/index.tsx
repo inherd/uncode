@@ -18,8 +18,6 @@ const useStyles = makeStyles({
   root: {
     flexGrow: 1,
     maxWidth: 800,
-    maxHeight: '100vh',
-    overflowX: 'scroll',
   },
 });
 
@@ -48,12 +46,12 @@ function FileTreeItem(props) {
   }
 
   const labelClick = useCallback(() => {
-    console.log('useCallback');
-    props.click(node.path + suffix);
     if (node && node.children && node.children.length === 0) {
       UncodeBridge.open_dir(node.path).then(data => {
         node.children = data.children;
         setNode(node);
+
+        props.click(node.path + suffix);
       });
 
       setNode(props.entry);
@@ -80,23 +78,18 @@ function FileTreeItem(props) {
 
 export default function RecursiveTreeView({ data, handleSelect }) {
   const classes = useStyles();
-  const [expanded, setExpanded] = React.useState([] as any);
-  const [selected, setSelected] = React.useState([]);
+  const [expanded, setExpanded] = React.useState([data.name] as any);
 
-  const handleToggle = (event, nodeIds) => {
-    setExpanded(nodeIds);
-  };
-
-  const handleClick = useCallback(
-    (nodeIds: any) => {
-      setExpanded([...expanded, nodeIds]);
+  const handleToggle = useCallback(
+    (event, nodeIds) => {
+      setExpanded(nodeIds);
     },
-    [expanded, setExpanded],
+    [setExpanded],
   );
 
-  const nodeSelect = (event, nodeIds) => {
-    setSelected(nodeIds);
+  const handleClick = (nodeIds: any) => {
     handleSelect(nodeIds);
+    setExpanded([...expanded, nodeIds]);
   };
 
   return (
@@ -106,9 +99,7 @@ export default function RecursiveTreeView({ data, handleSelect }) {
       defaultExpanded={[data.name]}
       defaultExpandIcon={<ChevronRightIcon />}
       expanded={expanded}
-      selected={selected}
       onNodeToggle={handleToggle}
-      onNodeSelect={nodeSelect}
     >
       <FileTreeItem entry={data} click={handleClick} />
     </TreeView>
