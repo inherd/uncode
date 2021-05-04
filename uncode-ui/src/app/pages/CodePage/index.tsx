@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { useEffect, useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { NavBar } from '../../components/NavBar';
 import { PageWrapper } from '../../components/PageWrapper';
@@ -10,8 +11,8 @@ import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 import TreeView from '@material-ui/lab/TreeView';
 import TreeItem from '@material-ui/lab/TreeItem';
-import { useEffect, useState } from 'react';
-import { useSpring, animated } from 'react-spring/web.cjs';
+import { animated, useSpring } from 'react-spring/web.cjs';
+import { Folder, Description } from '@material-ui/icons';
 
 const useStyles = makeStyles({
   root: {
@@ -57,6 +58,7 @@ export default function RecursiveTreeView({ data }) {
         key={nodes.path}
         nodeId={nodes.path}
         label={nodes.name}
+        icon={nodes.is_dir ? <Folder /> : <Description />}
         TransitionComponent={TransitionComponent}
       >
         {Array.isArray(nodes.children)
