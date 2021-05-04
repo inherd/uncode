@@ -74,7 +74,7 @@ fn main() {
           "load_code_tree" => {
             let cmd: LoadCodeTreeCmd = serde_json::from_str(&payload.data).expect("unable to convert config");
             let code_path = PathBuf::from(cmd.root).join(cmd.code_path);
-            let entry = FileEntry::level_one("root".to_string(), &code_path);
+            let entry = FileEntry::level_one(&code_path);
             let result = serde_json::to_string(&entry).expect("lost entry");
 
             window_.emit(&"code_tree".to_string(), Some(result)).expect("failed to emit");
