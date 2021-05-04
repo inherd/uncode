@@ -13,6 +13,7 @@ import TreeView from '@material-ui/lab/TreeView';
 import TreeItem from '@material-ui/lab/TreeItem';
 import { animated, useSpring } from 'react-spring/web.cjs';
 import { Description, Folder } from '@material-ui/icons';
+import { set } from 'shelljs';
 
 const useStyles = makeStyles({
   root: {
@@ -41,8 +42,14 @@ function TransitionComponent(props) {
 function FileTreeItem(props) {
   const [node, setNode] = useState(props.entry);
 
+  let suffix = '';
+  if (node.is_dir) {
+    suffix = '?is_dir=true';
+  }
+
   const labelClick = useCallback(() => {
     console.log('useCallback');
+    props.click(node.path + suffix);
     if (node && node.children && node.children.length === 0) {
       UncodeBridge.open_dir(node.path).then(data => {
         node.children = data.children;
@@ -51,12 +58,7 @@ function FileTreeItem(props) {
 
       setNode(props.entry);
     }
-  }, [props]);
-
-  let suffix = '';
-  if (node.is_dir) {
-    suffix = '?is_dir=true';
-  }
+  }, [props, node, suffix]);
 
   return (
     <TreeItem
@@ -69,7 +71,7 @@ function FileTreeItem(props) {
     >
       {Array.isArray(node.children)
         ? node.children.map(node => {
-            return <FileTreeItem entry={node} />;
+            return <FileTreeItem entry={node} click={props.click} />;
           })
         : null}
     </TreeItem>
@@ -78,14 +80,18 @@ function FileTreeItem(props) {
 
 export default function RecursiveTreeView({ data, handleSelect }) {
   const classes = useStyles();
-  const [expanded, setExpanded] = React.useState([]);
+  const [expanded, setExpanded] = React.useState([] as any);
   const [selected, setSelected] = React.useState([]);
 
   const handleToggle = (event, nodeIds) => {
     setExpanded(nodeIds);
   };
 
-  const select = (event, nodeIds) => {
+  const handleClick = (nodeIds: any) => {
+    setExpanded([...expanded, nodeIds]);
+  };
+
+  const nodeSelect = (event, nodeIds) => {
     setSelected(nodeIds);
     handleSelect(nodeIds);
   };
@@ -99,9 +105,9 @@ export default function RecursiveTreeView({ data, handleSelect }) {
       expanded={expanded}
       selected={selected}
       onNodeToggle={handleToggle}
-      onNodeSelect={select}
+      onNodeSelect={nodeSelect}
     >
-      <FileTreeItem entry={data} />
+      <FileTreeItem entry={data} click={handleClick} />
     </TreeView>
   );
 }
