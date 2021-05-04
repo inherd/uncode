@@ -6,7 +6,7 @@ import { PageWrapper } from '../../components/PageWrapper';
 import styled from 'styled-components/macro';
 import MonacoEditor from 'react-monaco-editor';
 import UncodeBridge from '../../../uncode-bridge';
-import { Collapse, Grid, makeStyles } from '@material-ui/core';
+import { Box, Collapse, Grid, makeStyles } from '@material-ui/core';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 import TreeView from '@material-ui/lab/TreeView';
@@ -114,18 +114,21 @@ export function CodePage() {
       </Helmet>
       <NavBar />
       <PageWrapper>
-        <Grid container spacing={3}>
-          <Grid item xs={2}>
-            <RecursiveTreeView data={tree} handleSelect={handleSelect} />
+        <Box height="100%">
+          <Grid container spacing={3}>
+            <Grid item xs={2}>
+              <RecursiveTreeView data={tree} handleSelect={handleSelect} />
+            </Grid>
+            <Grid item xs={10}>
+              <MonacoEditor
+                height="100%"
+                language="javascript"
+                options={options}
+                value={content}
+              />
+            </Grid>
           </Grid>
-          <Grid item xs={10}>
-            <MonacoEditor
-              language="javascript"
-              options={options}
-              value={content}
-            />
-          </Grid>
-        </Grid>
+        </Box>
       </PageWrapper>
     </>
   );
