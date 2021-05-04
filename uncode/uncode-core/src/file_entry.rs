@@ -31,7 +31,9 @@ impl Default for FileEntry {
 impl FileEntry {
   pub fn new(relative: &Path ,path: &Path) -> Self {
     let mut ext = "".to_string();
+    let mut is_dir = true;
     if relative.is_file() {
+      is_dir = false;
       if let Some(ex) = path.extension() {
         ext = ex.to_string_lossy().to_string()
       }
@@ -43,7 +45,7 @@ impl FileEntry {
     FileEntry {
       name: format!("{}", short.display()),
       ext,
-      is_dir: false,
+      is_dir,
       path: format!("{}", path.display()),
       relative: format!("{}", relative.display()),
       children: vec![],
@@ -107,7 +109,6 @@ impl FileEntry {
 
   fn level_one_with_root(child: &Path, root_dir: &Path) -> FileEntry {
     let mut root = FileEntry::new(child, root_dir);
-    root.is_dir = true;
 
     let _result = FileEntry::by_depth_one(child, &mut root, root_dir);
     root.children.sort_by_key(|a| {
@@ -143,7 +144,6 @@ impl FileEntry {
 
         if path.is_dir() {
           let entry = &mut FileEntry::new(relative, &path);
-          entry.is_dir = true;
           node.children.push(entry.to_owned());
         } else {
           let file = &mut FileEntry::new(relative, &path);

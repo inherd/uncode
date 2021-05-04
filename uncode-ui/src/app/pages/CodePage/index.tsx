@@ -46,7 +46,7 @@ export default function RecursiveTreeView({ data, handleSelect }) {
 
   const handleToggle = (event, nodeIds) => {
     UncodeBridge.open_dir(nodeIds).then(data => {
-      console.log(data);
+      console.log(nodeIds, data);
     });
     setExpanded(nodeIds);
   };
@@ -67,6 +67,10 @@ export default function RecursiveTreeView({ data, handleSelect }) {
     );
   };
 
+  const select = (event, nodeIds) => {
+    handleSelect(nodeIds);
+  };
+
   return (
     <TreeView
       className={classes.root}
@@ -76,7 +80,7 @@ export default function RecursiveTreeView({ data, handleSelect }) {
       expanded={expanded}
       selected={selected}
       onNodeToggle={handleToggle}
-      onNodeSelect={handleSelect}
+      onNodeSelect={select}
     >
       {renderTree(data)}
     </TreeView>
@@ -98,11 +102,12 @@ export function CodePage() {
 
   useEffect(() => {
     UncodeBridge.open_dir().then(data => {
+      console.log(data);
       setTree(data);
     });
   }, []);
 
-  const handleSelect = (event, nodeIds) => {
+  const openFile = nodeIds => {
     UncodeBridge.open_file(nodeIds).then(data => {
       setContent(data);
     });
@@ -119,7 +124,7 @@ export function CodePage() {
         <Box height="100%">
           <Grid container spacing={3}>
             <Grid item xs={2}>
-              <RecursiveTreeView data={tree} handleSelect={handleSelect} />
+              <RecursiveTreeView data={tree} handleSelect={openFile} />
             </Grid>
             <Grid item xs={10}>
               <MonacoEditor
