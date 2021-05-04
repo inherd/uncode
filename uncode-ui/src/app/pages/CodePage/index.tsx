@@ -5,12 +5,13 @@ import { PageWrapper } from '../../components/PageWrapper';
 import styled from 'styled-components/macro';
 import MonacoEditor from 'react-monaco-editor';
 import UncodeBridge from '../../../uncode-bridge';
-import { makeStyles } from '@material-ui/core';
+import { Collapse, makeStyles } from '@material-ui/core';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 import TreeView from '@material-ui/lab/TreeView';
 import TreeItem from '@material-ui/lab/TreeItem';
 import { useEffect, useState } from 'react';
+import { useSpring, animated } from 'react-spring/web.cjs';
 
 const useStyles = makeStyles({
   root: {
@@ -20,12 +21,33 @@ const useStyles = makeStyles({
   },
 });
 
+function TransitionComponent(props) {
+  const style = useSpring({
+    from: { opacity: 0, transform: 'translate3d(20px,0,0)' },
+    to: {
+      opacity: props.in ? 1 : 0,
+      transform: `translate3d(${props.in ? 0 : 20}px,0,0)`,
+    },
+  });
+
+  return (
+    <animated.div style={style}>
+      <Collapse {...props} />
+    </animated.div>
+  );
+}
+
 export default function RecursiveTreeView({ data }) {
   // eslint-disable-next-line
   const classes = useStyles();
 
   const renderTree = nodes => (
-    <TreeItem key={nodes.path} nodeId={nodes.path} label={nodes.name}>
+    <TreeItem
+      key={nodes.path}
+      nodeId={nodes.path}
+      label={nodes.name}
+      TransitionComponent={TransitionComponent}
+    >
       {Array.isArray(nodes.children)
         ? nodes.children.map(node => renderTree(node))
         : null}
