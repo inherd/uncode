@@ -51,18 +51,35 @@ export default function RecursiveTreeView({ data }) {
     setSelected(nodeIds);
   };
 
-  const renderTree = nodes => (
-    <TreeItem
-      key={nodes.path}
-      nodeId={nodes.path}
-      label={nodes.name}
-      TransitionComponent={TransitionComponent}
-    >
-      {Array.isArray(nodes.children)
-        ? nodes.children.map(node => renderTree(node))
-        : null}
-    </TreeItem>
-  );
+  const renderTree = nodes => {
+    let [tree, setTree] = useState({
+      path: 'root',
+      name: '',
+      children: [],
+    });
+
+    useEffect(() => {
+      console.log('use-effect');
+      UncodeBridge.loadCodeTree(nodes.path);
+
+      UncodeBridge.listen('code_tree', data => {
+        setTree(data);
+      });
+    }, []);
+
+    return (
+      <TreeItem
+        key={nodes.path}
+        nodeId={nodes.path}
+        label={nodes.name}
+        TransitionComponent={TransitionComponent}
+      >
+        {Array.isArray(nodes.children)
+          ? nodes.children.map(node => renderTree(node))
+          : null}
+      </TreeItem>
+    );
+  };
 
   return (
     <TreeView
