@@ -38,6 +38,40 @@ function TransitionComponent(props) {
   );
 }
 
+function FileTreeItem({ nodes }) {
+  const labelClick = () => {
+    UncodeBridge.open_dir(nodes.path).then(data => {
+      console.log(data);
+    });
+  };
+
+  useEffect(() => {
+    if (nodes.name !== '' && nodes.is_dir) {
+      nodes.children.push({
+        path: '',
+        name: '',
+        is_dir: false,
+        children: [],
+      });
+    }
+  });
+
+  return (
+    <TreeItem
+      key={nodes.path}
+      nodeId={nodes.path}
+      label={nodes.name}
+      onLabelClick={labelClick}
+      icon={nodes.is_dir ? <Folder /> : <Description />}
+      TransitionComponent={TransitionComponent}
+    >
+      {Array.isArray(nodes.children)
+        ? nodes.children.map(node => <FileTreeItem nodes={node} />)
+        : null}
+    </TreeItem>
+  );
+}
+
 export default function RecursiveTreeView({ data, handleSelect }) {
   // eslint-disable-next-line
   const classes = useStyles();
@@ -49,22 +83,6 @@ export default function RecursiveTreeView({ data, handleSelect }) {
       console.log(nodeIds, data);
     });
     setExpanded(nodeIds);
-  };
-
-  const renderTree = nodes => {
-    return (
-      <TreeItem
-        key={nodes.path}
-        nodeId={nodes.path}
-        label={nodes.name}
-        icon={nodes.is_dir ? <Folder /> : <Description />}
-        TransitionComponent={TransitionComponent}
-      >
-        {Array.isArray(nodes.children)
-          ? nodes.children.map(node => renderTree(node))
-          : null}
-      </TreeItem>
-    );
   };
 
   const select = (event, nodeIds) => {
@@ -82,7 +100,7 @@ export default function RecursiveTreeView({ data, handleSelect }) {
       onNodeToggle={handleToggle}
       onNodeSelect={select}
     >
-      {renderTree(data)}
+      <FileTreeItem nodes={data} />
     </TreeView>
   );
 }
@@ -102,7 +120,6 @@ export function CodePage() {
 
   useEffect(() => {
     UncodeBridge.open_dir().then(data => {
-      console.log(data);
       setTree(data);
     });
   }, []);
