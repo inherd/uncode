@@ -52,21 +52,6 @@ export default function RecursiveTreeView({ data }) {
   };
 
   const renderTree = nodes => {
-    // let [tree, setTree] = useState({
-    //   path: 'root',
-    //   name: '',
-    //   children: [],
-    // });
-
-    // useEffect(() => {
-    //   console.log('use-effect');
-    // UncodeBridge.loadCodeTree(nodes.path);
-    //
-    // UncodeBridge.listen('code_tree', data => {
-    //   setTree(data);
-    // });
-    // }, []);
-
     return (
       <TreeItem
         key={nodes.path}
@@ -109,7 +94,6 @@ export function CodePage() {
   };
 
   useEffect(() => {
-    console.log('use-effect');
     UncodeBridge.loadCodeTree();
 
     UncodeBridge.listen('code_tree', data => {
