@@ -8,6 +8,8 @@ import { PageWrapper } from '../../components/PageWrapper';
 import styled from 'styled-components/macro';
 import Mermaid from '../../components/Memarid';
 import UncodeBridge from '../../../uncode-bridge';
+import { ReactComponent as MicroServicesIcon } from '../../assets/architecture/microservices.svg';
+
 import PropTypes from 'prop-types';
 import {
   Box,
@@ -142,7 +144,7 @@ component BlogList {
           </Tabs>
 
           <TabPanel value={value} index={0}>
-            <ArchDesc src="/assets/architecture/microservices.svg" alt="text" />{' '}
+            <MicroServicesIcon />
           </TabPanel>
           <TabPanel value={value} index={1}>
             <div>
