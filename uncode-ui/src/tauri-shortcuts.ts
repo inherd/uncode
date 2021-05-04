@@ -15,6 +15,23 @@ const TauriShortcuts = {
       UncodeBridge.openDialog();
       return false;
     });
+
+    let histories = [
+      '/',
+      'story',
+      'design',
+      'code',
+      'build',
+      'deploy',
+      'operation',
+    ];
+
+    for (let i = 0; i < histories.length; i++) {
+      hotkeys(`ctrl+${i}, command+${i}`, function () {
+        // history.push(histories[i]);
+        return false;
+      });
+    }
   },
 };
 
