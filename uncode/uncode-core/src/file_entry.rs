@@ -50,12 +50,21 @@ impl FileEntry {
     }
   }
 
-  pub fn new(name: String) -> Self {
+  pub fn new(name: String, path: PathBuf) -> Self {
+    let mut ext = "".to_string();
+    if path.is_file() {
+      match path.extension() {
+        None => {}
+        Some(ex) => {
+          ext = ex.to_string_lossy().to_string()
+        }
+      }
+    }
     FileEntry {
-      name: name,
-      ext: "".to_string(),
+      name,
+      ext,
       is_dir: false,
-      path: "".to_string(),
+      path: format!("{}", path.display()),
       children: vec![],
     }
   }
@@ -91,10 +100,10 @@ impl FileEntry {
   /// # Arguments
   ///
   /// * `title` - default path name
-  /// * `path`  - CODE PATH
+  /// * `path`  - code path
   ///
   pub fn by_dir(title: String, path: &Path) -> FileEntry {
-    let mut root = FileEntry::new(title);
+    let mut root = FileEntry::new(title, path.to_path_buf());
     let _result = FileEntry::visit_dirs(path, 0, &mut root, path);
     root
   }
@@ -127,7 +136,7 @@ impl FileEntry {
         if path.is_dir() {
           let depth = depth + 1;
           let relative_path = path.strip_prefix(base_dir).unwrap();
-          let entry = &mut FileEntry::new(format!("{}", relative_path.display()));
+          let entry = &mut FileEntry::new(format!("{}", relative_path.display()), path.to_path_buf());
           entry.is_dir = true;
           FileEntry::visit_dirs(&path, depth, entry, base_dir)?;
           node.children.push(entry.to_owned());
@@ -145,6 +154,13 @@ impl FileEntry {
 mod tests {
   use std::path::PathBuf;
   use crate::file_entry::FileEntry;
+
+  #[test]
+  fn should_get_file_ext() {
+    let path = PathBuf::from(env!("CARGO_MANIFEST_DIR")).join("Cargo.toml");
+    let entry = FileEntry::by_dir("root".to_string(), &path);
+    assert_eq!("toml", entry.ext);
+  }
 
   #[test]
   fn should_support_for_visitor_by_level() {
