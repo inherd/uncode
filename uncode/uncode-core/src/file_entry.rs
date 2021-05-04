@@ -25,8 +25,10 @@ impl Default for FileEntry {
   }
 }
 
+#[allow(dead_code)]
 impl FileEntry {
-  pub fn from_path(path: PathBuf) -> Self {
+  /// create a simple FileEntry
+  fn from_path(path: PathBuf) -> Self {
     let file_name = path.file_name().unwrap();
     let name = match file_name.to_str() {
       None => "".to_string(),
@@ -58,7 +60,7 @@ impl FileEntry {
     }
   }
 
-  pub fn add_child(mut self, child: Self) -> Self {
+  fn add_child(mut self, child: Self) -> Self {
     self.children.push(child);
     self
   }
@@ -84,9 +86,16 @@ impl FileEntry {
       .unwrap_or(false)
   }
 
-  pub fn from_dir(title: String, dir: &Path) -> FileEntry {
+  /// Returns FileEntry with the given path.
+  ///
+  /// # Arguments
+  ///
+  /// * `title` - default path name
+  /// * `path`  - CODE PATH
+  ///
+  pub fn by_dir(title: String, path: &Path) -> FileEntry {
     let mut root = FileEntry::new(title);
-    let _result = FileEntry::visit_dirs(dir, 0, &mut root, dir);
+    let _result = FileEntry::visit_dirs(path, 0, &mut root, path);
     root
   }
 
@@ -132,3 +141,14 @@ impl FileEntry {
   }
 }
 
+#[cfg(test)]
+mod tests {
+  use std::path::PathBuf;
+  use crate::file_entry::FileEntry;
+
+  #[test]
+  fn should_support_for_visitor_by_level() {
+    let path = PathBuf::from(env!("CARGO_MANIFEST_DIR"));
+    FileEntry::by_dir("root".to_string(), &path);
+  }
+}
