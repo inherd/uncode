@@ -13,7 +13,6 @@ import TreeView from '@material-ui/lab/TreeView';
 import TreeItem from '@material-ui/lab/TreeItem';
 import { animated, useSpring } from 'react-spring/web.cjs';
 import { Description, Folder } from '@material-ui/icons';
-import { set } from 'shelljs';
 
 const useStyles = makeStyles({
   root: {
@@ -87,9 +86,12 @@ export default function RecursiveTreeView({ data, handleSelect }) {
     setExpanded(nodeIds);
   };
 
-  const handleClick = (nodeIds: any) => {
-    setExpanded([...expanded, nodeIds]);
-  };
+  const handleClick = useCallback(
+    (nodeIds: any) => {
+      setExpanded([...expanded, nodeIds]);
+    },
+    [expanded, setExpanded],
+  );
 
   const nodeSelect = (event, nodeIds) => {
     setSelected(nodeIds);
