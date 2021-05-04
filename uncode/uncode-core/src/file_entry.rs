@@ -147,6 +147,7 @@ impl FileEntry {
           node.children.push(entry.to_owned());
         } else {
           let file = &mut FileEntry::new(relative, &path);
+          file.is_dir = false;
           node.children.push(file.to_owned());
         }
       }

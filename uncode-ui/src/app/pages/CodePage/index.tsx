@@ -38,35 +38,42 @@ function TransitionComponent(props) {
   );
 }
 
-function FileTreeItem({ nodes }) {
+function FileTreeItem({ entry: file }) {
+  let [node, setNode] = useState(file);
+
   const labelClick = () => {
-    UncodeBridge.open_dir(nodes.path).then(data => {
-      console.log(data);
-    });
+    // todo: add time check
+    if (node.children.length === 0) {
+      UncodeBridge.open_dir(file.path).then(data => {
+        let newNode = node;
+        newNode.children = data.children;
+        setNode(newNode);
+      });
+    }
   };
 
   useEffect(() => {
-    if (nodes.name !== '' && nodes.is_dir) {
-      nodes.children.push({
-        path: '',
-        name: '',
-        is_dir: false,
-        children: [],
-      });
-    }
+    // if (nodes.name !== '' && nodes.is_dir) {
+    //   nodes.children.push({
+    //     path: '',
+    //     name: '',
+    //     is_dir: false,
+    //     children: [],
+    //   });
+    // }
   });
 
   return (
     <TreeItem
-      key={nodes.path}
-      nodeId={nodes.path}
-      label={nodes.name}
+      key={node.path}
+      nodeId={node.path}
+      label={node.name}
       onLabelClick={labelClick}
-      icon={nodes.is_dir ? <Folder /> : <Description />}
+      icon={node.is_dir ? <Folder /> : <Description />}
       TransitionComponent={TransitionComponent}
     >
-      {Array.isArray(nodes.children)
-        ? nodes.children.map(node => <FileTreeItem nodes={node} />)
+      {Array.isArray(node.children)
+        ? node.children.map(node => <FileTreeItem entry={node} />)
         : null}
     </TreeItem>
   );
@@ -79,9 +86,7 @@ export default function RecursiveTreeView({ data, handleSelect }) {
   const [selected] = React.useState([]);
 
   const handleToggle = (event, nodeIds) => {
-    UncodeBridge.open_dir(nodeIds).then(data => {
-      console.log(nodeIds, data);
-    });
+    UncodeBridge.open_dir(nodeIds).then(data => {});
     setExpanded(nodeIds);
   };
 
@@ -100,18 +105,13 @@ export default function RecursiveTreeView({ data, handleSelect }) {
       onNodeToggle={handleToggle}
       onNodeSelect={select}
     >
-      <FileTreeItem nodes={data} />
+      <FileTreeItem entry={data} />
     </TreeView>
   );
 }
 
 export function CodePage() {
-  let [tree, setTree] = useState({
-    path: '',
-    name: '',
-    is_dir: true,
-    children: [],
-  });
+  let [tree, setTree] = useState();
   let [content, setContent] = useState('');
 
   const options = {
@@ -141,7 +141,11 @@ export function CodePage() {
         <Box height="100%">
           <Grid container spacing={3}>
             <Grid item xs={2}>
-              <RecursiveTreeView data={tree} handleSelect={openFile} />
+              {tree ? (
+                <RecursiveTreeView data={tree} handleSelect={openFile} />
+              ) : (
+                <PlaceHolder />
+              )}
             </Grid>
             <Grid item xs={10}>
               <MonacoEditor
@@ -157,6 +161,11 @@ export function CodePage() {
     </>
   );
 }
+
+export const PlaceHolder = styled.p`
+  height: 100%;
+  min-height: 600px;
+`;
 
 export const A = styled.a`
   color: ${p => p.theme.primary};
