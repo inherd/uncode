@@ -78,6 +78,46 @@ export function DesignPage() {
     setValue(newValue);
   };
 
+  let design_dsl = `
+flow login {
+    SEE HomePage
+    DO [Click] "Login".Button
+        REACT Success: SHOW "Login Success".Toast with ANIMATE(bounce)
+        REACT Failure: SHOW "Login Failure".Dialog
+
+    SEE "Login Failure".Dialog
+    DO [Click] "ForgotPassword".Button
+        REACT: GOTO ForgotPasswordPage
+
+    SEE ForgotPasswordPage
+    DO [Click] "RESET PASSWORD".Button
+        REACT: SHOW "Please Check Email".Message
+}
+
+page HomePage {
+    LayoutGrid: 12x
+    LayoutId: HomePage
+    Router: "/home"
+}
+
+component Navigation {
+    LayoutId: Navigation
+}
+
+component TitleComponent {}
+component ImageComponent {
+    Size: 1080px
+}
+component BlogList {
+    BlogDetail, Space8
+    BlogDetail, Space8
+    BlogDetail, Space8
+    BlogDetail, Space8
+    BlogDetail, Space8
+    BlogDetail, Space8
+}
+`;
+
   return (
     <>
       <Helmet>
@@ -98,6 +138,7 @@ export function DesignPage() {
             <Tab label="Modeling" />
             <Tab label="Guard Design" />
             <Tab label="Fitness" />
+            <Tab label="UI Design" />
           </Tabs>
 
           <TabPanel value={value} index={0}>
@@ -117,7 +158,15 @@ export function DesignPage() {
             />
           </TabPanel>
           <TabPanel value={value} index={3}>
-            <p>todo</p>
+            <div>todo</div>
+          </TabPanel>
+          <TabPanel value={value} index={4}>
+            <MonacoEditor
+              width="50%"
+              height="600"
+              value={design_dsl}
+              options={guard_options}
+            />
           </TabPanel>
         </Paper>
       </PageWrapper>
