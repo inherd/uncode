@@ -83,6 +83,10 @@ const UncodeBridge = {
     );
   },
 
+  openFile(path: string): Promise<string> {
+    return invoke('open_file', { path });
+  },
+
   loadCodeTree(path?: string) {
     let payload;
     if (!!path) {

@@ -38,18 +38,14 @@ function TransitionComponent(props) {
   );
 }
 
-export default function RecursiveTreeView({ data }) {
+export default function RecursiveTreeView({ data, handleSelect }) {
   // eslint-disable-next-line
   const classes = useStyles();
   const [expanded, setExpanded] = React.useState([]);
-  const [selected, setSelected] = React.useState([]);
+  const [selected] = React.useState([]);
 
   const handleToggle = (event, nodeIds) => {
     setExpanded(nodeIds);
-  };
-
-  const handleSelect = (event, nodeIds) => {
-    setSelected(nodeIds);
   };
 
   const renderTree = nodes => {
@@ -90,6 +86,7 @@ export function CodePage() {
     name: '',
     children: [],
   });
+  let [content, setContent] = useState('');
 
   const options = {
     //renderSideBySide: false
@@ -103,6 +100,12 @@ export function CodePage() {
     });
   }, []);
 
+  const handleSelect = (event, nodeIds) => {
+    UncodeBridge.openFile(nodeIds).then(data => {
+      setContent(data);
+    });
+  };
+
   return (
     <>
       <Helmet>
@@ -111,12 +114,13 @@ export function CodePage() {
       </Helmet>
       <NavBar />
       <PageWrapper>
-        <RecursiveTreeView data={tree} />
+        <RecursiveTreeView data={tree} handleSelect={handleSelect} />
         <MonacoEditor
           width="800"
           height="600"
           language="javascript"
           options={options}
+          value={content}
         />
       </PageWrapper>
     </>

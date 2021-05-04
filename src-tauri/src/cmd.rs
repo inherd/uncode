@@ -4,6 +4,8 @@ use uncode_core::StoryModel;
 use std::path::PathBuf;
 use crate::workspace_config::WorkspaceConfig;
 use std::{fs};
+use std::fs::File;
+use std::io::Read;
 
 #[derive(Debug, Deserialize)]
 pub struct RequestBody {
@@ -44,6 +46,19 @@ pub fn get_story(root: String, story: String) -> Vec<StoryModel> {
   let stories = uncode_story::parse_dir(story_path);
   info!("get_story: {:?}", stories.clone());
   stories
+}
+
+#[command]
+pub fn open_file(path: String) -> String {
+  let mut file_content: Vec<u8> = Vec::new();
+  let mut file = File::open(path).expect("Unable to open file");
+  if let Err(err) = file.read_to_end(&mut file_content) {
+    log::error!("open file error: {:?}", err);
+    return "".to_string();
+  };
+
+  let out = String::from_utf8_lossy(&*file_content);
+  out.to_string()
 }
 
 #[command]
