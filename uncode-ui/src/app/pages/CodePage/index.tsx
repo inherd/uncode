@@ -6,13 +6,13 @@ import { PageWrapper } from '../../components/PageWrapper';
 import styled from 'styled-components/macro';
 import MonacoEditor from 'react-monaco-editor';
 import UncodeBridge from '../../../uncode-bridge';
-import { Collapse, makeStyles } from '@material-ui/core';
+import { Collapse, Grid, makeStyles } from '@material-ui/core';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 import TreeView from '@material-ui/lab/TreeView';
 import TreeItem from '@material-ui/lab/TreeItem';
 import { animated, useSpring } from 'react-spring/web.cjs';
-import { Folder, Description } from '@material-ui/icons';
+import { Description, Folder } from '@material-ui/icons';
 
 const useStyles = makeStyles({
   root: {
@@ -68,7 +68,7 @@ export default function RecursiveTreeView({ data, handleSelect }) {
     <TreeView
       className={classes.root}
       defaultCollapseIcon={<ExpandMoreIcon />}
-      defaultExpanded={['root']}
+      defaultExpanded={[data.name]}
       defaultExpandIcon={<ChevronRightIcon />}
       expanded={expanded}
       selected={selected}
@@ -82,7 +82,7 @@ export default function RecursiveTreeView({ data, handleSelect }) {
 
 export function CodePage() {
   let [tree, setTree] = useState({
-    path: 'root',
+    path: '',
     name: '',
     children: [],
   });
@@ -114,14 +114,18 @@ export function CodePage() {
       </Helmet>
       <NavBar />
       <PageWrapper>
-        <RecursiveTreeView data={tree} handleSelect={handleSelect} />
-        <MonacoEditor
-          width="800"
-          height="600"
-          language="javascript"
-          options={options}
-          value={content}
-        />
+        <Grid container spacing={3}>
+          <Grid item xs={2}>
+            <RecursiveTreeView data={tree} handleSelect={handleSelect} />
+          </Grid>
+          <Grid item xs={10}>
+            <MonacoEditor
+              language="javascript"
+              options={options}
+              value={content}
+            />
+          </Grid>
+        </Grid>
       </PageWrapper>
     </>
   );
