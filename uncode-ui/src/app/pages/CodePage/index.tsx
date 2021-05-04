@@ -38,14 +38,21 @@ function TransitionComponent(props) {
   );
 }
 
-function FileTreeItem({ entry: node }) {
+function FileTreeItem(props) {
+  const [node, setNode] = useState(props.entry);
+  console.log(node);
+
   const labelClick = useCallback(() => {
-    if (node.children.length === 0) {
+    console.log('useCallback');
+    if (node && node.children && node.children.length === 0) {
       UncodeBridge.open_dir(node.path).then(data => {
         node.children = data.children;
+        setNode(node);
       });
+
+      setNode(props.entry);
     }
-  }, [node]);
+  }, [props]);
 
   let suffix = '';
   if (node.is_dir) {
