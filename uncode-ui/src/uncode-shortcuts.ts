@@ -15,6 +15,10 @@ const UncodeShortcuts = {
       UncodeBridge.open_dialog();
       return false;
     });
+    hotkeys('ctrl+q, command+q', function () {
+      UncodeBridge.exit();
+      return false;
+    });
   },
   bind_history(history: any) {
     let histories = [

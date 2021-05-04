@@ -107,6 +107,7 @@ impl FileEntry {
 
   fn level_one_with_root(child: &Path, root_dir: &Path) -> FileEntry {
     let mut root = FileEntry::new(child, root_dir);
+    root.is_dir = true;
 
     let _result = FileEntry::by_depth_one(child, &mut root, root_dir);
     root.children.sort_by_key(|a| {

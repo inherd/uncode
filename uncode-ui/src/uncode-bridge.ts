@@ -1,6 +1,7 @@
 import { open } from '@tauri-apps/api/dialog';
 import { invoke } from '@tauri-apps/api/tauri';
 import { emit, listen } from '@tauri-apps/api/event';
+import { exit } from '@tauri-apps/api/app';
 
 const UncodeBridge = {
   // todo: move listen to here
@@ -21,6 +22,10 @@ const UncodeBridge = {
       design: 'story',
       code: 'uncode',
     },
+  },
+
+  exit() {
+    exit();
   },
 
   get_story(): Promise<any> {
