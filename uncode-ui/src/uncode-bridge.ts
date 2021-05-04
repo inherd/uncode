@@ -91,21 +91,17 @@ const UncodeBridge = {
     return invoke('open_file', { path });
   },
 
-  load_code_tree(path?: string) {
-    let payload;
+  open_dir(path?: string): Promise<string> {
+    let root = this.config.uncode.path;
+
+    let codePath;
     if (!!path) {
-      payload = {
-        root: this.config.uncode.path,
-        code_path: this.config.workspace.code,
-      };
+      codePath = path;
     } else {
-      payload = {
-        root: this.config.uncode.path,
-        code_path: this.config.workspace.code,
-      };
+      codePath = this.config.workspace.code;
     }
 
-    this.emit_event('load_code_tree', payload);
+    return invoke('open_dir', { root, codePath });
   },
 };
 

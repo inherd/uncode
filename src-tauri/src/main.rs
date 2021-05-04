@@ -6,13 +6,9 @@ windows_subsystem = "windows"
 #[macro_use]
 extern crate log;
 
-use std::path::PathBuf;
-
 use serde::{Deserialize, Serialize};
 
 pub use uncode_config::UncodeConfig;
-use uncode_core::file_entry::FileEntry;
-
 use crate::workspace_config::WorkspaceConfig;
 
 mod cmd;
@@ -37,13 +33,6 @@ struct EventPayload {
   data: String,
 }
 
-
-#[derive(Serialize, Deserialize)]
-struct LoadCodeTreeCmd {
-  root: String,
-  code_path: String
-}
-
 fn main() {
   setup_log();
 
@@ -61,8 +50,6 @@ fn main() {
 
   tauri::Builder::default()
     .on_page_load(move |window, _| {
-      let window_ = window.clone();
-
       window.listen("js_event".to_string(), move |event| {
         info!("event_id {:}, event_payload: {:?}", event.id(), event.payload());
         let payload: EventPayload = serde_json::from_str(event.payload().expect("lost payload")).expect("uncode no match model");
@@ -70,14 +57,6 @@ fn main() {
           "save_config" => {
             let config: SummaryConfig = serde_json::from_str(&payload.data).expect("unable to convert config");
             UncodeConfig::save_config(config.uncode);
-          }
-          "load_code_tree" => {
-            let cmd: LoadCodeTreeCmd = serde_json::from_str(&payload.data).expect("unable to convert config");
-            let code_path = PathBuf::from(cmd.root).join(cmd.code_path);
-            let entry = FileEntry::level_one(&code_path);
-            let result = serde_json::to_string(&entry).expect("lost entry");
-
-            window_.emit(&"code_tree".to_string(), Some(result)).expect("failed to emit");
           }
           &_ => {}
         }
@@ -100,6 +79,7 @@ fn main() {
       cmd::get_design,
 
       cmd::open_file,
+      cmd::open_dir,
     ])
     .run(tauri::generate_context!())
     .expect("error while running tauri application");

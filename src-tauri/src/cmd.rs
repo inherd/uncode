@@ -6,6 +6,7 @@ use crate::workspace_config::WorkspaceConfig;
 use std::{fs};
 use std::fs::File;
 use std::io::Read;
+use uncode_core::file_entry::FileEntry;
 
 #[derive(Debug, Deserialize)]
 pub struct RequestBody {
@@ -54,6 +55,15 @@ pub fn open_file(path: String) -> String {
 
   let out = String::from_utf8_lossy(&*file_content);
   out.to_string()
+}
+
+#[command]
+pub fn open_dir(root: String, code_path: String) -> String {
+  let code_path = PathBuf::from(root).join(code_path);
+  let entry = FileEntry::level_one(&code_path);
+  let result = serde_json::to_string(&entry).expect("lost entry");
+
+  result
 }
 
 #[command]
