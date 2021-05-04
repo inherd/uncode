@@ -11,7 +11,7 @@ use std::path::PathBuf;
 use serde::{Deserialize, Serialize};
 
 pub use uncode_config::UncodeConfig;
-use uncode_core::domain::file_entry::FileEntry;
+use uncode_core::file_entry::FileEntry;
 
 use crate::workspace_config::WorkspaceConfig;
 
