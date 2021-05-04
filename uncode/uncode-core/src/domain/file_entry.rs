@@ -63,6 +63,11 @@ impl FileEntry {
     self
   }
 
+  // todo: a tempory ignore ways for performance simple
+  pub fn is_rust_target() {
+
+  }
+
   fn is_hidden(entry: &DirEntry) -> bool {
     if !entry.path().is_dir() {
       return entry
