@@ -102,7 +102,7 @@ impl FileEntry {
   /// * `title` - default path name
   /// * `path`  - code path
   ///
-  pub fn by_dir(title: String, path: &Path) -> FileEntry {
+  pub fn all(title: String, path: &Path) -> FileEntry {
     let mut root = FileEntry::new(title, path.to_path_buf());
     let _result = FileEntry::visit_dirs(path, 0, &mut root, path);
     root
@@ -158,13 +158,13 @@ mod tests {
   #[test]
   fn should_get_file_ext() {
     let path = PathBuf::from(env!("CARGO_MANIFEST_DIR")).join("Cargo.toml");
-    let entry = FileEntry::by_dir("root".to_string(), &path);
+    let entry = FileEntry::all("root".to_string(), &path);
     assert_eq!("toml", entry.ext);
   }
 
   #[test]
   fn should_support_for_visitor_by_level() {
     let path = PathBuf::from(env!("CARGO_MANIFEST_DIR"));
-    FileEntry::by_dir("root".to_string(), &path);
+    let entry = FileEntry::all("root".to_string(), &path);
   }
 }
