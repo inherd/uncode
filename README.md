@@ -25,30 +25,29 @@ Uncode 是一个面向云研发时代设计的下一代概念性 IDE。特性：
 ## Roadmap
 
  - MVP 0.1
-    - [ ] kanban in Uncode
-    - [ ] design in Uncode
-    - [ ] coding in Uncode
+    - [x] kanban in Uncode
+    - [x] design in Uncode
+    - [x] coding in Uncode
+ - Milestone Workflow
+    - [ ] UI designer
+    - [ ] code generator
+    - [ ] online UML to code
+    - [ ] git history for story
  - Milestone 1.0
     - [ ] kanban to coding
     - [ ] zen coding
     - [ ] story to Code
     - [ ] UI as Code
 
-## Todo
+### Tech todo
 
- - [ ] multiple webview
- - [ ] DSL for features
- - [ ] distribution apps
- - [ ] GRPC for binary
-    - [x] try `tarpc`?
-    - [ ] try json rpc ?
+ - [ ] RPC for uncode <-> src-tauri
+ - [ ] language identify
 
-## Setup
+### Setup
 
 1. run `yarn start` in `uncode-ui`
 2. run `yarn tauri dev` in root project
-
-### Setup
 
 ## Documents
 
