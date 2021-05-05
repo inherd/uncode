@@ -13,6 +13,7 @@ import { ReactComponent as MicroServicesIcon } from '../../assets/architecture/m
 import PropTypes from 'prop-types';
 import {
   Box,
+  Button,
   Grid,
   makeStyles,
   Paper,
@@ -121,6 +122,13 @@ component BlogList {
 }
 `;
 
+  const rebuild = () => {
+    UncodeBridge.build_modeling().then(data => {
+      console.log(data);
+      setModeling('classDiagram\n' + data);
+    });
+  };
+
   return (
     <>
       <Helmet>
@@ -148,6 +156,9 @@ component BlogList {
             <MicroServicesIcon />
           </TabPanel>
           <TabPanel value={value} index={1}>
+            <Button variant="contained" onClick={rebuild}>
+              Rebuild
+            </Button>
             <Grid container spacing={3}>
               <Grid item xs={6}>
                 <MonacoEditor

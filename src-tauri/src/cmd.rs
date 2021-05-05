@@ -7,6 +7,7 @@ use std::{fs};
 use std::fs::File;
 use std::io::Read;
 use uncode_core::file_entry::FileEntry;
+use modeling::render::MermaidRender;
 
 #[derive(Debug, Deserialize)]
 pub struct RequestBody {
@@ -42,6 +43,15 @@ pub fn get_story(root: String, story: String) -> Vec<StoryModel> {
   let stories = uncode_story::parse_dir(story_path);
   info!("get_story: {:?}", stories.clone());
   stories
+}
+
+#[command]
+pub fn build_modeling(root: String, design_path: String) -> String {
+  let story_path = PathBuf::from(root).join(design_path);
+  let classes = modeling::by_dir(story_path);
+  let simple = MermaidRender::render(&classes);
+
+  simple
 }
 
 #[command]

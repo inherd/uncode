@@ -91,6 +91,13 @@ const UncodeBridge = {
     return invoke('open_file', { path });
   },
 
+  build_modeling(): Promise<string> {
+    return invoke('build_modeling', {
+      root: this.config.uncode.path,
+      designPath: this.config.workspace.design,
+    });
+  },
+
   open_dir(path?: string): Promise<any> {
     let root = this.config.uncode.path;
 

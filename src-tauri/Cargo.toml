@@ -19,6 +19,8 @@ tauri = { version = "1.0.0-beta-rc.4", features =["api-all"]}
 uncode_core = { path = "../uncode/uncode-core" }
 uncode_story = { path = "../uncode/uncode-story" }
 
+modeling = "0.1.4"
+
 # save config
 dirs = "3.0"
 
