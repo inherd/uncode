@@ -18,21 +18,31 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: 12
+
       - name: install Rust stable
         uses: actions-rs/toolchain@v1
         with:
           toolchain: stable
+
       - name: install tauri bundler
         run: cargo install tauri-bundler --force
+
       - name: install webkit2gtk (ubuntu only)
         if: matrix.platform == 'ubuntu-latest'
         run: |
           sudo apt-get update
           sudo apt-get install -y webkit2gtk-4.0
-      - name: install app dependencies and build it
-        # If using the Vue CLI plugin, tauri:build will be run automatically by tauri-action
-        # and you can remove `&& yarn build` from this command
-        run: yarn global add react-app-rewired && yarn && yarn child-install && yarn build
+
+      - name: install app dependencies
+        run: yarn && yarn child-install
+
+      - name: lint:fix for windows
+        if: matrix.os == 'windows-latest'
+        run: yarn lint:fix
+
+      - name: build
+        run: yarn build
+
       - uses: tauri-apps/tauri-action@v0
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

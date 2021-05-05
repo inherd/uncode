@@ -32,7 +32,7 @@ jobs:
           sudo apt-get install -y webkit2gtk-4.0
 
       - name: install app dependencies
-        run: yarn global add react-app-rewired && yarn && yarn child-install
+        run: yarn && yarn child-install
 
       - name: lint:fix for windows
         if: matrix.os == 'windows-latest'
