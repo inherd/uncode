@@ -10,6 +10,9 @@ use serde::{Deserialize, Serialize};
 
 pub use uncode_config::UncodeConfig;
 use crate::workspace_config::WorkspaceConfig;
+use modeling::render::MermaidRender;
+use std::fs;
+use std::path::PathBuf;
 
 mod cmd;
 
@@ -25,6 +28,13 @@ struct Reply {
 struct SummaryConfig {
   pub workspace: WorkspaceConfig,
   pub uncode: UncodeConfig,
+}
+
+#[derive(Serialize, Deserialize)]
+struct ModelingConfig {
+  pub root: String,
+  pub code: String,
+  pub design: String,
 }
 
 #[derive(Serialize, Deserialize)]
@@ -50,6 +60,8 @@ fn main() {
 
   tauri::Builder::default()
     .on_page_load(move |window, _| {
+      let window_ = window.clone();
+
       window.listen("js_event".to_string(), move |event| {
         info!("event_id {:}, event_payload: {:?}", event.id(), event.payload());
         let payload: EventPayload = serde_json::from_str(event.payload().expect("lost payload")).expect("uncode no match model");
@@ -57,6 +69,20 @@ fn main() {
           "save_config" => {
             let config: SummaryConfig = serde_json::from_str(&payload.data).expect("unable to convert config");
             UncodeConfig::save_config(config.uncode);
+          }
+          "build_modeling" => {
+            let config: ModelingConfig = serde_json::from_str(&payload.data).expect("unable to convert config");
+            let code_path = PathBuf::from(&config.root).join(&config.code);
+            let design_path = PathBuf::from(&config.root).join(&config.design).join("modeling.uml");
+
+            info!("start build modeling: {:?}", code_path.display());
+            let classes = modeling::by_dir(code_path.clone());
+            let simple = MermaidRender::render(&classes);
+
+            info!("start writing modeling: {:?}", design_path.display());
+            let _ = fs::write(design_path, simple.clone());
+
+            window_.emit(&"done_building".to_string(), Some(simple)).expect("failed to emit");
           }
           &_ => {}
         }
@@ -80,8 +106,7 @@ fn main() {
       cmd::open_dir,
 
       // design
-      cmd::get_design,
-      cmd::build_modeling,
+      cmd::get_design
     ])
     .run(tauri::generate_context!())
     .expect("error while running tauri application");

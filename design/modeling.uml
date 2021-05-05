@@ -1,4 +1,66 @@
-@startuml
+
+class ArchitectureModel {
+   String collaboration
+   Vec<String> modeling
+   Vec<String> patterns
+   PhysicalDesign physical
+}
+
+class Coverage {
+   f64 branch
+   String id
+   String project
+}
+
+class EventPayload {
+  data
+  event_type
+}
+
+class FileEntry {
+   Vec<FileEntry> children
+   String ext
+   bool is_dir
+   String name
+   String path
+   String relative
+  add_child()
+  build_child()
+  by_depth_one()
+  default()
+  is_hidden()
+  is_rust_target()
+  level_one()
+  level_one_with_root()
+  new()
+}
+
+class Fitness {
+   Vec<Coverage> code_coverage
+   Vec<LineCount> line_count
+}
+
+class HelloServer {
+  hello()
+}
+
+class LineCount {
+   i32 classes
+   i32 functions
+   String id
+   String project
+   i32 total
+}
+
+class ModelingConfig {
+   String code
+   String design
+   String root
+}
+
+class PhysicalDesign {
+   String layer
+}
 
 class Reply {
   data
@@ -7,6 +69,35 @@ class Reply {
 class RequestBody {
   id
   name
+}
+
+class Requirements {
+}
+
+Error <|-- ResponseError
+
+class ResponseError {
+  + Response response
+  + Response constructor()
+}
+
+class SidebarModel {
+}
+
+class SidebarModelBehavior {
+}
+
+class SidebarResource {
+}
+
+class SidebarUsecases {
+}
+
+class StoryModel {
+   String description
+   String status
+   String title
+  default()
 }
 
 class SummaryConfig {
@@ -25,6 +116,7 @@ class UncodeConfig {
 }
 
 class WorkspaceConfig {
+   String code
    String design
    String domain
    String story
@@ -32,7 +124,8 @@ class WorkspaceConfig {
   from_path()
   save_config()
 }
-SummaryConfig -- UncodeConfig
+ArchitectureModel -- PhysicalDesign
+Fitness -- Coverage
+Fitness -- LineCount
 SummaryConfig -- WorkspaceConfig
-
-@enduml
+SummaryConfig -- UncodeConfig

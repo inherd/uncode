@@ -91,10 +91,11 @@ const UncodeBridge = {
     return invoke('open_file', { path });
   },
 
-  build_modeling(): Promise<string> {
-    return invoke('build_modeling', {
+  build_modeling() {
+    this.emit_event('build_modeling', {
       root: this.config.uncode.path,
-      designPath: this.config.workspace.design,
+      code: this.config.workspace.code,
+      design: this.config.workspace.design,
     });
   },
 

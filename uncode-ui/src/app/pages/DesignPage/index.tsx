@@ -123,9 +123,9 @@ component BlogList {
 `;
 
   const rebuild = () => {
-    UncodeBridge.build_modeling().then(data => {
-      console.log(data);
-      setModeling('classDiagram\n' + data);
+    UncodeBridge.build_modeling();
+    UncodeBridge.listen('build_modeling', data => {
+      setModeling(data);
     });
   };
 
