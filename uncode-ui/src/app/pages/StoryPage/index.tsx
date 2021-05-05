@@ -77,6 +77,7 @@ export function StoryPage() {
           onCardNew={console.log}
           disableColumnDrag
           onCardDragEnd={handleCardMove}
+
         >
           {board}
         </Board>
