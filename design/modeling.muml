@@ -1,131 +1,130 @@
+    class ArchitectureModel {
+       String collaboration
+       Vec<String> modeling
+       Vec<String> patterns
+       PhysicalDesign physical
+    }
 
-class ArchitectureModel {
-   String collaboration
-   Vec<String> modeling
-   Vec<String> patterns
-   PhysicalDesign physical
-}
+    class Coverage {
+       f64 branch
+       String id
+       String project
+    }
 
-class Coverage {
-   f64 branch
-   String id
-   String project
-}
+    class EventPayload {
+      data
+      event_type
+    }
 
-class EventPayload {
-  data
-  event_type
-}
+    class FileEntry {
+       Vec<FileEntry> children
+       String ext
+       bool is_dir
+       String name
+       String path
+       String relative
+      add_child()
+      build_child()
+      by_depth_one()
+      default()
+      is_hidden()
+      is_rust_target()
+      level_one()
+      level_one_with_root()
+      new()
+    }
 
-class FileEntry {
-   Vec<FileEntry> children
-   String ext
-   bool is_dir
-   String name
-   String path
-   String relative
-  add_child()
-  build_child()
-  by_depth_one()
-  default()
-  is_hidden()
-  is_rust_target()
-  level_one()
-  level_one_with_root()
-  new()
-}
+    class Fitness {
+       Vec<Coverage> code_coverage
+       Vec<LineCount> line_count
+    }
 
-class Fitness {
-   Vec<Coverage> code_coverage
-   Vec<LineCount> line_count
-}
+    class HelloServer {
+      hello()
+    }
 
-class HelloServer {
-  hello()
-}
+    class LineCount {
+       i32 classes
+       i32 functions
+       String id
+       String project
+       i32 total
+    }
 
-class LineCount {
-   i32 classes
-   i32 functions
-   String id
-   String project
-   i32 total
-}
+    class ModelingConfig {
+       String code
+       String design
+       String root
+    }
 
-class ModelingConfig {
-   String code
-   String design
-   String root
-}
+    class PhysicalDesign {
+       String layer
+    }
 
-class PhysicalDesign {
-   String layer
-}
+    class Reply {
+      data
+    }
 
-class Reply {
-  data
-}
+    class RequestBody {
+      id
+      name
+    }
 
-class RequestBody {
-  id
-  name
-}
+    class Requirements {
+    }
 
-class Requirements {
-}
+    Error <|-- ResponseError
 
-Error <|-- ResponseError
+    class ResponseError {
+      + Response response
+      + Response constructor()
+    }
 
-class ResponseError {
-  + Response response
-  + Response constructor()
-}
+    class SidebarModel {
+    }
 
-class SidebarModel {
-}
+    class SidebarModelBehavior {
+    }
 
-class SidebarModelBehavior {
-}
+    class SidebarResource {
+    }
 
-class SidebarResource {
-}
+    class SidebarUsecases {
+    }
 
-class SidebarUsecases {
-}
+    class StoryModel {
+       String description
+       String status
+       String title
+      default()
+    }
 
-class StoryModel {
-   String description
-   String status
-   String title
-  default()
-}
+    class SummaryConfig {
+       UncodeConfig uncode
+       WorkspaceConfig workspace
+    }
 
-class SummaryConfig {
-   UncodeConfig uncode
-   WorkspaceConfig workspace
-}
+    class UncodeConfig {
+       String path
+       String workspace_config
+      config_path()
+      default()
+      json()
+      read_config()
+      save_config()
+    }
 
-class UncodeConfig {
-   String path
-   String workspace_config
-  config_path()
-  default()
-  json()
-  read_config()
-  save_config()
-}
-
-class WorkspaceConfig {
-   String code
-   String design
-   String domain
-   String story
-  default()
-  from_path()
-  save_config()
-}
-ArchitectureModel -- PhysicalDesign
-Fitness -- Coverage
-Fitness -- LineCount
-SummaryConfig -- WorkspaceConfig
-SummaryConfig -- UncodeConfig
+    class WorkspaceConfig {
+       String code
+       String design
+       String domain
+       String story
+      default()
+      from_path()
+      save_config()
+    }
+    ArchitectureModel -- PhysicalDesign
+    Fitness -- Coverage
+    Fitness -- LineCount
+    SummaryConfig -- UncodeConfig
+    SummaryConfig -- WorkspaceConfig
