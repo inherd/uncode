@@ -12,11 +12,6 @@ class Coverage {
    String project
 }
 
-class EventPayload {
-  data
-  event_type
-}
-
 class FileEntry {
    Vec<FileEntry> children
    String ext
@@ -52,45 +47,11 @@ class LineCount {
    i32 total
 }
 
-class ModelingConfig {
-   String code
-   String design
-   String root
-}
-
 class PhysicalDesign {
    String layer
 }
 
-class Reply {
-  data
-}
-
-class RequestBody {
-  id
-  name
-}
-
 class Requirements {
-}
-
-Error <|-- ResponseError
-
-class ResponseError {
-  + Response response
-  + Response constructor()
-}
-
-class SidebarModel {
-}
-
-class SidebarModelBehavior {
-}
-
-class SidebarResource {
-}
-
-class SidebarUsecases {
 }
 
 class StoryModel {
@@ -99,33 +60,6 @@ class StoryModel {
    String title
   default()
 }
-
-class SummaryConfig {
-   UncodeConfig uncode
-   WorkspaceConfig workspace
-}
-
-class UncodeConfig {
-   String path
-   String workspace_config
-  config_path()
-  default()
-  json()
-  read_config()
-  save_config()
-}
-
-class WorkspaceConfig {
-   String code
-   String design
-   String domain
-   String story
-  default()
-  from_path()
-  save_config()
-}
 ArchitectureModel -- PhysicalDesign
 Fitness -- Coverage
 Fitness -- LineCount
-SummaryConfig -- WorkspaceConfig
-SummaryConfig -- UncodeConfig

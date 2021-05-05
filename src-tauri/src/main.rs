@@ -73,7 +73,7 @@ fn main() {
           "build_modeling" => {
             let config: ModelingConfig = serde_json::from_str(&payload.data).expect("unable to convert config");
             let code_path = PathBuf::from(&config.root).join(&config.code);
-            let design_path = PathBuf::from(&config.root).join(&config.design).join("modeling.uml");
+            let design_path = PathBuf::from(&config.root).join(&config.design).join("modeling.muml");
 
             info!("start build modeling: {:?}", code_path.display());
             let classes = modeling::by_dir(code_path.clone());

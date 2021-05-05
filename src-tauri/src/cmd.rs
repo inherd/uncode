@@ -89,7 +89,7 @@ pub fn handle_guard(path: &PathBuf) -> String {
 }
 
 pub fn handle_modeling(path: &PathBuf) -> String {
-  if let Ok(content) = fs::read_to_string(path.join("modeling.uml")) {
+  if let Ok(content) = fs::read_to_string(path.join("modeling.muml")) {
     return content
   }
 
