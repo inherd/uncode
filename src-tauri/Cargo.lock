@@ -1872,9 +1872,9 @@ dependencies = [
 
 [[package]]
 name = "modeling"
-version = "0.1.4"
+version = "0.1.5"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "00b3597ca4c0b874af9e1a8c002c1b4127f64874c22045a277db1718da255368"
+checksum = "60b4ab086e776b6d61387e602237130ff85215442b4e57a393d0441e1cc2da94"
 dependencies = [
  "failure",
  "ignore",
