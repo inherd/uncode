@@ -1,18 +1,19 @@
 import * as React from 'react';
-import {useEffect, useState} from 'react';
-import {Helmet} from 'react-helmet-async';
+import { useEffect, useState } from 'react';
+import { Helmet } from 'react-helmet-async';
 import MonacoEditor from 'react-monaco-editor';
 
-import {NavBar} from '../../components/NavBar';
-import {PageWrapper} from '../../components/PageWrapper';
+import { NavBar } from '../../components/NavBar';
+import { PageWrapper } from '../../components/PageWrapper';
 import styled from 'styled-components/macro';
 import Mermaid from '../../components/Memarid';
 import UncodeBridge from '../../../uncode-bridge';
-import {ReactComponent as MicroServicesIcon} from '../../assets/architecture/microservices.svg';
+import { ReactComponent as MicroServicesIcon } from '../../assets/architecture/microservices.svg';
 
 import PropTypes from 'prop-types';
 import {
-  Box, Grid,
+  Box,
+  Grid,
   makeStyles,
   Paper,
   Tab,
@@ -27,7 +28,7 @@ const useStyles = makeStyles({
 });
 
 function TabPanel(props) {
-  const {children, value, index, ...other} = props;
+  const { children, value, index, ...other } = props;
 
   return (
     <div
@@ -124,9 +125,9 @@ component BlogList {
     <>
       <Helmet>
         <title>Uncode Design</title>
-        <meta name="description" content="A Boilerplate application homepage"/>
+        <meta name="description" content="A Boilerplate application homepage" />
       </Helmet>
-      <NavBar/>
+      <NavBar />
       <PageWrapper>
         <Paper className={classes.root}>
           <Tabs
@@ -136,15 +137,15 @@ component BlogList {
             textColor="primary"
             centered
           >
-            <Tab label="Architecture Description"/>
-            <Tab label="Modeling"/>
-            <Tab label="Guard Design"/>
-            <Tab label="Fitness"/>
-            <Tab label="UI Design"/>
+            <Tab label="Architecture Description" />
+            <Tab label="Modeling" />
+            <Tab label="Guard Design" />
+            <Tab label="Fitness" />
+            <Tab label="UI Design" />
           </Tabs>
 
           <TabPanel value={value} index={0}>
-            <MicroServicesIcon/>
+            <MicroServicesIcon />
           </TabPanel>
           <TabPanel value={value} index={1}>
             <Grid container spacing={3}>
@@ -157,7 +158,7 @@ component BlogList {
                 />
               </Grid>
               <Grid item xs={6}>
-                <Mermaid chart={modeling} config={{}} name={''}/>
+                <Mermaid chart={modeling} config={{}} name={''} />
               </Grid>
             </Grid>
           </TabPanel>

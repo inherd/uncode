@@ -1,11 +1,11 @@
 import * as React from 'react';
+import { useEffect, useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { NavBar } from '../../components/NavBar';
 import { PageWrapper } from '../../components/PageWrapper';
 import styled from 'styled-components/macro';
 import Board, { moveCard } from '@lourenci/react-kanban';
 import '@lourenci/react-kanban/dist/styles.css';
-import { useEffect, useState } from 'react';
 import UncodeBridge from '../../../uncode-bridge';
 
 export interface Card {
@@ -16,9 +16,7 @@ export interface Card {
 
 export function StoryPage() {
   UncodeBridge.title('Uncode - Story');
-  let [board, setBoard] = useState({
-    columns: [{ id: 1, title: 'Backlog', cards: [] }],
-  } as any);
+  let [board, setBoard] = useState(null as any);
 
   useEffect(() => {
     UncodeBridge.get_story().then(stories => {
@@ -71,16 +69,17 @@ export function StoryPage() {
       </Helmet>
       <NavBar />
       <PageWrapper>
-        <Board
-          allowAddCard={{ on: 'top' }}
-          onNewCardConfirm={onCardNew}
-          onCardNew={console.log}
-          disableColumnDrag
-          onCardDragEnd={handleCardMove}
-
-        >
-          {board}
-        </Board>
+        {board ? (
+          <Board
+            allowAddCard={{ on: 'top' }}
+            onNewCardConfirm={onCardNew}
+            onCardNew={console.log}
+            disableColumnDrag
+            onCardDragEnd={handleCardMove}
+          >
+            {board}
+          </Board>
+        ) : null}
       </PageWrapper>
     </>
   );
