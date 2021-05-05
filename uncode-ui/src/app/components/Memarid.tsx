@@ -4,7 +4,6 @@ import mermaid from 'mermaid';
 
 const DEFAULT_CONFIG = {
   startOnLoad: true,
-  theme: 'forest',
   logLevel: 'fatal',
   securityLevel: 'strict',
   arrowMarkerAbsolute: false,
