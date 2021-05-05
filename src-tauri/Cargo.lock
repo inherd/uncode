@@ -3657,7 +3657,7 @@ checksum = "56dee185309b50d1f11bfedef0fe6d036842e3fb77413abef29f8f8d1c5d4c1c"
 
 [[package]]
 name = "uncode"
-version = "0.1.0"
+version = "0.0.1"
 dependencies = [
  "dirs 3.0.2",
  "log",

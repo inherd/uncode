@@ -1,6 +1,8 @@
 [package]
 name = "uncode"
-version = "0.1.0"
+# release version need to change in `package.json`
+#
+version = "0.0.1"
 description = "A Tauri App"
 authors = [ "admin@inherd.org", "h@phodal.com" ]
 license = ""
