@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="877px" height="520px" viewBox="0 0 877 520" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 62 (91390) - https://sketch.com -->
+    <title>Group 10</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Group-10" transform="translate(0.000000, 1.000000)">
+            <g id="Group-4" transform="translate(0.000000, 136.000000)">
+                <rect id="Rectangle" fill="#4A4A4A" x="0" y="0" width="244" height="240" rx="7"></rect>
+                <g id="Group-8" transform="translate(32.000000, 24.000000)">
+                    <rect id="Rectangle" stroke="#4A4A4A" fill="#4A90E2" x="0" y="0" width="181" height="55" rx="7"></rect>
+                    <text id="Sync-Event" font-family="PingFangSC-Semibold, PingFang SC" font-size="16" font-weight="500" fill="#FFFFFF">
+                        <tspan x="48" y="34">Sync Event</tspan>
+                    </text>
+                </g>
+                <g id="Group-9" transform="translate(32.000000, 93.000000)">
+                    <rect id="Rectangle" stroke="#4A4A4A" fill="#4A90E2" x="0" y="0" width="181" height="129" rx="7"></rect>
+                    <text id="Async-Event" font-family="PingFangSC-Semibold, PingFang SC" font-size="16" font-weight="500" fill="#FFFFFF">
+                        <tspan x="41" y="72">Async Event</tspan>
+                    </text>
+                </g>
+            </g>
+            <g id="Group-2" transform="translate(316.000000, 136.000000)">
+                <rect id="Rectangle" fill="#4A4A4A" x="0" y="0" width="244" height="240" rx="7"></rect>
+                <rect id="Rectangle" stroke="#4A4A4A" fill="#4A90E2" x="32" y="21" width="181" height="55" rx="7"></rect>
+                <rect id="Rectangle" fill="#FFFFFF" x="32" y="93" width="181" height="55" rx="7"></rect>
+                <rect id="Rectangle" fill="#FFFFFF" x="32" y="165" width="181" height="55" rx="7"></rect>
+            </g>
+            <g id="Group" transform="translate(632.000000, 136.000000)">
+                <rect id="Rectangle" fill="#4A4A4A" x="0" y="0" width="244" height="240" rx="7"></rect>
+                <rect id="Rectangle" fill="#FFFFFF" x="32" y="21" width="181" height="55" rx="7"></rect>
+                <rect id="Rectangle" fill="#FFFFFF" x="32" y="93" width="181" height="55" rx="7"></rect>
+                <rect id="Rectangle" fill="#FFFFFF" x="32" y="165" width="181" height="55" rx="7"></rect>
+            </g>
+            <g id="Group-3" transform="translate(632.000000, 0.000000)">
+                <rect id="Rectangle" stroke="#4A4A4A" fill="#4A4A4A" x="0" y="0" width="244" height="72" rx="7"></rect>
+                <text id="Third-party" font-family="PingFangSC-Semibold, PingFang SC" font-size="16" font-weight="500" fill="#FFFFFF">
+                    <tspan x="80.804" y="42">Third party</tspan>
+                </text>
+            </g>
+            <g id="Group-7" transform="translate(0.000000, 407.000000)" fill="#000000" font-family="PingFangSC-Semibold, PingFang SC" font-weight="500">
+                <text id="UI" font-size="24">
+                    <tspan x="110.108" y="25">UI </tspan>
+                </text>
+                <text id="TypeScript-+-React-M" font-size="16">
+                    <tspan x="0" y="67">TypeScript + React</tspan>
+                    <tspan x="0" y="89">Monaco Edtior</tspan>
+                    <tspan x="0" y="111">Mermaid </tspan>
+                </text>
+            </g>
+            <g id="Group-5" transform="translate(316.000000, 407.000000)" fill="#000000" font-family="PingFangSC-Semibold, PingFang SC" font-weight="500">
+                <text id="Rust-+-Tauri" font-size="16">
+                    <tspan x="0" y="67">Rust + Tauri</tspan>
+                </text>
+                <text id="Application" font-size="24">
+                    <tspan x="58.144" y="25">Application </tspan>
+                </text>
+            </g>
+            <g id="Group-6" transform="translate(632.000000, 407.000000)" fill="#000000" font-family="PingFangSC-Semibold, PingFang SC" font-weight="500">
+                <text id="Rust-+-Golang" font-size="16">
+                    <tspan x="0" y="73">Rust + Golang</tspan>
+                    <tspan x="0" y="95"></tspan>
+                </text>
+                <text id="Uncode-Core" font-size="24">
+                    <tspan x="47.488" y="25">Uncode Core</tspan>
+                </text>
+            </g>
+            <text id="Command" font-family="PingFangSC-Semibold, PingFang SC" font-size="16" font-weight="500" fill="#FFFFFF">
+                <tspan x="400.16" y="191">Command</tspan>
+            </text>
+            <text id="Listen-Event" font-family="PingFangSC-Semibold, PingFang SC" font-size="16" font-weight="500" fill="#000000">
+                <tspan x="391.356" y="263">Listen Event</tspan>
+            </text>
+            <text id="Emit-Event" font-family="PingFangSC-Semibold, PingFang SC" font-size="16" font-weight="500" fill="#000000">
+                <tspan x="398.268" y="335">Emit Event</tspan>
+            </text>
+            <text id="Core-DSLs" font-family="PingFangSC-Semibold, PingFang SC" font-size="16" font-weight="500" fill="#000000">
+                <tspan x="713.248" y="262">Core DSLs</tspan>
+            </text>
+            <text id="RPC-todo" font-family="PingFangSC-Semibold, PingFang SC" font-size="16" font-weight="500" fill="#000000">
+                <tspan x="743.828" y="183">RPC </tspan>
+                <tspan x="747.516" y="205" font-size="12">todo</tspan>
+            </text>
+            <text id="Tools-Wrapper" font-family="PingFangSC-Semibold, PingFang SC" font-size="16" font-weight="500" fill="#000000">
+                <tspan x="704.232" y="335">Tools Wrapper</tspan>
+            </text>
+            <path id="Line" d="M320.987371,174.526326 L322.730522,175.506849 L342.730522,186.756849 L345.829458,188.5 L342.730522,190.243151 L322.730522,201.493151 L320.987371,202.473674 L319.026326,198.987371 L320.769478,198.006849 L334.113,190.5 L228.886,190.5 L242.230522,198.006849 L243.973674,198.987371 L242.012629,202.473674 L240.269478,201.493151 L220.269478,190.243151 L217.170542,188.5 L220.269478,186.756849 L240.269478,175.506849 L242.012629,174.526326 L243.973674,178.012629 L242.230522,178.993151 L228.885,186.5 L334.114,186.5 L320.769478,178.993151 L319.026326,178.012629 L320.987371,174.526326 Z" fill="#A5AAB3" fill-rule="nonzero"></path>
+            <path id="Line" d="M320.987371,174.526326 L322.730522,175.506849 L342.730522,186.756849 L345.829458,188.5 L342.730522,190.243151 L322.730522,201.493151 L320.987371,202.473674 L319.026326,198.987371 L320.769478,198.006849 L334.113,190.5 L228.886,190.5 L242.230522,198.006849 L243.973674,198.987371 L242.012629,202.473674 L240.269478,201.493151 L220.269478,190.243151 L217.170542,188.5 L220.269478,186.756849 L240.269478,175.506849 L242.012629,174.526326 L243.973674,178.012629 L242.230522,178.993151 L228.885,186.5 L334.114,186.5 L320.769478,178.993151 L319.026326,178.012629 L320.987371,174.526326 Z" fill="#A5AAB3" fill-rule="nonzero"></path>
+            <path id="Line" d="M320.987371,174.526326 L322.730522,175.506849 L342.730522,186.756849 L345.829458,188.5 L342.730522,190.243151 L322.730522,201.493151 L320.987371,202.473674 L319.026326,198.987371 L320.769478,198.006849 L334.113,190.5 L228.886,190.5 L242.230522,198.006849 L243.973674,198.987371 L242.012629,202.473674 L240.269478,201.493151 L220.269478,190.243151 L217.170542,188.5 L220.269478,186.756849 L240.269478,175.506849 L242.012629,174.526326 L243.973674,178.012629 L242.230522,178.993151 L228.885,186.5 L334.114,186.5 L320.769478,178.993151 L319.026326,178.012629 L320.987371,174.526326 Z" fill="#A5AAB3" fill-rule="nonzero"></path>
+            <path id="Line" d="M609.487371,249.026326 L611.230522,250.006849 L631.230522,261.256849 L634.329458,263 L631.230522,264.743151 L611.230522,275.993151 L609.487371,276.973674 L607.526326,273.487371 L609.269478,272.506849 L622.613,265 L571.386,265 L584.730522,272.506849 L586.473674,273.487371 L584.512629,276.973674 L582.769478,275.993151 L562.769478,264.743151 L559.670542,263 L562.769478,261.256849 L582.769478,250.006849 L584.512629,249.026326 L586.473674,252.512629 L584.730522,253.493151 L571.385,261 L622.614,261 L609.269478,253.493151 L607.526326,252.512629 L609.487371,249.026326 Z" fill="#A5AAB3" fill-rule="nonzero"></path>
+            <path id="Line" d="M754,66.6705423 L755.743151,69.7694775 L766.993151,89.7694775 L767.973674,91.5126286 L764.487371,93.4736736 L763.506849,91.7305225 L756,78.386 L756,129.613 L763.506849,116.269478 L764.487371,114.526326 L767.973674,116.487371 L766.993151,118.230522 L755.743151,138.230522 L754,141.329458 L752.256849,138.230522 L741.006849,118.230522 L740.026326,116.487371 L743.512629,114.526326 L744.493151,116.269478 L752,129.614 L752,78.385 L744.493151,91.7305225 L743.512629,93.4736736 L740.026326,91.5126286 L741.006849,89.7694775 L752.256849,69.7694775 L754,66.6705423 Z" fill="#A5AAB3" fill-rule="nonzero"></path>
+            <path id="Line" d="M242.512629,315.026326 L244.473674,318.512629 L242.730522,319.493151 L229.385,327 L343,327 L343,331 L229.386,331 L242.730522,338.506849 L244.473674,339.487371 L242.512629,342.973674 L240.769478,341.993151 L220.769478,330.743151 L217.670542,329 L220.769478,327.256849 L240.769478,316.006849 L242.512629,315.026326 Z" fill="#A5AAB3" fill-rule="nonzero"></path>
+            <path id="Line" d="M321.487371,243.026326 L323.230522,244.006849 L343.230522,255.256849 L346.329458,257 L343.230522,258.743151 L323.230522,269.993151 L321.487371,270.973674 L319.526326,267.487371 L321.269478,266.506849 L334.613,259 L221,259 L221,255 L334.614,255 L321.269478,247.493151 L319.526326,246.512629 L321.487371,243.026326 Z" fill="#A5AAB3" fill-rule="nonzero"></path>
+        </g>
+    </g>
+</svg>
