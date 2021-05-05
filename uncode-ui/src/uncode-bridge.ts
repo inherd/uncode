@@ -11,6 +11,12 @@ const UncodeBridge = {
     });
   },
 
+  listen_text(event_name, handler) {
+    return listen<string>(event_name, data => {
+      return handler(data.payload);
+    });
+  },
+
   config: {
     uncode: {
       path: '',

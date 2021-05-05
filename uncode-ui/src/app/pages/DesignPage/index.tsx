@@ -62,7 +62,7 @@ export function DesignPage() {
     UncodeBridge.title('Uncode - Design');
     UncodeBridge.get_design('modeling').then((model: string) => {
       let without_puml = model.replace('@startuml', '').replace('@enduml', '');
-      let mermaid_str = 'classDiagram\n' + without_puml;
+      let mermaid_str = 'classDiagram\n    ' + without_puml;
       setModeling(mermaid_str);
     });
 
@@ -124,8 +124,9 @@ component BlogList {
 
   const rebuild = () => {
     UncodeBridge.build_modeling();
-    UncodeBridge.listen('build_modeling', data => {
-      setModeling(data);
+    UncodeBridge.listen_text('done_building_model', data => {
+      setModeling('classDiagram\n    ' + data);
+      console.log('classDiagram\n    ' + data);
     });
   };
 

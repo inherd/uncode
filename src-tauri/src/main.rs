@@ -82,7 +82,7 @@ fn main() {
             info!("start writing modeling: {:?}", design_path.display());
             let _ = fs::write(design_path, simple.clone());
 
-            window_.emit(&"done_building".to_string(), Some(simple)).expect("failed to emit");
+            window_.emit(&"done_building_model".to_string(), Some(simple)).expect("failed to emit");
           }
           &_ => {}
         }
