@@ -1,7 +1,7 @@
 {
   "package": {
-    "productName": "phodal",
-    "version": "0.1.0"
+    "productName": "Uncode",
+    "version": "0.0.1"
   },
   "build": {
     "distDir": "../uncode-ui/build",
