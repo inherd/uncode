@@ -23,6 +23,8 @@ uncode_story = { path = "../uncode/uncode-story" }
 
 modeling = "0.1.5"
 
+framework = "0.2.2"
+
 # save config
 dirs = "3.0"
 

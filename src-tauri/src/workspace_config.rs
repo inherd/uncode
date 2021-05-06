@@ -18,13 +18,13 @@ impl Default for WorkspaceConfig {
       domain: "".to_string(),
       story: "".to_string(),
       design: "".to_string(),
-      code: "".to_string()
+      code: "".to_string(),
     }
   }
 }
 
 impl WorkspaceConfig {
-  pub fn save_config<P: AsRef<Path>>(config: WorkspaceConfig, path: P){
+  pub fn save_config<P: AsRef<Path>>(config: WorkspaceConfig, path: P) {
     let ws = serde_json::to_string_pretty(&config).expect("error");
     if !path.as_ref().exists() {
       let _file = File::create(&path).unwrap();
