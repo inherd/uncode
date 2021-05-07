@@ -44,6 +44,7 @@ impl WorkspaceConfig {
   }
 
   pub fn from_path<P: AsRef<Path>>(path: P) -> WorkspaceConfig {
+    let frameworks = FrameworkDetector::detect("path").build();
     let mut app_state = WorkspaceConfig::default();
     let content;
     match fs::read_to_string(&path) {
@@ -51,22 +52,24 @@ impl WorkspaceConfig {
         content = str;
       }
       Err(_) => {
+        app_state.frameworks = frameworks.frameworks;
+        app_state.facets = frameworks.facets;
+
         return app_state;
       }
     }
 
     match serde_json::from_str(&content) {
       Ok(state) => {
+        app_state.frameworks = frameworks.frameworks;
+        app_state.facets = frameworks.facets;
+
         app_state = state;
       }
       Err(_err) => {
         log::error!("error config: {}", content);
       }
     };
-
-    let frameworks = FrameworkDetector::detect("path").build();
-    app_state.frameworks = frameworks.frameworks;
-    app_state.facets = frameworks.facets;
 
     return app_state;
   }

@@ -27,6 +27,8 @@ const UncodeBridge = {
       story: 'design',
       design: 'story',
       code: 'uncode',
+      frameworks: [],
+      facets: [],
     },
   },
 
