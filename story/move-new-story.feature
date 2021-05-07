@@ -1,6 +1,6 @@
 # status: backlog
-Feature: Create new story
-  Create new card with status
+Feature: enable move story
+  # Enter feature description here
 
   Scenario: # Enter scenario name here
     # Enter steps here
