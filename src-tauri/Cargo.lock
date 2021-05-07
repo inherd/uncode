@@ -1019,9 +1019,9 @@ dependencies = [
 
 [[package]]
 name = "framework"
-version = "0.2.2"
+version = "0.2.4"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "a36da4e14e63b0b085e544434961232ea870f9682af137c3ee65ddbd13070a3e"
+checksum = "9e4b86c403a01c0dd25c1bc5f1b6fe6849b22ed05e6e12281759df18779f9b56"
 dependencies = [
  "erased-serde",
  "lazy_static",

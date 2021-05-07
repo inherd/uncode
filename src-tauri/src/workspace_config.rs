@@ -2,6 +2,8 @@ use serde::{Serialize, Deserialize};
 use std::path::{Path};
 use std::fs;
 use std::fs::File;
+use serde_json::Value;
+use framework::FrameworkDetector;
 
 #[allow(dead_code)]
 #[derive(Serialize, Deserialize)]
@@ -10,6 +12,8 @@ pub struct WorkspaceConfig {
   pub story: String,
   pub design: String,
   pub code: String,
+  pub frameworks: Vec<framework::Framework>,
+  pub facets: Vec<Value>,
 }
 
 impl Default for WorkspaceConfig {
@@ -19,6 +23,8 @@ impl Default for WorkspaceConfig {
       story: "".to_string(),
       design: "".to_string(),
       code: "".to_string(),
+      frameworks: vec![],
+      facets: vec![]
     }
   }
 }
@@ -57,6 +63,11 @@ impl WorkspaceConfig {
         log::error!("error config: {}", content);
       }
     };
+
+    let frameworks = FrameworkDetector::detect("path").build();
+    app_state.frameworks = frameworks.frameworks;
+    app_state.facets = frameworks.facets;
+
     return app_state;
   }
 }
