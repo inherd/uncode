@@ -13,6 +13,7 @@ use crate::workspace_config::WorkspaceConfig;
 use modeling::render::MermaidRender;
 use std::fs;
 use std::path::PathBuf;
+use framework::FrameworkDetector;
 
 mod cmd;
 
@@ -47,11 +48,17 @@ fn main() {
   setup_log();
 
   let uncode = UncodeConfig::read_config();
-  let workspace = if !uncode.workspace_config.is_empty() {
+  let mut workspace = if !uncode.workspace_config.is_empty() {
     WorkspaceConfig::from_path(uncode.workspace_config.clone())
   } else {
     WorkspaceConfig::default()
   };
+
+  let frameworks = FrameworkDetector::detect(&uncode.path).build();
+  info!("detect {} to frameworks: {:?}", &uncode.path, frameworks);
+
+  workspace.frameworks = frameworks.frameworks;
+  workspace.facets = frameworks.facets;
 
   let uncode_config = SummaryConfig {
     uncode,

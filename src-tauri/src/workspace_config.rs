@@ -1,9 +1,9 @@
-use serde::{Serialize, Deserialize};
-use std::path::{Path};
 use std::fs;
 use std::fs::File;
+use std::path::Path;
+
+use serde::{Deserialize, Serialize};
 use serde_json::Value;
-use framework::FrameworkDetector;
 
 #[allow(dead_code)]
 #[derive(Serialize, Deserialize)]
@@ -44,20 +44,14 @@ impl WorkspaceConfig {
   }
 
   pub fn from_path<P: AsRef<Path>>(path: P) -> WorkspaceConfig {
-    let frameworks = FrameworkDetector::detect(&path).build();
     let mut app_state = WorkspaceConfig::default();
     let content;
-
-    info!("load frameworks: {:?}", frameworks);
 
     match fs::read_to_string(&path) {
       Ok(str) => {
         content = str;
       }
       Err(_) => {
-        app_state.frameworks = frameworks.frameworks;
-        app_state.facets = frameworks.facets;
-
         return app_state;
       }
     }
@@ -70,9 +64,6 @@ impl WorkspaceConfig {
         log::error!("error config: {}", content);
       }
     };
-
-    app_state.frameworks = frameworks.frameworks;
-    app_state.facets = frameworks.facets;
 
     return app_state;
   }
