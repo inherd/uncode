@@ -52,8 +52,8 @@ Uncode 是一个面向云研发时代设计的下一代概念性 IDE。特性：
 
 ### Setup
 
-1. run `yarn start` in `uncode-ui`
-2. run `yarn tauri dev` in root project
+1. run `yarn` in root direction and `uncode-ui`
+2. run `yarn dev` in root project
 
 ## Documents
 
