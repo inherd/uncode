@@ -1,4 +1,4 @@
-# status: doing
+# status: backlog
 Feature: Language Server Protocol
   Client: https://github.com/TypeFox/monaco-languageclient
 
