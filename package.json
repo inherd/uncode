@@ -8,6 +8,7 @@
   "private": false,
   "scripts": {
     "tauri": "tauri",
+    "dev": "concurrently \"yarn tauri dev\" \"cd uncode-ui && yarn start\"",
     "lint:fix": "cd uncode-ui && yarn lint:fix",
     "child-install": "cd uncode-ui && yarn install",
     "build": "cd uncode-ui && yarn build"
@@ -16,5 +17,8 @@
     "@tauri-apps/api": "^1.0.0-beta-rc.3",
     "@tauri-apps/cli": "^1.0.0-beta-rc.4",
     "mermaid": "^8.9.3"
+  },
+  "devDependencies": {
+    "concurrently": "^6.0.2"
   }
 }
