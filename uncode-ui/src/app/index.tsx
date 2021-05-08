@@ -3,7 +3,6 @@ import { Helmet } from 'react-helmet-async';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
 import { GlobalStyle } from 'styles/global-styles';
-import { listen } from '@tauri-apps/api/event';
 
 import { HomePage } from './pages/HomePage/Loadable';
 import { DesignPage } from './pages/DesignPage/Loadable';
@@ -18,9 +17,8 @@ export function App() {
   UncodeShortcuts.init();
   const { i18n } = useTranslation();
 
-  listen('bootstrap', (data: any) => {
-    console.log(JSON.parse(data.payload));
-    UncodeBridge.config = JSON.parse(data.payload);
+  UncodeBridge.listen('bootstrap', (data: any) => {
+    UncodeBridge.config = data;
   });
 
   return (

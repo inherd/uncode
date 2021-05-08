@@ -1,17 +1,34 @@
 import { open } from '@tauri-apps/api/dialog';
-import { invoke } from '@tauri-apps/api/tauri';
 import { emit, listen } from '@tauri-apps/api/event';
 import { exit } from '@tauri-apps/api/app';
+import { invoke, InvokeArgs } from '@tauri-apps/api/tauri';
+
+function invoke_wrapper<T>(cmd: string, args: InvokeArgs = {}): Promise<T> {
+  if (!window.rpc) {
+    return new Promise((resolve, reject) => {});
+  }
+  if (!window.rpc.notify) {
+    return new Promise((resolve, reject) => {});
+  }
+
+  return invoke<T>(cmd, args);
+}
 
 const UncodeBridge = {
-  // todo: move listen to here
   listen(event_name, handler) {
-    return listen<string>(event_name, data => {
-      return handler(JSON.parse(data.payload));
+    return UncodeBridge.listen_text(event_name, data => {
+      return handler(JSON.parse(data));
     });
   },
 
   listen_text(event_name, handler) {
+    if (!window.rpc) {
+      return;
+    }
+    if (!window.rpc.notify) {
+      return;
+    }
+
     return listen<string>(event_name, data => {
       return handler(data.payload);
     });
@@ -37,14 +54,14 @@ const UncodeBridge = {
   },
 
   get_story(): Promise<any> {
-    return invoke('get_story', {
+    return invoke_wrapper('get_story', {
       root: this.config.uncode.path,
       story: this.config.workspace.story,
     });
   },
 
   get_design(design_type: string): Promise<any> {
-    return invoke('get_design', {
+    return invoke_wrapper('get_design', {
       root: this.config.uncode.path,
       path: this.config.workspace.design,
       designType: design_type,
@@ -52,7 +69,7 @@ const UncodeBridge = {
   },
 
   create_story(card): Promise<any> {
-    return invoke('create_story', {
+    return invoke_wrapper('create_story', {
       root: this.config.uncode.path,
       story: this.config.workspace.story,
       card: card,
@@ -78,11 +95,11 @@ const UncodeBridge = {
   },
 
   title(title: string) {
-    return invoke('set_title', { payload: title });
+    return invoke_wrapper('set_title', { payload: title });
   },
 
   log(name: string, message: string): Promise<any> {
-    return invoke('log_operation', { payload: message });
+    return invoke_wrapper('log_operation', { payload: message });
   },
 
   emit_event: function (event_type: string, payload: object) {
@@ -96,7 +113,7 @@ const UncodeBridge = {
   },
 
   open_file(path: string): Promise<string> {
-    return invoke('open_file', { path });
+    return invoke_wrapper('open_file', { path });
   },
 
   build_modeling() {
@@ -117,7 +134,7 @@ const UncodeBridge = {
       codePath = this.config.workspace.code;
     }
 
-    return invoke('open_dir', { root, codePath });
+    return invoke_wrapper('open_dir', { root, codePath });
   },
 };
 
