@@ -50,6 +50,10 @@ Uncode 是一个面向云研发时代设计的下一代概念性 IDE。特性：
  - [ ] RPC for uncode <-> src-tauri
  - [ ] language identify
 
+### Requirement
+
+1. rustc 1.52+
+
 ### Setup
 
 1. run `yarn` in root direction and `uncode-ui`
