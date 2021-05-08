@@ -8,7 +8,7 @@ use walkdir::{WalkDir, DirEntry};
 use std::fs;
 use std::path::Path;
 use regex::{Regex};
-
+use std::time::{SystemTime};
 
 lazy_static! {
   static ref STATUS_REGEX: Regex = Regex::new(r"#\sstatus:\s(?P<status>.*)").unwrap();
@@ -54,8 +54,22 @@ pub fn parse_dir<P: AsRef<Path>>(path: P) -> Vec<StoryModel> {
   for entry in walker.filter_entry(|e| is_story(e)) {
     if let Ok(dir) = entry {
       if dir.file_type().is_file() {
+        let metadata = dir.metadata().expect("fail to get file metadata");
         let content = fs::read_to_string(dir.path()).expect("error to load file");
-        stories.push(parse(&*content));
+        let mut model = parse(&*content);
+
+        if let Ok(time) = metadata.created() {
+          if let Ok(unix) = time.duration_since(SystemTime::UNIX_EPOCH) {
+            model.created = unix.as_secs();
+          }
+        }
+        if let Ok(time) = metadata.modified() {
+          if let Ok(unix) = time.duration_since(SystemTime::UNIX_EPOCH) {
+            model.modified = unix.as_secs();
+          }
+        }
+
+        stories.push(model);
       }
     }
   };
@@ -84,6 +98,7 @@ mod tests {
     let path = format!("{}", d.join("story").display());
     let stories = parse_dir(path);
 
+    assert_eq!(1619788569, stories[0].created);
     assert_eq!("done", stories[0].status);
   }
 }
