@@ -54,20 +54,7 @@ pub fn parse_dir<P: AsRef<Path>>(path: P) -> Vec<StoryModel> {
   for entry in walker.filter_entry(|e| is_story(e)) {
     if let Ok(dir) = entry {
       if dir.file_type().is_file() {
-        let metadata = dir.metadata().expect("fail to get file metadata");
-        let content = fs::read_to_string(dir.path()).expect("error to load file");
-        let mut model = parse(&*content);
-
-        if let Ok(time) = metadata.created() {
-          if let Ok(unix) = time.duration_since(SystemTime::UNIX_EPOCH) {
-            model.created = unix.as_secs();
-          }
-        }
-        if let Ok(time) = metadata.modified() {
-          if let Ok(unix) = time.duration_since(SystemTime::UNIX_EPOCH) {
-            model.modified = unix.as_secs();
-          }
-        }
+        let model = build_story(dir);
 
         stories.push(model);
       }
@@ -75,6 +62,24 @@ pub fn parse_dir<P: AsRef<Path>>(path: P) -> Vec<StoryModel> {
   };
 
   stories
+}
+
+fn build_story(file_entry: DirEntry) -> StoryModel {
+  let metadata = file_entry.metadata().expect("fail to get file metadata");
+  let content = fs::read_to_string(file_entry.path()).expect("error to load file");
+  let mut model = parse(&*content);
+
+  if let Ok(time) = metadata.created() {
+    if let Ok(unix) = time.duration_since(SystemTime::UNIX_EPOCH) {
+      model.created = unix.as_secs();
+    }
+  }
+  if let Ok(time) = metadata.modified() {
+    if let Ok(unix) = time.duration_since(SystemTime::UNIX_EPOCH) {
+      model.modified = unix.as_secs();
+    }
+  }
+  model
 }
 
 #[cfg(test)]
