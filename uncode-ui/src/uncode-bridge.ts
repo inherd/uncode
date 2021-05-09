@@ -49,6 +49,10 @@ const UncodeBridge = {
     },
   },
 
+  views: {
+    currentFile: '',
+  },
+
   exit() {
     exit();
   },
@@ -114,6 +118,13 @@ const UncodeBridge = {
 
   open_file(path: string): Promise<string> {
     return invoke_wrapper('open_file', { path });
+  },
+
+  save_file(value: string): Promise<string> {
+    return invoke_wrapper('save_file', {
+      path: UncodeBridge.views.currentFile,
+      value,
+    });
   },
 
   build_modeling() {

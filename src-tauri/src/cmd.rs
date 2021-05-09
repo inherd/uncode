@@ -1,6 +1,6 @@
 use std::fs;
 use std::fs::File;
-use std::io::Read;
+use std::io::{Read};
 use std::path::PathBuf;
 
 use serde::Deserialize;
@@ -59,6 +59,20 @@ pub fn open_file(path: String) -> String {
 
   let out = String::from_utf8_lossy(&*file_content);
   out.to_string()
+}
+
+#[command]
+pub fn save_file(path: String, value: String) -> String {
+  match fs::write(path.clone(), value) {
+    Ok(_) => {
+      info!("save file: {}", path);
+    }
+    Err(err) => {
+      info!("save file: {} error, {}", path, err);
+    }
+  };
+
+  "".to_string()
 }
 
 #[command]

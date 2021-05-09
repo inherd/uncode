@@ -125,6 +125,8 @@ export function CodePage() {
     if (nodeIds.endsWith('?is_dir=true')) {
       return;
     }
+
+    UncodeBridge.views.currentFile = nodeIds;
     UncodeBridge.open_file(nodeIds).then(data => {
       setContent(data);
     });
@@ -136,15 +138,13 @@ export function CodePage() {
   ) => {
     setTimeout(() => {
       editor.addAction({
-        id: 'my-unique-id',
-        label: 'My Label!!!',
+        id: 'save-file',
+        label: 'Save File',
         keybindings: [monaco.KeyMod.CtrlCmd | monaco.KeyCode.KEY_S],
-        // precondition: null,
-        // keybindingContext: null,
         contextMenuGroupId: 'navigation',
         contextMenuOrder: 1.5,
         run: function (ed, any) {
-          console.log(ed, any);
+          UncodeBridge.save_file(ed.getValue()).then(() => {});
         },
       });
     }, 300);

@@ -110,6 +110,7 @@ fn main() {
 
 
       cmd::open_file,
+      cmd::save_file,
       cmd::open_dir,
 
       // design
