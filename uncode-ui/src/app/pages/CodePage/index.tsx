@@ -13,6 +13,7 @@ import TreeView from '@material-ui/lab/TreeView';
 import TreeItem from '@material-ui/lab/TreeItem';
 import { animated, useSpring } from 'react-spring/web.cjs';
 import { Description, Folder } from '@material-ui/icons';
+import * as monacoEditor from 'monaco-editor';
 
 const useStyles = makeStyles({
   root: {
@@ -129,6 +130,26 @@ export function CodePage() {
     });
   };
 
+  const editorDidMount = (
+    editor: monacoEditor.editor.IStandaloneCodeEditor,
+    monaco: typeof monacoEditor,
+  ) => {
+    setTimeout(() => {
+      editor.addAction({
+        id: 'my-unique-id',
+        label: 'My Label!!!',
+        keybindings: [monaco.KeyMod.CtrlCmd | monaco.KeyCode.KEY_S],
+        // precondition: null,
+        // keybindingContext: null,
+        contextMenuGroupId: 'navigation',
+        contextMenuOrder: 1.5,
+        run: function (ed, any) {
+          console.log(ed, any);
+        },
+      });
+    }, 300);
+  };
+
   return (
     <>
       <Helmet>
@@ -152,6 +173,7 @@ export function CodePage() {
                 language="javascript"
                 options={options}
                 value={content}
+                editorDidMount={editorDidMount}
               />
             </Grid>
           </Grid>
