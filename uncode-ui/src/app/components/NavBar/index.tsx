@@ -1,43 +1,62 @@
 import * as React from 'react';
-import styled from 'styled-components/macro';
-import { Logo } from './Logo';
-import { StyleConstants } from 'styles/StyleConstants';
-import { Nav } from './Nav';
-import { PageWrapper } from '../PageWrapper';
+import { AppBar, Toolbar } from '@material-ui/core';
+import { NavLink, useHistory } from 'react-router-dom';
+
+import { ReactComponent as DocumentationIcon } from './assets/documentation-icon.svg';
+import { ReactComponent as DesignIcon } from './assets/design-icon.svg';
+import { ReactComponent as CodingIcon } from './assets/coding-icon.svg';
+import UncodeShortcuts from '../../../uncode-shortcuts';
+import styled, { css } from 'styled-components/macro';
 
 export function NavBar() {
+  let history = useHistory();
+  UncodeShortcuts.bind_history(history);
+
   return (
-    <Wrapper>
-      <PageWrapper>
-        <Logo />
-        <Nav />
-      </PageWrapper>
-    </Wrapper>
+    <AppBar position="static">
+      <Toolbar>
+        <StyleLink to="/story">
+          <DocumentationIcon />
+          Story
+        </StyleLink>
+        <StyleLink to="/design">
+          <DesignIcon />
+          Design
+        </StyleLink>
+        <StyleLink to="/code">
+          <CodingIcon />
+          Code
+        </StyleLink>
+        <StyleLink to="/build">Build</StyleLink>
+        <StyleLink to="/deploy">Deploy</StyleLink>
+        <StyleLink to="/operation">Operation</StyleLink>
+      </Toolbar>
+    </AppBar>
   );
 }
 
-const Wrapper = styled.header`
-  box-shadow: 0 1px 0 0 ${p => p.theme.borderLight};
-  height: ${StyleConstants.NAV_BAR_HEIGHT};
+const SharedButton = css`
+  color: ${p => p.theme.primary};
+  cursor: pointer;
+  text-decoration: none;
   display: flex;
-  position: fixed;
-  top: 0;
-  width: 100%;
-  background-color: ${p => p.theme.background};
-  z-index: 2;
+  padding: 0.25rem 1rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  align-items: center;
+  border: none;
+  background-color: transparent;
+  outline: none;
 
-  @supports (backdrop-filter: blur(10px)) {
-    backdrop-filter: blur(10px);
-    background-color: ${p =>
-      p.theme.background.replace(
-        /rgba?(\(\s*\d+\s*,\s*\d+\s*,\s*\d+)(?:\s*,.+?)?\)/,
-        'rgba$1,0.75)',
-      )};
+  &.active {
+    color: ${p => p.theme.background};
   }
 
-  ${PageWrapper} {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+  .icon {
+    margin-right: 0.25rem;
   }
+`;
+
+const StyleLink = styled(NavLink)`
+  ${SharedButton}
 `;
