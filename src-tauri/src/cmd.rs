@@ -43,7 +43,7 @@ pub fn save_workspace(config: String, path: String) {
 pub fn get_story(root: String, story: String) -> Vec<StoryModel> {
   let story_path = PathBuf::from(root).join(story);
   let mut stories = uncode_story::parse_dir(story_path);
-  stories.sort_by(|a, b| b.created.cmp(&a.created));
+  stories.sort_by(|a, b| a.created.cmp(&b.created));
   info!("get_story: {:?}", stories.clone());
   stories
 }

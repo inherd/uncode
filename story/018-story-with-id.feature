@@ -1,4 +1,4 @@
-# status: backlog
+# status: doing
 Feature: Story with Id
   # Enter feature description here
 

@@ -12,6 +12,7 @@ use std::time::{SystemTime};
 
 lazy_static! {
   static ref STATUS_REGEX: Regex = Regex::new(r"#\sstatus:\s(?P<status>.*)").unwrap();
+  static ref STORY_ID: Regex = Regex::new(r"(?P<story_id>\d{1,4})-(.*).feature").unwrap();
 }
 
 pub fn parse(content: &str) -> StoryModel {
@@ -79,6 +80,11 @@ fn build_story(file_entry: DirEntry) -> StoryModel {
       model.modified = unix.as_secs();
     }
   }
+
+  if let Some(caps) = STORY_ID.captures(file_entry.file_name().to_str().expect("not a correct file name")) {
+    model.id = caps["story_id"].to_string();
+  }
+
   model
 }
 
@@ -103,7 +109,16 @@ mod tests {
     let path = format!("{}", d.join("story").display());
     let stories = parse_dir(path);
 
-    assert_eq!(1619788569, stories[0].created);
     assert_eq!("done", stories[0].status);
+  }
+
+  #[test]
+  fn should_parse_file_info() {
+    let d = PathBuf::from(env!("CARGO_MANIFEST_DIR"));
+    let path = format!("{}", d.join("story").display());
+    let stories = parse_dir(path);
+
+    assert_eq!(1619788569, stories[0].created);
+    assert_eq!("001", stories[0].id);
   }
 }
