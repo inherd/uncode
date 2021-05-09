@@ -7,6 +7,7 @@ export const GlobalStyle = createGlobalStyle`
     height: 100%;
     width: 100%;
     line-height: 1.5;
+    overflow-y: hidden;
   }
 
   body {
@@ -18,7 +19,7 @@ export const GlobalStyle = createGlobalStyle`
   body.fontLoaded {
     font-family: 'Inter', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   }
-  
+
   p,
   label {
     line-height: 1.5em;
@@ -32,5 +33,10 @@ export const GlobalStyle = createGlobalStyle`
   .icon {
     width: 1.5rem;
     height: 1.5rem;
+  }
+
+  .react-kanban-board .react-kanban-column {
+    height: calc(100vh - ${StyleConstants.NAV_BAR_HEIGHT}) !important;
+    overflow-y: scroll;
   }
 `;

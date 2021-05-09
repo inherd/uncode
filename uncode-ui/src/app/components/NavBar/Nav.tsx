@@ -61,8 +61,6 @@ const SharedButton = css`
     font-weight: bold;
     color: #000;
     background-color: #fff;
-
-    border-bottom: 2px solid #fff;
   }
 
   .icon {
