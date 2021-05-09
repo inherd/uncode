@@ -93,7 +93,10 @@
     }
 
     class StoryModel {
+       u64 created
        String description
+       String id
+       u64 modified
        String status
        String title
       default()
@@ -118,13 +121,15 @@
        String code
        String design
        String domain
+       Vec<Value> facets
+       Vec<framework frameworks
        String story
       default()
       from_path()
       save_config()
     }
     ArchitectureModel -- PhysicalDesign
-    Fitness -- Coverage
     Fitness -- LineCount
-    SummaryConfig -- UncodeConfig
+    Fitness -- Coverage
     SummaryConfig -- WorkspaceConfig
+    SummaryConfig -- UncodeConfig

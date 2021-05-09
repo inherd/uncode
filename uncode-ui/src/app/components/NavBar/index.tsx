@@ -1,16 +1,21 @@
 import * as React from 'react';
-import { AppBar, Toolbar } from '@material-ui/core';
+import { AppBar, IconButton, Toolbar } from '@material-ui/core';
 import { NavLink, useHistory } from 'react-router-dom';
+import styled, { css } from 'styled-components/macro';
+import { BugReport } from '@material-ui/icons';
 
 import { ReactComponent as DocumentationIcon } from './assets/documentation-icon.svg';
 import { ReactComponent as DesignIcon } from './assets/design-icon.svg';
 import { ReactComponent as CodingIcon } from './assets/coding-icon.svg';
 import UncodeShortcuts from '../../../uncode-shortcuts';
-import styled, { css } from 'styled-components/macro';
 
 export function NavBar() {
   let history = useHistory();
   UncodeShortcuts.bind_history(history);
+
+  const openDebugPage = () => {
+    history.push('/');
+  };
 
   return (
     <StyledAppBar position="static">
@@ -30,7 +35,14 @@ export function NavBar() {
         <StyleLink to="/build">Build</StyleLink>
         <StyleLink to="/deploy">Deploy</StyleLink>
         <StyleLink to="/operation">Operation</StyleLink>
-        <DebugLink to="/">Debug</DebugLink>
+        <IconButton
+          edge="end"
+          aria-label="debug"
+          onClick={openDebugPage}
+          color="inherit"
+        >
+          <BugReport />
+        </IconButton>
       </Toolbar>
     </StyledAppBar>
   );
@@ -60,11 +72,6 @@ const SharedButton = css`
 
 const StyleLink = styled(NavLink)`
   ${SharedButton}
-`;
-
-const DebugLink = styled(NavLink)`
-  color: ${p => p.theme.primary};
-  text-decoration: none;
 `;
 
 const StyledAppBar = styled(AppBar)`
