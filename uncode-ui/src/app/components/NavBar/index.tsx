@@ -13,7 +13,7 @@ export function NavBar() {
   UncodeShortcuts.bind_history(history);
 
   return (
-    <AppBar position="static">
+    <StyledAppBar position="static">
       <Toolbar>
         <StyleLink to="/story">
           <DocumentationIcon />
@@ -31,7 +31,7 @@ export function NavBar() {
         <StyleLink to="/deploy">Deploy</StyleLink>
         <StyleLink to="/operation">Operation</StyleLink>
       </Toolbar>
-    </AppBar>
+    </StyledAppBar>
   );
 }
 
@@ -59,4 +59,8 @@ const SharedButton = css`
 
 const StyleLink = styled(NavLink)`
   ${SharedButton}
+`;
+
+const StyledAppBar = styled(AppBar)`
+  margin-bottom: 1em;
 `;
