@@ -19,6 +19,10 @@ export const GlobalStyle = createGlobalStyle`
     font-family: 'Inter', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   }
 
+  .mermaid {
+    width:100%;
+  }
+
   p,
   label {
     line-height: 1.5em;
