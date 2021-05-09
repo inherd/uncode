@@ -14,7 +14,7 @@ export function NavBar() {
 
   return (
     <StyledAppBar position="static">
-      <Toolbar>
+      <Toolbar variant="dense">
         <StyleLink to="/story">
           <DocumentationIcon />
           Story
@@ -30,6 +30,7 @@ export function NavBar() {
         <StyleLink to="/build">Build</StyleLink>
         <StyleLink to="/deploy">Deploy</StyleLink>
         <StyleLink to="/operation">Operation</StyleLink>
+        <DebugLink to="/">Debug</DebugLink>
       </Toolbar>
     </StyledAppBar>
   );
@@ -59,6 +60,11 @@ const SharedButton = css`
 
 const StyleLink = styled(NavLink)`
   ${SharedButton}
+`;
+
+const DebugLink = styled(NavLink)`
+  color: ${p => p.theme.primary};
+  text-decoration: none;
 `;
 
 const StyledAppBar = styled(AppBar)`
