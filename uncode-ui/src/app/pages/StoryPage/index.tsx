@@ -44,8 +44,8 @@ export function StoryPage() {
         }
 
         column_map[story.status].cards.push({
-          id: card_map[story.status],
-          title: story.title,
+          id: story.id,
+          title: story.id + ' - ' + story.title,
           description: story.description,
         });
       }
