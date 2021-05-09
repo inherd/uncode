@@ -25,12 +25,22 @@ export function StoryPage() {
         doing: { id: 2, title: 'Doing', cards: [] },
         done: { id: 3, title: 'Done', cards: [] },
       };
+      let other_id = 4;
       let card_map: any = {};
       for (let story of stories) {
         if (!card_map[story.status]) {
           card_map[story.status] = 1;
         } else {
           card_map[story.status]++;
+        }
+
+        if (!column_map[story.status]) {
+          column_map[story.status] = {
+            id: other_id + 1,
+            title: story.status,
+            cards: [],
+          };
+          other_id = other_id + 1;
         }
 
         column_map[story.status].cards.push({
