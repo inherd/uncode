@@ -15,8 +15,9 @@ lazy_static! {
   static ref STORY_ID: Regex = Regex::new(r"(?P<story_id>\d{1,4})-(.*).feature").unwrap();
 }
 
-pub fn parse(content: &str) -> StoryModel {
+pub fn parse(content: &str, path: &Path) -> StoryModel {
   let mut story = StoryModel::default();
+  story.path = format!("{}", path.display());
   let mut status = "".to_string();
   for line in content.lines().into_iter() {
     if let Some(caps) = STATUS_REGEX.captures(line) {
@@ -67,8 +68,9 @@ pub fn parse_dir<P: AsRef<Path>>(path: P) -> Vec<StoryModel> {
 
 fn build_story(file_entry: DirEntry) -> StoryModel {
   let metadata = file_entry.metadata().expect("fail to get file metadata");
-  let content = fs::read_to_string(file_entry.path()).expect("error to load file");
-  let mut model = parse(&*content);
+  let file_path = file_entry.path();
+  let content = fs::read_to_string(file_path).expect("error to load file");
+  let mut model = parse(&*content, file_path);
 
   if let Ok(time) = metadata.created() {
     if let Ok(unix) = time.duration_since(SystemTime::UNIX_EPOCH) {
@@ -120,5 +122,6 @@ mod tests {
 
     assert_eq!(1619788569, stories[0].created);
     assert_eq!("001", stories[0].id);
+    assert!(stories[0].path.contains("001-first-story.feature"))
   }
 }

@@ -7,7 +7,8 @@ pub struct  StoryModel {
   pub status: String,
   pub description: String,
   pub created: u64,
-  pub modified: u64
+  pub modified: u64,
+  pub path: String,
 }
 
 impl Default for StoryModel {
@@ -18,7 +19,8 @@ impl Default for StoryModel {
       status: "".to_string(),
       description: "".to_string(),
       created: 0,
-      modified: 0
+      modified: 0,
+      path: "".to_string()
     }
   }
 }
