@@ -9889,17 +9889,17 @@ moment-mini@^2.22.1:
   resolved "https://registry.yarnpkg.com/moment-mini/-/moment-mini-2.24.0.tgz#fa68d98f7fe93ae65bf1262f6abb5fb6983d8d18"
   integrity sha512-9ARkWHBs+6YJIvrIp0Ik5tyTTtP9PoV0Ssu2Ocq5y9v8+NOOpWiRshAp8c4rZVWTOe+157on/5G+zj5pwIQFEQ==
 
-monaco-editor-webpack-plugin@3.0.1:
-  version "3.0.1"
-  resolved "https://registry.npmjs.org/monaco-editor-webpack-plugin/-/monaco-editor-webpack-plugin-3.0.1.tgz"
-  integrity sha512-Hym4HqWgIpyoi9G0spln/b/7rkDKfYwIOrNzo1fHHMc+MLYSwD1JXHwKSDS77X27ZHfVJsEXbMZYdGhSYuVF0w==
+monaco-editor-webpack-plugin@3.1.0:
+  version "3.1.0"
+  resolved "https://registry.nlark.com/monaco-editor-webpack-plugin/download/monaco-editor-webpack-plugin-3.1.0.tgz#972efc47a91b3bf3bd977885684a3180eb8f341b"
+  integrity sha1-ly78R6kbO/O9l3iFaEoxgOuPNBs=
   dependencies:
     loader-utils "^2.0.0"
 
-monaco-editor@*:
-  version "0.23.0"
-  resolved "https://registry.npmjs.org/monaco-editor/-/monaco-editor-0.23.0.tgz"
-  integrity sha512-q+CP5zMR/aFiMTE9QlIavGyGicKnG2v/H8qVvybLzeFsARM8f6G9fL0sMST2tyVYCwDKkGamZUI6647A0jR/Lg==
+monaco-editor@*, monaco-editor@0.24.0:
+  version "0.24.0"
+  resolved "https://registry.nlark.com/monaco-editor/download/monaco-editor-0.24.0.tgz?cache=0&sync_timestamp=1620919150167&other_urls=https%3A%2F%2Fregistry.nlark.com%2Fmonaco-editor%2Fdownload%2Fmonaco-editor-0.24.0.tgz#990b55096bcc95d08d8d28e55264c6eb17707269"
+  integrity sha1-mQtVCWvMldCNjSjlUmTG6xdwcmk=
 
 move-concurrently@^1.0.1:
   version "1.0.1"
@@ -12058,8 +12058,8 @@ react-markdown@6.0.1:
 
 react-monaco-editor@0.43.0:
   version "0.43.0"
-  resolved "https://registry.npmjs.org/react-monaco-editor/-/react-monaco-editor-0.43.0.tgz"
-  integrity sha512-2PXSDwOzjUDlwdsK8psrmezSB2lPnjLQ/SRNwqoRF2+TAB2n4Q+Bs1wGlWOZbU8WI7s6Wnni0+3PdT9nSPtzRA==
+  resolved "https://registry.nlark.com/react-monaco-editor/download/react-monaco-editor-0.43.0.tgz#495578470db7b27ab306af813b31f206a6bf9d1c"
+  integrity sha1-SVV4Rw23snqzBq+BOzHyBqa/nRw=
   dependencies:
     monaco-editor "*"
     prop-types "^15.7.2"
