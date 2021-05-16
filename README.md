@@ -59,6 +59,13 @@ Uncode 是一个面向云研发时代设计的下一代概念性 IDE。特性：
 1. run `yarn` in root direction and `uncode-ui`
 2. run `yarn dev` in root project
 
+### something about amr64
+if your OS based arm64,when you have some trouble with `yarn global add @tauri-apps/cli`,you also can use `cargo` cli to run and build this app,look this:
+
+1. run `cargo install tauri-cli --version ^1.0.0-beta` and `cargo tauri --version`
+2. run `yarn start` in `uncode-ui`
+3. run `cargo tauri dev`in root project
+
 ## Documents
 
 ![Design Principles](docs/design/design-principles.png)
