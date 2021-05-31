@@ -4,7 +4,7 @@ import { Helmet } from 'react-helmet-async';
 import styled from 'styled-components/macro';
 import * as monacoEditor from 'monaco-editor';
 import MonacoEditor from 'react-monaco-editor';
-import * as MonacoMarkdown from 'monaco-markdown';
+// import * as MonacoMarkdown from 'monaco-markdown';
 
 import { animated, useSpring } from 'react-spring/web.cjs';
 import { Description, Folder } from '@material-ui/icons';
@@ -153,8 +153,8 @@ export class CodePage extends React.Component<
       monaco: typeof monacoEditor,
     ) => {
       setTimeout(() => {
-        let extension = new MonacoMarkdown.MonacoMarkdownExtension();
-        extension.activate(editor);
+        // let extension = new MonacoMarkdown.MonacoMarkdownExtension();
+        // extension.activate(editor);
 
         editor.addAction({
           id: 'save-file',
