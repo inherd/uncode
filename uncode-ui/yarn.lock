@@ -9859,10 +9859,18 @@ monaco-editor-webpack-plugin@3.1.0:
   dependencies:
     loader-utils "^2.0.0"
 
-monaco-editor@*, monaco-editor@0.24.0:
+monaco-editor@*, monaco-editor@0.24.0, monaco-editor@^0.17.1:
   version "0.24.0"
   resolved "https://registry.nlark.com/monaco-editor/download/monaco-editor-0.24.0.tgz?cache=0&sync_timestamp=1620919150167&other_urls=https%3A%2F%2Fregistry.nlark.com%2Fmonaco-editor%2Fdownload%2Fmonaco-editor-0.24.0.tgz#990b55096bcc95d08d8d28e55264c6eb17707269"
   integrity sha1-mQtVCWvMldCNjSjlUmTG6xdwcmk=
+
+monaco-markdown@0.0.11:
+  version "0.0.11"
+  resolved "https://registry.yarnpkg.com/monaco-markdown/-/monaco-markdown-0.0.11.tgz#3b81c7f3ca6032dc826ed3afb46c9512f2509a7f"
+  integrity sha512-im0KUd2LXS95q0p5nc91jMk7CsWjWreNkboyogJ0y6KAYj6EnmC5cd2Gc2CwKlTJfm+4MrFvNcVt4CLICaV7Sw==
+  dependencies:
+    monaco-editor "^0.17.1"
+    string-similarity "^3.0.0"
 
 move-concurrently@^1.0.1:
   version "1.0.1"
@@ -13529,6 +13537,11 @@ string-natural-compare@^3.0.1:
   version "3.0.1"
   resolved "https://registry.npmjs.org/string-natural-compare/-/string-natural-compare-3.0.1.tgz"
   integrity sha512-n3sPwynL1nwKi3WJ6AIsClwBMa0zTi54fn2oLU6ndfTSIO05xaznjSf15PcBZU6FNWbmN5Q6cxT4V5hGvB4taw==
+
+string-similarity@^3.0.0:
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/string-similarity/-/string-similarity-3.0.0.tgz#07b0bc69fae200ad88ceef4983878d03793847c7"
+  integrity sha512-7kS7LyTp56OqOI2BDWQNVnLX/rCxIQn+/5M0op1WV6P8Xx6TZNdajpuqQdiJ7Xx+p1C5CsWMvdiBp9ApMhxzEQ==
 
 string-width@^1.0.1:
   version "1.0.2"

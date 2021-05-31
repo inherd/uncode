@@ -1,19 +1,22 @@
 import * as React from 'react';
 import { useCallback, useState } from 'react';
 import { Helmet } from 'react-helmet-async';
-import { NavBar } from '../../components/NavBar';
-import { PageWrapper } from '../../components/PageWrapper';
 import styled from 'styled-components/macro';
+import * as monacoEditor from 'monaco-editor';
 import MonacoEditor from 'react-monaco-editor';
-import UncodeBridge from '../../../uncode-bridge';
-import { Box, Collapse, Grid, makeStyles } from '@material-ui/core';
+import * as MonacoMarkdown from 'monaco-markdown';
+
+import { animated, useSpring } from 'react-spring/web.cjs';
+import { Description, Folder } from '@material-ui/icons';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 import TreeView from '@material-ui/lab/TreeView';
 import TreeItem from '@material-ui/lab/TreeItem';
-import { animated, useSpring } from 'react-spring/web.cjs';
-import { Description, Folder } from '@material-ui/icons';
-import * as monacoEditor from 'monaco-editor';
+import { Box, Collapse, Grid, makeStyles } from '@material-ui/core';
+
+import UncodeBridge from '../../../uncode-bridge';
+import { NavBar } from '../../components/NavBar';
+import { PageWrapper } from '../../components/PageWrapper';
 
 const useStyles = makeStyles({
   root: {
@@ -150,6 +153,9 @@ export class CodePage extends React.Component<
       monaco: typeof monacoEditor,
     ) => {
       setTimeout(() => {
+        let extension = new MonacoMarkdown.MonacoMarkdownExtension();
+        extension.activate(editor);
+
         editor.addAction({
           id: 'save-file',
           label: 'Save File',
