@@ -6,6 +6,8 @@
 
 2021-03-18 提议
 
+2021-06-01 完成
+
 ## 背景
 
 examples: [https://github.com/lourenci/react-kanban](https://github.com/lourenci/react-kanban)

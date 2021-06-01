@@ -6,6 +6,8 @@
 
 2021-03-19 提议
 
+2021-06-01 完成
+
 ## 背景
 
 Use native for Rust: [https://github.com/tauri-apps/tauri-hotkey-rs](https://github.com/tauri-apps/tauri-hotkey-rs)

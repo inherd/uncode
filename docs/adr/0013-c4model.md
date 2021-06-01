@@ -6,6 +6,8 @@
 
 2021-05-09 提议
 
+2021-06-01 已取代
+
 ## 背景
 
 from: [https://structurizr.com/dsl?example=getting-started](https://structurizr.com/dsl?example=getting-started)

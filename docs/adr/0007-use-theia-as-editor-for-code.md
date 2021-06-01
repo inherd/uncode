@@ -6,6 +6,8 @@
 
 2021-03-18 提议
 
+2021-06-01 已取代
+
 ## 背景
 
 examples: [https://github.com/tauri-apps/tauri-theia](https://github.com/tauri-apps/tauri-theia)
