@@ -24,6 +24,10 @@ Uncode 是一个面向云研发时代设计的下一代概念性 IDE。特性：
 
 ![Uncode Architecture](docs/architecture/uncode-architecture.svg)
 
+### DSLs
+
+![DSLs](docs/dsls.svg)
+
 ### Screenshot
 
 ![Screenshot](https://inherd.org/articles/images/uncode-ss.png)
