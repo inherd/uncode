@@ -2,7 +2,7 @@
 name = "uncode"
 # release version need to change in `package.json`
 #
-version = "0.0.1"
+version = "0.0.2"
 description = "Cloud dev IDE"
 authors = [ "admin@inherd.org", "h@phodal.com" ]
 license = ""

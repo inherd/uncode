@@ -1,6 +1,6 @@
 {
   "name": "uncode-ui",
-  "version": "0.1.0",
+  "version": "0.0.2",
   "private": true,
   "resolutions": {
     "monaco-editor": "0.27.0"
