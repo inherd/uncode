@@ -22,8 +22,8 @@ pub fn log_operation(event: String, payload: Option<String>) {
   info!("log: {} {:?}", event, payload);
 }
 
-#[command(with_window)]
-pub fn set_title<M: tauri::Params>(window: tauri::Window<M>, payload: String) {
+#[command]
+pub async fn set_title(window: tauri::Window, payload: String) {
   let _ = window.set_title(payload.as_str());
 }
 
