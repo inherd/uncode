@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { NavBar } from 'app/components/NavBar';
 import { PageWrapper } from 'app/components/PageWrapper';
@@ -15,9 +15,34 @@ export function HomePage() {
     theme: 'vs-dark',
   };
 
-  window.addEventListener('set_config', _ => {
-    setConfig(UncodeBridge.config);
-  });
+  function useEventListener(eventName, handler, element = window) {
+    const savedHandler = useRef();
+    useEffect(() => {
+      savedHandler.current = handler;
+    }, [handler]);
+
+    useEffect(() => {
+      const isSupported = element && element.addEventListener;
+      if (!isSupported) return;
+      // @ts-ignore
+      const eventListener = event => savedHandler.current(event);
+      element.addEventListener(eventName, eventListener);
+      return () => {
+        element.removeEventListener(eventName, eventListener);
+      };
+    }, [eventName, element]);
+  }
+
+  const handler = useCallback(
+    _ => {
+      console.log('Homepage load config: ', UncodeBridge.config);
+      setConfig(UncodeBridge.config);
+    },
+    [setConfig],
+  );
+
+  // Add event listener using our hook
+  useEventListener('set_config', handler);
 
   const updateConfig = (value, event) => {
     try {
@@ -53,7 +78,7 @@ export function HomePage() {
         <MonacoEditor
           width="800"
           height="600"
-          defaultValue={JSON.stringify(config, null, '\t')}
+          value={JSON.stringify(config, null, '\t')}
           onChange={updateConfig}
           options={options}
           editorDidMount={editorDidMount}

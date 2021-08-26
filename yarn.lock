@@ -73,12 +73,12 @@
   dependencies:
     "defer-to-connect" "^2.0.0"
 
-"@tauri-apps/api@^1.0.0-beta-rc.3":
+"@tauri-apps/api@^v1.0.0-beta.7":
   "integrity" "sha512-oDwHfUlUMQtT3f4g+fRx5nGtQKQQcWCEKa8v+1MEexaS3Q51GALWKgwucFt92BaTGElYNKYoqbcdBs5xwOiuBw=="
   "resolved" "https://registry.npmjs.org/@tauri-apps/api/-/api-1.0.0-beta-rc.3.tgz"
   "version" "1.0.0-beta-rc.3"
 
-"@tauri-apps/cli@^1.0.0-beta-rc.4":
+"@tauri-apps/cli@^v1.0.0-beta.7":
   "integrity" "sha1-DRdpLPkDMsk9mPDMl6keUb7sJko="
   "resolved" "https://registry.nlark.com/@tauri-apps/cli/download/@tauri-apps/cli-1.0.0-beta-rc.4.tgz"
   "version" "1.0.0-beta-rc.4"

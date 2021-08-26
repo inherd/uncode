@@ -18,7 +18,11 @@ export function StoryPage() {
   UncodeBridge.title('Uncode - Story');
   let [board, setBoard] = useState(null as any);
 
-  useEffect(() => {
+  window.addEventListener('set_config', _ => {
+    getStories();
+  });
+
+  function getStories() {
     UncodeBridge.get_story().then(stories => {
       let column_map: any = {
         backlog: { id: 1, title: 'Backlog', cards: [] },
@@ -58,6 +62,10 @@ export function StoryPage() {
 
       setBoard(new_board);
     });
+  }
+
+  useEffect(() => {
+    getStories();
   }, []);
 
   function onCardNew(newCard) {

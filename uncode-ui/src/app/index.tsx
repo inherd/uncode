@@ -18,6 +18,7 @@ export function App() {
   const { i18n } = useTranslation();
 
   UncodeBridge.listen('bootstrap', (data: any) => {
+    console.log('bootstrap config: ', data);
     UncodeBridge.config = data;
   });
 

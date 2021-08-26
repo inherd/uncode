@@ -1,6 +1,6 @@
 import { open } from '@tauri-apps/api/dialog';
 import { emit, listen } from '@tauri-apps/api/event';
-import { exit } from '@tauri-apps/api/app';
+import { exit as tauri_exit } from '@tauri-apps/api/app';
 import { invoke, InvokeArgs } from '@tauri-apps/api/tauri';
 
 function invoke_wrapper<T>(cmd: string, args: InvokeArgs = {}): Promise<T> {
@@ -15,25 +15,6 @@ function invoke_wrapper<T>(cmd: string, args: InvokeArgs = {}): Promise<T> {
 }
 
 const UncodeBridge = {
-  listen(event_name, handler) {
-    return UncodeBridge.listen_text(event_name, data => {
-      return handler(JSON.parse(data));
-    });
-  },
-
-  listen_text(event_name, handler) {
-    if (!window.rpc) {
-      return;
-    }
-    if (!window.rpc.notify) {
-      return;
-    }
-
-    return listen<string>(event_name, data => {
-      return handler(data.payload);
-    });
-  },
-
   config: {
     uncode: {
       path: '',
@@ -53,8 +34,27 @@ const UncodeBridge = {
     currentFile: '',
   },
 
+  listen(event_name, handler) {
+    return UncodeBridge.listen_text(event_name, data => {
+      return handler(JSON.parse(data));
+    });
+  },
+
+  listen_text(event_name, handler) {
+    if (!window.rpc) {
+      return;
+    }
+    if (!window.rpc.notify) {
+      return;
+    }
+
+    return listen<string>(event_name, data => {
+      return handler(data.payload);
+    });
+  },
+
   exit() {
-    exit();
+    tauri_exit();
   },
 
   get_story(): Promise<any> {

@@ -11,11 +11,12 @@
     "dev": "concurrently \"yarn tauri dev\" \"cd uncode-ui && yarn start\"",
     "lint:fix": "cd uncode-ui && yarn lint:fix",
     "child-install": "cd uncode-ui && yarn install",
-    "build": "cd uncode-ui && yarn build"
+    "build": "cd uncode-ui && yarn build",
+    "package": "yarn tauri build"
   },
   "dependencies": {
-    "@tauri-apps/api": "^1.0.0-beta-rc.3",
-    "@tauri-apps/cli": "^1.0.0-beta-rc.4"
+    "@tauri-apps/api": "^v1.0.0-beta.7",
+    "@tauri-apps/cli": "^v1.0.0-beta.7"
   },
   "devDependencies": {
     "concurrently": "^6.0.2"
