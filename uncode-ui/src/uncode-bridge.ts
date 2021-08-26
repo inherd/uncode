@@ -1,6 +1,6 @@
 import { open } from '@tauri-apps/api/dialog';
 import { emit, listen } from '@tauri-apps/api/event';
-import { exit as tauri_exit } from '@tauri-apps/api/app';
+import { exit as tauri_exit } from '@tauri-apps/api/process';
 import { invoke, InvokeArgs } from '@tauri-apps/api/tauri';
 
 function invoke_wrapper<T>(cmd: string, args: InvokeArgs = {}): Promise<T> {
@@ -54,7 +54,7 @@ const UncodeBridge = {
   },
 
   exit() {
-    tauri_exit();
+    tauri_exit().then(r => {});
   },
 
   get_story(): Promise<any> {
