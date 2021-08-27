@@ -9,7 +9,9 @@ import * as monacoEditor from 'monaco-editor';
 import { Button } from '@material-ui/core';
 
 export function HomePage() {
-  const [config, setConfig] = useState(UncodeBridge.config);
+  const [config, setConfig] = useState(
+    JSON.stringify(UncodeBridge.config, null, '\t'),
+  );
   const options = {
     language: 'json',
     theme: 'vs-dark',
@@ -36,7 +38,7 @@ export function HomePage() {
   const handler = useCallback(
     _ => {
       console.log('Homepage load config: ', UncodeBridge.config);
-      setConfig(UncodeBridge.config);
+      setConfig(JSON.stringify(UncodeBridge.config, null, '\t'));
     },
     [setConfig],
   );
@@ -46,12 +48,12 @@ export function HomePage() {
 
   const updateConfig = (value, event) => {
     try {
-      setConfig(JSON.parse(value));
+      setConfig(value);
     } catch (err) {}
   };
 
   const saveConfig = () => {
-    UncodeBridge.save_config(config);
+    UncodeBridge.save_config(JSON.parse(config));
   };
 
   const editorDidMount = (
@@ -78,7 +80,7 @@ export function HomePage() {
         <MonacoEditor
           width="800"
           height="600"
-          value={JSON.stringify(config, null, '\t')}
+          value={config}
           onChange={updateConfig}
           options={options}
           editorDidMount={editorDidMount}
