@@ -151,6 +151,7 @@ component BlogList {
             <Tab label="Guard Design" />
             <Tab label="Fitness" />
             <Tab label="UI Design" />
+            <Tab label="FORMING" />
           </Tabs>
 
           <TabPanel value={value} index={0}>
@@ -199,6 +200,9 @@ component BlogList {
               value={design_dsl}
               options={guard_options}
             />
+          </TabPanel>
+          <TabPanel value={value} index={5}>
+            <div>todo</div>
           </TabPanel>
         </Paper>
       </PageWrapper>

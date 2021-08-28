@@ -14,7 +14,7 @@ use modeling::render::MermaidRender;
 use std::fs;
 use std::path::PathBuf;
 use framework::FrameworkDetector;
-use tauri::{Event, async_runtime, GlobalShortcutManager, Manager};
+use tauri::{Event, async_runtime, GlobalShortcutManager};
 
 mod cmd;
 mod menu;
@@ -108,7 +108,7 @@ fn main() {
       // design
       cmd::get_design
     ])
-    // .menu(menu::get_menu())
+    .menu(menu::get_menu())
     .on_menu_event(|event| {
       println!("{:?}", event.menu_item_id());
     })
