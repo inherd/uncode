@@ -14,8 +14,10 @@ use modeling::render::MermaidRender;
 use std::fs;
 use std::path::PathBuf;
 use framework::FrameworkDetector;
+use tauri::{Event, async_runtime, GlobalShortcutManager, Manager};
 
 mod cmd;
+mod menu;
 
 mod uncode_config;
 mod workspace_config;
@@ -65,7 +67,7 @@ fn main() {
     workspace,
   };
 
-  tauri::Builder::default()
+  let mut app = tauri::Builder::default()
     .on_page_load(move |window, _| {
       let window_ = window.clone();
 
@@ -116,8 +118,33 @@ fn main() {
       // design
       cmd::get_design
     ])
-    .run(tauri::generate_context!())
+    // .menu(menu::get_menu())
+    .on_menu_event(|event| {
+      println!("{:?}", event.menu_item_id());
+    })
+    .build(tauri::generate_context!())
     .expect("error while running tauri application");
+
+  #[cfg(target_os = "macos")]
+  app.set_activation_policy(tauri::ActivationPolicy::Regular);
+  app.run(|app_handle, e| match e {
+    // Application is ready (triggered only once)
+    Event::Ready => {
+      let app_handle = app_handle.clone();
+      // launch a new thread so it doesnt block any channel
+      async_runtime::spawn(async move {
+        let app_handle = app_handle.clone();
+        app_handle
+          .global_shortcut_manager()
+          .register("CmdOrCtrl+q", move || {
+            let app_handle = app_handle.clone();
+            app_handle.exit(0);
+          })
+          .unwrap();
+      });
+    }
+    _ => {}
+  })
 }
 
 fn setup_log() {
