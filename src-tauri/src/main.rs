@@ -80,18 +80,8 @@ fn main() {
             UncodeConfig::save_config(config.uncode);
           }
           "build_modeling" => {
-            let config: ModelingConfig = serde_json::from_str(&payload.data).expect("unable to convert config");
-            let code_path = PathBuf::from(&config.root).join(&config.code);
-            let design_path = PathBuf::from(&config.root).join(&config.design).join("modeling.muml");
-
-            info!("start build modeling: {:?}", code_path.display());
-            let classes = modeling::by_dir(code_path.clone());
-            let simple = MermaidRender::render(&classes);
-
-            info!("start writing modeling: {:?}", design_path.display());
-            let _ = fs::write(design_path, simple.clone());
-
-            window_.emit(&"done_building_model".to_string(), Some(simple)).expect("failed to emit");
+            let mermaid_string = build_modeling(&payload);
+            window_.emit(&"done_building_model".to_string(), Some(mermaid_string)).expect("failed to emit");
           }
           &_ => {}
         }
@@ -145,6 +135,20 @@ fn main() {
     }
     _ => {}
   })
+}
+
+fn build_modeling(payload: &EventPayload) -> String {
+  let config: ModelingConfig = serde_json::from_str(&payload.data).expect("unable to convert config");
+  let code_path = PathBuf::from(&config.root).join(&config.code);
+  let design_path = PathBuf::from(&config.root).join(&config.design).join("modeling.muml");
+
+  info!("start build modeling: {:?}", code_path.display());
+  let classes = modeling::by_dir(code_path.clone());
+  let mermaid_string = MermaidRender::render(&classes);
+
+  info!("start writing modeling: {:?}", design_path.display());
+  let _ = fs::write(design_path, mermaid_string.clone());
+  mermaid_string
 }
 
 fn setup_log() {
