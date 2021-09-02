@@ -6,5 +6,6 @@ module.exports = function override(config, env) {
       languages: ['json', 'java', 'javascript', 'rust', 'go', 'markdown'],
     }),
   );
+  config.resolve.alias['vscode'] = require.resolve('monaco-languageclient/lib/vscode-compatibility');
   return config;
 };
