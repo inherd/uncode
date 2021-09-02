@@ -126,18 +126,17 @@ export const CodePage: React.FC = () => {
     }
 
     UncodeBridge.views.currentFile = nodeIds;
-    console.log(nodeIds);
     UncodeBridge.open_file(nodeIds).then(data => {
       setFilePath(nodeIds);
       setContent(data);
     });
+    console.log(UncodeBridge);
   };
 
   const editorDidMount = (
     editor: monacoEditor.editor.IStandaloneCodeEditor,
     monaco: typeof monacoEditor,
   ) => {
-    console.log('fuck');
     setTimeout(() => {
       // let extension = new MonacoMarkdown.MonacoMarkdownExtension();
       // extension.activate(editor);
@@ -153,7 +152,7 @@ export const CodePage: React.FC = () => {
         },
       });
     }, 300);
-    getClientReady(editor, 'ws://127.0.0.1:9999/python');
+    getClientReady(editor, UncodeBridge.config.uncode.path);
   };
 
   return (

@@ -10,25 +10,13 @@ import {
 
 const ReconnectingWebSocket = require('reconnecting-websocket').default;
 
-export function getClientReady(editor, url) {
-  // 注册语言
-  monaco.languages.register({
-    id: 'python',
-    extensions: ['.py'],
-    aliases: [
-      'py',
-      'PY',
-      'python',
-      'PYTHON',
-      'py3',
-      'PY3',
-      'python3',
-      'PYTHON3',
-    ],
-  });
-  MonacoServices.install(editor);
+export function getClientReady(editor, rootUri: string, language?: monaco.languages.ILanguageExtensionPoint) {
+  if (language) {
+    monaco.languages.register(language);
+  }
+  MonacoServices.install(editor, { rootUri });
   // 建立连接 创建LSP client
-  const webSocket = createWebSocket(url);
+  const webSocket = createWebSocket(getUrlFromLanguageID());
   listen({
     webSocket,
     onConnection: connection => {
@@ -50,6 +38,11 @@ function createWebSocket(url) {
     debug: false,
   };
   return new ReconnectingWebSocket(url, [], socketOptions);
+}
+
+function getUrlFromLanguageID() {
+    // TODO: 根据环境获取真实URL
+    return `ws://127.0.0.1:9999`
 }
 
 function createLanguageClient(connection) {
