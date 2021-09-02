@@ -3,7 +3,7 @@ import { useCallback, useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 import styled from 'styled-components/macro';
 import * as monacoEditor from 'monaco-editor';
-import MonacoEditor from 'react-monaco-editor';
+import Editor from '@monaco-editor/react';
 // import * as MonacoMarkdown from 'monaco-markdown';
 
 import { animated, useSpring } from 'react-spring/web.cjs';
@@ -17,6 +17,7 @@ import { Box, Collapse, Grid, makeStyles } from '@material-ui/core';
 import UncodeBridge from '../../../uncode-bridge';
 import { NavBar } from '../../components/NavBar';
 import { PageWrapper } from '../../components/PageWrapper';
+import { getClientReady } from './client';
 
 const useStyles = makeStyles({
   root: {
@@ -110,104 +111,82 @@ export default function RecursiveTreeView({ data, handleSelect }) {
   );
 }
 
-export class CodePage extends React.Component<
-  {},
-  { tree: any; content: string }
-> {
-  constructor(props) {
-    super(props);
-    this.state = {
-      tree: null,
-      content: '',
-    };
-  }
+export const CodePage: React.FC = () => {
+  const [tree, setTree] = useState(null);
+  const [content, setContent] = useState('');
+  const [filePath, setFilePath] = useState('');
 
-  componentDidMount() {
-    UncodeBridge.open_dir().then(data => {
-      this.setState({
-        tree: data,
-      });
+  React.useEffect(() => {
+    UncodeBridge.open_dir().then(data => setTree(data));
+  }, []);
+
+  const openFile = (nodeIds: string) => {
+    if (nodeIds.endsWith('?is_dir=true')) {
+      return;
+    }
+
+    UncodeBridge.views.currentFile = nodeIds;
+    console.log(nodeIds);
+    UncodeBridge.open_file(nodeIds).then(data => {
+      setFilePath(nodeIds);
+      setContent(data);
     });
-  }
+  };
 
-  render() {
-    const options = {
-      //renderSideBySide: false
-    };
+  const editorDidMount = (
+    editor: monacoEditor.editor.IStandaloneCodeEditor,
+    monaco: typeof monacoEditor,
+  ) => {
+    console.log('fuck');
+    setTimeout(() => {
+      // let extension = new MonacoMarkdown.MonacoMarkdownExtension();
+      // extension.activate(editor);
 
-    const openFile = (nodeIds: string) => {
-      if (nodeIds.endsWith('?is_dir=true')) {
-        return;
-      }
-
-      UncodeBridge.views.currentFile = nodeIds;
-      UncodeBridge.open_file(nodeIds).then(data => {
-        this.setState({
-          content: data,
-        });
+      editor.addAction({
+        id: 'save-file',
+        label: 'Save File',
+        keybindings: [monaco.KeyMod.CtrlCmd | monaco.KeyCode.KEY_S],
+        contextMenuGroupId: 'navigation',
+        contextMenuOrder: 1.5,
+        run: function (ed, any) {
+          UncodeBridge.save_file(ed.getValue()).then(() => {});
+        },
       });
-    };
+    }, 300);
+    getClientReady(editor, 'ws://127.0.0.1:9999/python');
+  };
 
-    const editorDidMount = (
-      editor: monacoEditor.editor.IStandaloneCodeEditor,
-      monaco: typeof monacoEditor,
-    ) => {
-      setTimeout(() => {
-        // let extension = new MonacoMarkdown.MonacoMarkdownExtension();
-        // extension.activate(editor);
-
-        editor.addAction({
-          id: 'save-file',
-          label: 'Save File',
-          keybindings: [monaco.KeyMod.CtrlCmd | monaco.KeyCode.KEY_S],
-          contextMenuGroupId: 'navigation',
-          contextMenuOrder: 1.5,
-          run: function (ed, any) {
-            UncodeBridge.save_file(ed.getValue()).then(() => {});
-          },
-        });
-      }, 300);
-    };
-
-    return (
-      <>
-        <Helmet>
-          <title>Uncode Code</title>
-          <meta
-            name="description"
-            content="A Boilerplate application homepage"
-          />
-        </Helmet>
-        <NavBar />
-        <PageWrapper>
-          <Box height="100%">
-            <Grid container spacing={3}>
-              <Grid item xs={2}>
-                {this.state.tree ? (
-                  <RecursiveTreeView
-                    data={this.state.tree}
-                    handleSelect={openFile}
-                  />
-                ) : (
-                  <PlaceHolder />
-                )}
-              </Grid>
-              <Grid item xs={10}>
-                <MonacoEditor
-                  height="100%"
-                  language="javascript"
-                  options={options}
-                  value={this.state.content}
-                  editorDidMount={editorDidMount}
-                />
-              </Grid>
+  return (
+    <>
+      <Helmet>
+        <title>Uncode Code</title>
+        <meta name="description" content="A Boilerplate application homepage" />
+      </Helmet>
+      <NavBar />
+      <PageWrapper>
+        <Box height="100%">
+          <Grid container spacing={3}>
+            <Grid item xs={2}>
+              {tree ? (
+                <RecursiveTreeView data={tree} handleSelect={openFile} />
+              ) : (
+                <PlaceHolder />
+              )}
             </Grid>
-          </Box>
-        </PageWrapper>
-      </>
-    );
-  }
-}
+            <Grid item xs={10}>
+              <Editor
+                height="100%"
+                path={filePath}
+                value={content}
+                onMount={editorDidMount}
+              />
+            </Grid>
+          </Grid>
+        </Box>
+      </PageWrapper>
+    </>
+  );
+};
 
 export const PlaceHolder = styled.p`
   height: 100%;

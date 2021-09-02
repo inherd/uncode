@@ -1251,6 +1251,13 @@
     exec-sh "^0.3.2"
     minimist "^1.2.0"
 
+"@codingame/monaco-jsonrpc@0.3.1":
+  version "0.3.1"
+  resolved "https://registry.nlark.com/@codingame/monaco-jsonrpc/download/@codingame/monaco-jsonrpc-0.3.1.tgz#f28dc2e27fbfe9276d2faaf40c9a572272cf3ffd"
+  integrity sha1-8o3C4n+/6SdtL6r0DJpXInLPP/0=
+  dependencies:
+    vscode-jsonrpc "^6.0.0"
+
 "@csstools/convert-colors@^1.4.0":
   version "1.4.0"
   resolved "https://registry.npmjs.org/@csstools/convert-colors/-/convert-colors-1.4.0.tgz#ad495dc41b12e75d588c6db8b9834f08fa131eb7"
@@ -1635,6 +1642,21 @@
     "@babel/runtime" "^7.4.4"
     prop-types "^15.7.2"
     react-is "^16.8.0 || ^17.0.0"
+
+"@monaco-editor/loader@^1.1.1":
+  version "1.1.1"
+  resolved "https://registry.nlark.com/@monaco-editor/loader/download/@monaco-editor/loader-1.1.1.tgz#37db648c81a86946d0febd391de00df9c28a0a3d"
+  integrity sha1-N9tkjIGoaUbQ/r05HeAN+cKKCj0=
+  dependencies:
+    state-local "^1.0.6"
+
+"@monaco-editor/react@4.2.2":
+  version "4.2.2"
+  resolved "https://registry.nlark.com/@monaco-editor/react/download/@monaco-editor/react-4.2.2.tgz#636e5b8eb9519ef62f475f9a4a50f62ee0c493a8"
+  integrity sha1-Y25bjrlRnvYvR1+aSlD2LuDEk6g=
+  dependencies:
+    "@monaco-editor/loader" "^1.1.1"
+    prop-types "^15.7.2"
 
 "@nodelib/fs.scandir@2.1.5":
   version "2.1.5"
@@ -7073,6 +7095,11 @@ glob-stream@^6.1.0:
     to-absolute-glob "^2.0.0"
     unique-stream "^2.0.2"
 
+glob-to-regexp@^0.3.0:
+  version "0.3.0"
+  resolved "https://registry.nlark.com/glob-to-regexp/download/glob-to-regexp-0.3.0.tgz#8c5a1494d2066c570cc3bfe4496175acc4d502ab"
+  integrity sha1-jFoUlNIGbFcMw7/kSWF1rMTVAqs=
+
 glob@^7.0.0, glob@^7.0.3, glob@^7.1.1, glob@^7.1.2, glob@^7.1.3, glob@^7.1.4, glob@^7.1.6:
   version "7.1.7"
   resolved "https://registry.npmjs.org/glob/-/glob-7.1.7.tgz#3b193e9233f01d42d0b3f78294bbeeb418f94a90"
@@ -9063,6 +9090,11 @@ json5@^2.1.2:
   dependencies:
     minimist "^1.2.5"
 
+jsonc-parser@^3.0.0:
+  version "3.0.0"
+  resolved "https://registry.nlark.com/jsonc-parser/download/jsonc-parser-3.0.0.tgz#abdd785701c7e7eaca8a9ec8cf070ca51a745a22"
+  integrity sha1-q914VwHH5+rKip7IzwcMpRp0WiI=
+
 jsonfile@^4.0.0:
   version "4.0.0"
   resolved "https://registry.npmjs.org/jsonfile/-/jsonfile-4.0.0.tgz#8771aae0799b64076b76640fca058f9c10e33ecb"
@@ -10085,6 +10117,16 @@ monaco-editor@0.27.0, monaco-editor@^0.17.1, monaco-editor@^0.26.1:
   version "0.27.0"
   resolved "https://registry.npmjs.org/monaco-editor/-/monaco-editor-0.27.0.tgz#4b69108bb1dc1f60174c5dcdf51bc5306ab5ba26"
   integrity sha512-UhwP78Wb8w0ZSYoKXQNTV/0CHObp6NS3nCt51QfKE6sKyBo5PBsvuDOHoI2ooBakc6uIwByRLHVeT7+yXQe2fQ==
+
+monaco-languageclient@0.13.0:
+  version "0.13.0"
+  resolved "https://registry.npm.taobao.org/monaco-languageclient/download/monaco-languageclient-0.13.0.tgz#59b68b42fb7633171502d6557f597c2752f6c266"
+  integrity sha1-WbaLQvt2MxcVAtZVf1l8J1L2wmY=
+  dependencies:
+    glob-to-regexp "^0.3.0"
+    vscode-jsonrpc "^5.0.0"
+    vscode-languageclient "^6.0.0"
+    vscode-uri "^2.1.1"
 
 monaco-markdown@0.0.11:
   version "0.0.11"
@@ -12529,6 +12571,11 @@ rechoir@^0.6.2:
   dependencies:
     resolve "^1.1.6"
 
+reconnecting-websocket@4.4.0:
+  version "4.4.0"
+  resolved "https://registry.npm.taobao.org/reconnecting-websocket/download/reconnecting-websocket-4.4.0.tgz#3b0e5b96ef119e78a03135865b8bb0af1b948783"
+  integrity sha1-Ow5blu8RnnigMTWGW4uwrxuUh4M=
+
 recursive-readdir@2.2.2:
   version "2.2.2"
   resolved "https://registry.npmjs.org/recursive-readdir/-/recursive-readdir-2.2.2.tgz#9946fb3274e1628de6e36b2f6714953b4845094f"
@@ -13697,6 +13744,11 @@ stackframe@^1.1.1:
   version "1.2.0"
   resolved "https://registry.npmjs.org/stackframe/-/stackframe-1.2.0.tgz#52429492d63c62eb989804c11552e3d22e779303"
   integrity sha512-GrdeshiRmS1YLMYgzF16olf2jJ/IzxXY9lhKOskuVziubpTYcYqyOwYeJKzQkwy7uN0fYSsbsC4RQaXf9LCrYA==
+
+state-local@^1.0.6:
+  version "1.0.7"
+  resolved "https://registry.npm.taobao.org/state-local/download/state-local-1.0.7.tgz#da50211d07f05748d53009bee46307a37db386d5"
+  integrity sha1-2lAhHQfwV0jVMAm+5GMHo32zhtU=
 
 static-extend@^0.1.1:
   version "0.1.2"
@@ -15056,6 +15108,80 @@ void-elements@^2.0.1:
   version "2.0.1"
   resolved "https://registry.npmjs.org/void-elements/-/void-elements-2.0.1.tgz#c066afb582bb1cb4128d60ea92392e94d5e9dbec"
   integrity sha1-wGavtYK7HLQSjWDqkjkulNXp2+w=
+
+vscode-json-languageservice@4.1.7:
+  version "4.1.7"
+  resolved "https://registry.nlark.com/vscode-json-languageservice/download/vscode-json-languageservice-4.1.7.tgz#18244d62b115a5818c7526ef4339438b7175dfaa"
+  integrity sha1-GCRNYrEVpYGMdSbvQzlDi3F136o=
+  dependencies:
+    jsonc-parser "^3.0.0"
+    vscode-languageserver-textdocument "^1.0.1"
+    vscode-languageserver-types "^3.16.0"
+    vscode-nls "^5.0.0"
+    vscode-uri "^3.0.2"
+
+vscode-jsonrpc@^5.0.0, vscode-jsonrpc@^5.0.1:
+  version "5.0.1"
+  resolved "https://registry.nlark.com/vscode-jsonrpc/download/vscode-jsonrpc-5.0.1.tgz?cache=0&sync_timestamp=1628514354370&other_urls=https%3A%2F%2Fregistry.nlark.com%2Fvscode-jsonrpc%2Fdownload%2Fvscode-jsonrpc-5.0.1.tgz#9bab9c330d89f43fc8c1e8702b5c36e058a01794"
+  integrity sha1-m6ucMw2J9D/IwehwK1w24FigF5Q=
+
+vscode-jsonrpc@^6.0.0:
+  version "6.0.0"
+  resolved "https://registry.nlark.com/vscode-jsonrpc/download/vscode-jsonrpc-6.0.0.tgz?cache=0&sync_timestamp=1628514354370&other_urls=https%3A%2F%2Fregistry.nlark.com%2Fvscode-jsonrpc%2Fdownload%2Fvscode-jsonrpc-6.0.0.tgz#108bdb09b4400705176b957ceca9e0880e9b6d4e"
+  integrity sha1-EIvbCbRABwUXa5V87KngiA6bbU4=
+
+vscode-languageclient@^6.0.0:
+  version "6.1.4"
+  resolved "https://registry.nlark.com/vscode-languageclient/download/vscode-languageclient-6.1.4.tgz#54aa8b1559ae2e0499cb6ab746cc2662fb6ecc0f"
+  integrity sha1-VKqLFVmuLgSZy2q3RswmYvtuzA8=
+  dependencies:
+    semver "^6.3.0"
+    vscode-languageserver-protocol "3.15.3"
+
+vscode-languageserver-protocol@3.15.3:
+  version "3.15.3"
+  resolved "https://registry.nlark.com/vscode-languageserver-protocol/download/vscode-languageserver-protocol-3.15.3.tgz?cache=0&other_urls=https%3A%2F%2Fregistry.nlark.com%2Fvscode-languageserver-protocol%2Fdownload%2Fvscode-languageserver-protocol-3.15.3.tgz#3fa9a0702d742cf7883cb6182a6212fcd0a1d8bb"
+  integrity sha1-P6mgcC10LPeIPLYYKmIS/NCh2Ls=
+  dependencies:
+    vscode-jsonrpc "^5.0.1"
+    vscode-languageserver-types "3.15.1"
+
+vscode-languageserver-textdocument@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.npm.taobao.org/vscode-languageserver-textdocument/download/vscode-languageserver-textdocument-1.0.1.tgz#178168e87efad6171b372add1dea34f53e5d330f"
+  integrity sha1-F4Fo6H761hcbNyrdHeo09T5dMw8=
+
+vscode-languageserver-types@3.15.1:
+  version "3.15.1"
+  resolved "https://registry.nlark.com/vscode-languageserver-types/download/vscode-languageserver-types-3.15.1.tgz?cache=0&sync_timestamp=1625834451077&other_urls=https%3A%2F%2Fregistry.nlark.com%2Fvscode-languageserver-types%2Fdownload%2Fvscode-languageserver-types-3.15.1.tgz#17be71d78d2f6236d414f0001ce1ef4d23e6b6de"
+  integrity sha1-F75x140vYjbUFPAAHOHvTSPmtt4=
+
+vscode-languageserver-types@3.16.0, vscode-languageserver-types@^3.16.0:
+  version "3.16.0"
+  resolved "https://registry.nlark.com/vscode-languageserver-types/download/vscode-languageserver-types-3.16.0.tgz?cache=0&sync_timestamp=1625834451077&other_urls=https%3A%2F%2Fregistry.nlark.com%2Fvscode-languageserver-types%2Fdownload%2Fvscode-languageserver-types-3.16.0.tgz#ecf393fc121ec6974b2da3efb3155644c514e247"
+  integrity sha1-7POT/BIexpdLLaPvsxVWRMUU4kc=
+
+vscode-nls@^5.0.0:
+  version "5.0.0"
+  resolved "https://registry.npm.taobao.org/vscode-nls/download/vscode-nls-5.0.0.tgz#99f0da0bd9ea7cda44e565a74c54b1f2bc257840"
+  integrity sha1-mfDaC9nqfNpE5WWnTFSx8rwleEA=
+
+vscode-uri@^2.1.1:
+  version "2.1.2"
+  resolved "https://registry.npm.taobao.org/vscode-uri/download/vscode-uri-2.1.2.tgz#c8d40de93eb57af31f3c715dd650e2ca2c096f1c"
+  integrity sha1-yNQN6T61evMfPHFd1lDiyiwJbxw=
+
+vscode-uri@^3.0.2:
+  version "3.0.2"
+  resolved "https://registry.npm.taobao.org/vscode-uri/download/vscode-uri-3.0.2.tgz#ecfd1d066cb8ef4c3a208decdbab9a8c23d055d0"
+  integrity sha1-7P0dBmy470w6II3s26uajCPQVdA=
+
+vscode-ws-jsonrpc@0.2.0:
+  version "0.2.0"
+  resolved "https://registry.npm.taobao.org/vscode-ws-jsonrpc/download/vscode-ws-jsonrpc-0.2.0.tgz#5e9c26e10da54a1a235da7d59e74508bbcb8edd9"
+  integrity sha1-Xpwm4Q2lShojXafVnnRQi7y47dk=
+  dependencies:
+    vscode-jsonrpc "^5.0.0"
 
 w3c-hr-time@^1.0.2:
   version "1.0.2"
