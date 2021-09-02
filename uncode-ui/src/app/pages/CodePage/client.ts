@@ -10,7 +10,11 @@ import {
 
 const ReconnectingWebSocket = require('reconnecting-websocket').default;
 
-export function getClientReady(editor, rootUri: string, language?: monaco.languages.ILanguageExtensionPoint) {
+export function getClientReady(
+  editor,
+  rootUri: string,
+  language?: monaco.languages.ILanguageExtensionPoint,
+) {
   if (language) {
     monaco.languages.register(language);
   }
@@ -41,8 +45,8 @@ function createWebSocket(url) {
 }
 
 function getUrlFromLanguageID() {
-    // TODO: 根据环境获取真实URL
-    return `ws://127.0.0.1:9999`
+  // TODO: 根据环境获取真实URL
+  return `ws://127.0.0.1:9999`;
 }
 
 function createLanguageClient(connection) {
