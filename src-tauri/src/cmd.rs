@@ -11,6 +11,7 @@ use uncode_core::StoryModel;
 
 use crate::workspace_config::WorkspaceConfig;
 
+#[allow(dead_code)]
 #[derive(Debug, Deserialize)]
 pub struct RequestBody {
   id: i32,
